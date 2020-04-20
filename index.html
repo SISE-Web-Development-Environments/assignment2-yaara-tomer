@@ -13,63 +13,75 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		$(function () {
-			$("#tabs").tabs();
-		});
-	</script>
+
 
 </head>
 
 <body>
 	<header>
-		<img class="logo-img" src="images/pacman.jpg" width="80" height="80" ALT="align box" ALIGN=Left>
+		<img class="logo-img" src="images/pacman.jpg" width="40" height="40" ALT="align box" ALIGN=Left>
 		<p>Tomer and Yaara Pacman Game!</p>
 	</header>
 	<br>
 	<br>
 	<br>
 	<div class="wrapper">
-	<div id="tabs">
-		<ul>
-			<li><a href="#tabs-1">Nunc tincidunt</a></li>
-			<li><a href="#tabs-2">Proin dolor</a></li>
-			<li><a href="#tabs-3">Aenean lacinia</a></li>
-			<li><a href="#fromthem">game</a></li>
-		</ul>
-		<div id="tabs-1">
-			<p>Proin elit arcu, rutrum commo.</p>
-		</div>
-		<div id="tabs-2">
-			<p>M. Ut posuere viverra nulla. Agiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare
-				leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-		</div>
-		<div id="tabs-3">
-			<p>MaUt sagittis. Donec nisi lectus, feugiat
-				porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas
-				commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-		</div>
-		<div id="fromthem">
-			<div id="score">
-				<label for="lblScore">SCORE:</label>
-				<input id="lblScore" type="text" />
+		<div id="tabs">
+			<button class="tablink" onclick="openPage('Welcome', this, 'red')" id="defaultOpen">Welcome</button>
+			<button class="tablink" onclick="openPage('Register', this, 'green')">Register</button>
+			<button class="tablink" onclick="openPage('Login', this, 'blue')">Login</button>
+
+			<button class="tablink" onclick="openPage('Setting', this, 'orange')">Setting</button>
+			<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+			<button class="tablink" onclick="openPage('Game', this, 'orange')">Game</button>
+
+			<div id="Welcome" class="tabcontent">
+				<h3>Welcome</h3>
+				<p>Home is where the heart is..</p>
 			</div>
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
+
+			<div id="Register" class="tabcontent">
+				<h3>Register</h3>
+				<p>Some news this fine day!</p>
 			</div>
-			<div id="game">
-				<canvas id="canvas" height="600" width="600"></canvas>
+
+			<div id="Login" class="tabcontent">
+				<h3>Login</h3>
+				<p>Get in touch, or swing by for a cup of coffee.</p>
+			</div>
+			<div id="Setting" class="tabcontent">
+				<h3>Setting</h3>
+				<p>Who we are and what we do.</p>
+			</div>
+			<div id="About" class="tabcontent">
+				<h3>About</h3>
+				<p>Who we are and what we do.</p>
+			</div>
+
+			<div id="Game" class="tabcontent">
+				<h3>Game</h3>
+
+					<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" />
+					</div>
+					<div id="time">
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" />
+					</div>
+					<div id="game">
+						<canvas id="canvas" height="600" width="600"></canvas>
+					</div>
 			</div>
 		</div>
+
 	</div>
-	
-</div>
 	<footer>
 		<div id="contactreal" class="socialbtns">
 			<ul>
 				<li>Contact Tomer at:</li>
-				<li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a></li>
+				<li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
+				</li>
 				<li><a href="https://www.facebook.com/https://www.facebook.com/godelli"><i
 							class="fa fa-lg fa-facebook-square"></i></a></li>
 				<li><a href="mailto:tomergodelli@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
@@ -89,5 +101,23 @@
 		</span>
 	</footer>
 </body>
+<script>
+	function openPage(pageName, elmnt, color) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablink");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].style.backgroundColor = "";
+		}
+		document.getElementById(pageName).style.display = "block";
+		elmnt.style.backgroundColor = color;
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+</script>
 
 </html>
