@@ -4,6 +4,7 @@ body {
 	
 	background-repeat: repeat;
 }
+
   header{
 
 	text-align: center;
@@ -17,11 +18,11 @@ body {
 	position: fixed;
 	width: 100%;
 	height: 70px;
-
   }
 
   .wrapper {
 	width: 100%;
+
   }
 
 
@@ -32,6 +33,7 @@ body {
 }
 
   footer{
+
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 5px;
@@ -39,6 +41,7 @@ body {
 	font-family:Andale Mono, monospace	;
 	background-color: #FFC0CB;
   }
+
   .socialbtns ul {
 	  list-style: none;
 	  display: flex;
@@ -170,3 +173,4 @@ height: 600px;
 	background-color: #5cb85c;
 	color: white;
   }
+
