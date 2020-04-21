@@ -2,83 +2,90 @@
 <html>
 
 <head>
-	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+
+
+
+
 
 </head>
 
-<body></body>
-<div id="registerForm">
-	<h3>News</h3>
-	<p>Some news this fine day!</p>
-	<form class="regform" id="commentForm" method="get" action="">
-		<fieldset>
-			<legend>Please provide your name, email address (won't be published) and a comment</legend>
-			<p>
-				<label for="cusername">UserName (required, at least 2 characters)</label>
-				<input id="cusername" name="name" minlength="2" type="text" required>
-			</p>
-			<p>
-				<label for="cemail">Email (required)</label>
-				<input id="cemail" type="email" name="email" required>
-			</p>
-			<p>
-				<label for="cfirstname">First Name (optional)</label>
-				<input id="cfirstname" type="url" name="url">
-			</p>
-			<p>
-				<label for="clastname">Last Name (optional)</label>
-				<input id="clastname" type="url" name="url">
-			</p>
-			<p>
-				<label for="ccomment">Your comment (required)</label>
-				<textarea id="ccomment" name="comment" required></textarea>
-			</p>
-			<p>
-				<input class="submit" type="submit" value="Submit">
-			</p>
-		</fieldset>
-	</form>
-</div>
-<script>
-	$("#commentForm").validate();
-</script>
+<body>
+	<div>
+		<script type="text/javascript" src="./js/form.js"></script>
+		<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+		<script type="text/javascript" src="./js/dobpicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="formStyle.css" />
+
+		<form id="registerForm" class="form">
+			<label for="username">User Name </label>
+			<input id="Rusername" name="username" type="text" placeholder="Enter Username">
+			<br>
+
+			<label for="password">Password</label>
+			<input id="Rpassword" name="password" type="password" placeholder="Enter Paasword" />
+			<br>
+
+			<label for="firstname">First Name</label>
+			<input id="Rfirstname" name="firstname" type="text" placeholder="Enter First Name">
+			<br>
+
+			<label for="lastname">Last Name</label>
+			<input id="Rlastname" name="LastName" type="text" placeholder="Enter Last Name">
+			<br>
+
+			<label for="email">Email</label>
+			<input id="Remail" name="email" type="email" placeholder="Enter Email">
+			<br>
+
+			<label for="birthday">Birthday</label>
+			<br>
+			<select id="Rday"></select>
+			<select id="Rmonth"></select>
+			<select id="Ryear"></select>
+
+			<button id="registerSubmit" type="submit">Register</button>
+
+		</form>
+	</div>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
-<div id="score">
-	<label for="lblScore">SCORE:</label>
-	<input id="lblScore" type="text" />
-	<p>hiiiiiiiiiiiiiii</p>
-</div>
-<div id="time">
-	<label for="lblTime">TIME:</label>
-	<input id="lblTime" type="text" />
-</div>
-<div id="game">
-	<canvas id="canvas" height="600" width="600"></canvas>
-</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<div id="score">
+		<label for="lblScore">SCORE:</label>
+		<input id="lblScore" type="text" />
+		<p>hiiiiiiiiiiiiiii</p>
+	</div>
+	<div id="time">
+		<label for="lblTime">TIME:</label>
+		<input id="lblTime" type="text" />
+	</div>
+	<div id="game">
+		<canvas id="canvas" height="600" width="600"></canvas>
+	</div>
 </body>
 
 </html>
