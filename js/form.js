@@ -49,6 +49,7 @@ $(document).ready(function () {
 		}
 	});
 
+
 });
 
 //set regex check
@@ -79,12 +80,6 @@ $("#LoginSubmit").submitHandler(function (form) {
 	alert(a1)
 });
 
-$(document).ready(function () {
-	$('#LoginForm').validate({ // initialize the plugin
-		submitHandler: function (form) { // for demo
-			alert('valid form submitted'); // for demo
-			return false; // for demo
-		}
-}
+
 
 
