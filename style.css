@@ -1,4 +1,9 @@
 
+body {
+	background-image: url("images/back1.jpg");
+	
+	background-repeat: repeat;
+}
   header{
 
 	text-align: center;
@@ -14,8 +19,9 @@
 	height: 70px;
 
   }
+
   .wrapper {
-	background:#FFF8DC;
+	
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 20px;
@@ -77,6 +83,8 @@
 	cursor: pointer;
 	padding: 14px 16px;
 	font-size: 17px;
+	width: 16.667%;
+
 
   }
   
@@ -92,4 +100,10 @@
 	height: 100%;
   }
   
-  #About {background-color: orange;}
+  #Game {background-color: orange;}
+
+.tabcontent{
+height: 600px;
+
+
+}
