@@ -46,5 +46,5 @@
 
 
 	function about() {
-		document.getElementById("myModal").style.display = "block";
+		document.getElementById("myModal").style.display = "none";
 	  }
