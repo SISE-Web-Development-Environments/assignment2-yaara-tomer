@@ -22,7 +22,15 @@ $(document).ready(function () {
 				email: true
 			},
 
-			birthdate: "required"
+			day:{
+				required: true
+			},
+			month:{
+				required: true
+			},
+			year:{
+				required: true
+			}
 		},
 		// Specify validation error messages
 		messages: {
@@ -49,6 +57,33 @@ $(document).ready(function () {
 		}
 	});
 
+	$('#LoginForm').validate({ // initialize the plugin
+		rules: {
+			username: {
+				required: true
+
+			},
+			password: {
+				required: true,
+			}
+		},
+		// Specify validation error messages
+		messages: {
+			username: {
+				required: "Please provide a user"
+			},
+			password: {
+				required: "Please provide a password"
+			}
+
+		},
+		submitHandler: function (form) { // for demo
+			alert('valid  login form submitted'); // for demo
+			return false; // for demo
+		}
+	});
+
+
 
 });
 
@@ -73,12 +108,9 @@ $(document).ready(function () {
 	});
 });
 
-//===============Login======================
-$("#LoginSubmit").submitHandler(function (form) {
-	var a1 = $("#Lusername").value();
-	var a2 = $("#Lpassword").value();
-	alert(a1)
-});
+
+
+
 
 
 
