@@ -1,22 +1,118 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
+<head>
+	<script src="./js/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
 
-	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
-			<p>hiiiiiiiiiiiiiii</p>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Tomer and Yaara Pacman</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+
+
+</head>
+
+<body>
+	<header>
+		<img class="logo-img" src="images/pacman.jpg" width="40" height="40" ALT="align box" ALIGN=Left>
+		<p>Tomer and Yaara Pacman Game!</p>
+	</header>
+	<br>
+	<br>
+	<br>
+	<div class="wrapper">
+		<div id="tabs">
+			<!--style=" margin-left: 100px;"> -->
+			<button class="tablink" onclick="openPage('Welcome', this, ' #777')" id="defaultOpen">Welcome</button>
+			<button class="tablink" onclick="openPage('Register', this, ' #777')">Register</button>
+			<button class="tablink" onclick="openPage('Login', this, ' #777')">Login</button>
+
+			<button class="tablink" onclick="openPage('Setting', this, ' #777')">Setting</button>
+			<button class="tablink" onclick="openPage('About', this, ' #777')">About</button>
+			<button class="tablink" onclick="openPage('Game', this, ' #777')">Game</button>
+
+			<div id="Welcome" class="tabcontent">
+				<h3>Welcome</h3>
+				<p>Home is where the heart is..</p>
+			</div>
+
+			<div id="Register" class="tabcontent">
+				<h3>Register</h3>
+				<p>Some news this fine day!</p>
+			</div>
+
+			<div id="Login" class="tabcontent">
+				<h3>Login</h3>
+				<p>Get in touch, or swing by for a cup of coffee.</p>
+			</div>
+			<div id="Setting" class="tabcontent">
+				<h3>Setting</h3>
+				<p>Who we are and what we do.</p>
+			</div>
+			<div id="About" class="tabcontent">
+				<h3>About</h3>
+				<p>Who we are and what we do.</p>
+			</div>
+
+			<div id="Game" class="tabcontent">
+				<div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div>
+				<div id="game">
+					<canvas id="canvas" height="600" width="600"></canvas>
+				</div>
+			</div>
 		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<br>
+
+	<footer>
+		<div id="contactreal" class="socialbtns">
+			<ul>
+				<li>Contact Tomer at:</li>
+				<li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
+				</li>
+				<li><a href="https://www.facebook.com/https://www.facebook.com/godelli"><i
+							class="fa fa-lg fa-facebook-square"></i></a></li>
+				<li><a href="mailto:tomergodelli@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+				<li>Contact Yaara at:</li>
+				<li><a href="https://github.com/yaararm" target="_blank"> <i class="fa fa-lg fa-github"></i></a></li>
+				<li><a href="https://www.instagram.com/yaara_rumney/" target="_blank"> <i
+							class="fa fa-lg fa-instagram"></i></a>
+				</li>
+				<li><a href="https://www.facebook.com/yaara.rumney"><i class="fa fa-lg fa-facebook-square"></i></a></li>
+				<li><a href="mailto:yaararm@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+			</ul>
 		</div>
-		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
-		</div>
-	</body>
+		<span class=credits>
+			Code and design by Tomer Godelli & Yaara Rumney
+
+
+		</span>
+	</footer>
+</body>
+
+
 </html>
