@@ -1,3 +1,4 @@
+
 function openPage(pageName, elmnt, color) {
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
@@ -17,33 +18,40 @@ $(document).ready(function () {
 	document.getElementById("defaultOpen").click();
 });
 
+//$("#myBtn").click(function(){
 
-function about(){
-	var modal = document.getElementById("myModal");
+//	var modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+//var span = document.getElementsByClassName("close")[0];
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+//var btn = document.getElementById("myBtn");
 
+//});
+function moveToTabReg(){
+	openPage('Register', this, ' #777');
+}
+function moveToTabLogin(){
+	openPage('Login', this, ' #777');
 }
 
 
 
 
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-	modal.style.display = "block";
+function about(){
+	document.getElementById("About").showModal();
+	var span = document.getElementsByClassName("close")[0];
+	span.onclick = function() {
+		document.getElementById("About").close();
+	};
+}
+function closeDialog() {
+	document.getElementById("About").close();
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-	modal.style.display = "none";
-}
+window.onclick = function(e) {
+	if (e.target == document.getElementById("About"))
+		document.getElementById("About").close();
+};
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-	}
-}
+
