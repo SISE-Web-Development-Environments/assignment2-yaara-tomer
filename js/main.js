@@ -65,5 +65,18 @@ window.onclick = function(e) {
 		document.getElementById("About").close();
 };
 
+function showSetting(){
+	document.getElementById("settingdialog").showModal();
+	var span = document.getElementsByClassName("close")[0];
+	span.onclick = function() {
+		document.getElementById("settingdialog").close();
+	};	
+}
+function closeDialog() {
+	document.getElementById("settingdialog").close();
+}
 
-
+window.onclick = function(e) {
+	if (e.target == document.getElementById("settingdialog"))
+		document.getElementById("settingdialog").close();
+};

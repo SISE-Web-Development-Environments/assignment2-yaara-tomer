@@ -6,14 +6,10 @@
 	<script type="text/javascript" src="./js/app.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Remember to include jQuery :) -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-	<!-- jQuery Modal -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +19,8 @@
 
 <body>
 	<header>
-		<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box" ALIGN=Left>
+		<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box"
+			ALIGN=Left>
 		<p>Tomer and Yaara Pacman Game!</p>
 	</header>
 
@@ -35,17 +32,19 @@
 			<button class="tablink" onclick="openPage('Welcome', this,  '#777')" id="defaultOpen">Welcome</button>
 			<button class="tablink" onclick="openPage('Register', this, ' #777')">Register</button>
 			<button class="tablink" onclick="openPage('Login', this, ' #777')">Login</button>
-			<button class="tablink" onclick="openPage('Setting', this, ' #777')">Setting</button>
+
 			<button class="tablink" id="btnShowModal" onclick="about()">About</button>
 			<button class="tablink" onclick="openPage('Game', this, ' #777')">Game</button>
 
 			<div id="Welcome" class="tabcontent">
 
-				<img src = "images/logo2.png" width="600" height="200" Style=" margin-left:170px">
-			</br>
-				<input id="hov"	type="image" width="20%"src="images/yellow-removebg-preview.png" onclick="moveToTabReg()" value="Register" Style=" margin-left:180px" />
-				<input id="hov"	type="image" width="20%"src="images/blue-removebg-preview.png" onclick="moveToTabLogin()" value="Login"  Style=" margin-left:180px"/>
-				 <!--<button type="button" onclick style="display:block;">Register!</button> 
+				<img src="images/logo2.png" width="600" height="200" Style=" margin-left:170px">
+				</br>
+				<input id="hov" type="image" width="20%" src="images/yellow-removebg-preview.png"
+					onclick="moveToTabReg()" value="Register" Style=" margin-left:180px" />
+				<input id="hov" type="image" width="20%" src="images/blue-removebg-preview.png"
+					onclick="moveToTabLogin()" value="Login" Style=" margin-left:180px" />
+				<!--<button type="button" onclick style="display:block;">Register!</button> 
 				<button type="button" onclick=">Login!</button>-->
 			</div>
 
@@ -55,7 +54,7 @@
 				<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>
 
 				<script type="text/javascript" src="./js/dobpicker.js"></script>
-				 
+
 				<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
 
 				<form id="registerForm" class="form">
@@ -115,9 +114,10 @@
 				<p>Get in touch, or swing by for a cup of coffee.</p>
 			</div>
 			<!--<div id="About1" class="tabcontent">-->
-			<dialog id="About" class="dialog" style="width: 600px; height: 500px;" >
+			<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
+				<span class="close">&times;</span>
 				<div class="modal-header">
-					<span class="close">&times;</span>
+
 					<h2>Modal Header</h2>
 				</div>
 				<div class="modal-body">
@@ -131,14 +131,24 @@
 
 			<!--</div>-->
 			<div id="Game" class="tabcontent">
+
 				<div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
+					<table>
+						<tr>
+							<td><label for="lblScore">SCORE:</label> </td>
+							<td><input id="lblScore" type="text" width="200px" /></td>
+							<td> 	<i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td>
+			
+							<!-- Use an element to toggle between a like/dislike icon  fa fa-cog-->
+						
+						</tr>
+					</table>
 				</div>
 				<div id="time">
 					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
+					<input id="lblTime" type="text" width="200px" />
 				</div>
+
 				<div id="game">
 					<canvas id="canvas" height="600" width="600"></canvas>
 				</div>
@@ -146,7 +156,82 @@
 		</div>
 
 	</div>
+	<dialog id="settingdialog" style="width: 600px; height: 600px;">
+		<span class="close">&times;</span>
 
+		<form id="setting_form">
+			<label for="nothing">Select keys for moves: </label>
+			<table>
+				<tr>
+					<td><label for="rigth">right </label></td>
+					<td> <input id="right_key" name="r_key" type="text"></td>
+					<td></td>
+					<td><label for="left">left</label></td>
+					<td> <input id="left_key" name="l_key" type="text"></td>
+				</tr>
+				<tr>
+					<td><label for="up">up</label></td>
+					<td><input id="up_key" name="up_key" type="text"> </td>
+					<td></td>
+					<td><label for="down">down</label></td>
+					<td><input id="down_key" name="down_key" type="text"></td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><label for="vol">number of balls per game :</label> </td>
+					<td></td>
+					<td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><label for="favcolor">Select color for 5 points:</label></td>
+					<td></td>
+					<td><input type="color" id="5color" name="favcolor" value="#FB9902"> </td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td><label for="favcolor">Select color for 15 points:</label></td>
+					<td></td>
+					<td><input type="color" id="15color" name="favcolor" value="#C21460"></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td><label for="favcolor"> Select color for 25 points:</label> </td>
+					<td></td>
+					<td> <input type="color" id="20color" name="favcolor" value="#8601AF"> </td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td> <label for="sec">set time for game - in seconds</label></td>
+					<td></td>
+					<td><input id="down_key" name="down_key" type="text" placeholder="minimum is 50 sec"> </td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td> <label for="sec">set number of monster</label></td>
+					<td></td>
+					<td> <select id = "select_bar">
+						<option value="0">Select :</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+				 </td>
+				</tr>
+			</table>
+
+
+			<button type="button">set random setting and play</button>
+			<button type="button">play game!</button>
+			<button type="button">reset!</button>
+		</form>
+
+	</dialog>
 
 	<footer>
 		<div id="contactreal" class="socialbtns">
