@@ -2,7 +2,10 @@ $(document).ready(function () {
 
 	$('#registerForm').validate({ // initialize the plugin
 		rules: {
-			username: "required",
+			username: {
+				required: true,
+				checkUserName: true
+			},
 			password: {
 				required: true,
 				minlength: 6,
@@ -15,42 +18,79 @@ $(document).ready(function () {
 			lastname: {
 				required: true,
 				regex: /^([^0-9]*)$/
-
 			},
 			email: {
 				required: true,
 				email: true
 			},
 			month: {
-				required: true,
+				required: true
 			},
 			day: {
-				required: true,
+				required: true
 			},
 			year: {
-				required: true,
+				required: true
 			}
 		},
-
 		messages: {
+			username: {
+				required: "Please enter your user name",
+				checkUserName: "username already exist"
+			},
 			firstname: {
-				required: "Please enter your firstname",
+				required: "Please enter your first name",
 				regex: "only letters please!"
 
 			},
-			lastname: "Please enter your lastname",
+			lastname: {
+				required: "Please enter your last name",
+				regex: "only letters please!"
+
+			},
 			password: {
 				required: "Please provide a password",
 				minlength: "Your password must be at least 6 characters long",
 				regex: "Your password must contains at least one letter and one number"
 			},
-			email: "Please enter a valid email address"
+			email: "Please enter a valid email address",
+			month: {
+				required: "Month required",
+			},
+			day: {
+				required: "Day required",
+			},
+			year: {
+				required: "Year required",
+			}
 		},
+		errorPlacement: function (error, element) {
+			if (element.attr("name") == "day") {
+				error.appendTo($('#birthday1'));
+			} else if (element.attr("name") == "month") {
+				error.appendTo($('#birthday1'));
 
-		submitHandler: function (form) { // for demo
-			let a = $("#Rday:selected").text();
-			alert("hiii " + a); // for demo
-			return false; // for demo
+			} else if (element.attr("name") == "year") {
+				error.appendTo($('#birthday1'));
+
+			} else {
+				error.insertBefore(element);
+			}
+		},
+		submitHandler: function () { // for demo
+			alert('reg sumbit'); // for demo
+
+			var isvalid = $("#registerForm").valid();
+			if (isvalid) {
+				alert('reg sumbit validated!'); // for demo
+				checkRegisterForm();
+			}
+			else {
+				alert('reg sumbit not validated!'); // for demo
+				e.preventDefault();
+				return false;
+			}
+			return false;
 		}
 	});
 
@@ -92,6 +132,16 @@ $(function () {
 	});
 });
 
+//check unuiqe username
+$(function () {
+	$.validator.addMethod("checkUserName", function (value, element) {
+			return !(isUserNameExist(value));
+	});
+});
+
+//jQuery.validator.addMethod("checkUserName", function (value, element) {
+//	return isUserNameExist(value)
+//},
 
 // for birthday picker
 $(document).ready(function () {

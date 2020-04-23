@@ -54,4 +54,28 @@ window.onclick = function(e) {
 		document.getElementById("About").close();
 };
 
+//===========registers users================
+var users={"p": "p"};
+
+function addUser(username,password){
+	users[username] = password;
+}
+
+function checkRegisterForm(){
+	// get all the inputs into an array.
+	var $inputs = $('#registerForm :input');
+
+	var values = {};
+	$inputs.each(function () {
+		values[this.name] = $(this).val();
+		alert("hiii " + values[this.name]  ); // for demo
+	}); 
+}
+
+function isUserNameExist(username){
+	let ans = username in users;
+	console.log("username  "+username+ "  exist: " +ans );
+	return ans;
+}
+
 
