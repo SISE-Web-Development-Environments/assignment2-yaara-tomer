@@ -21,18 +21,17 @@ $(document).ready(function () {
 				required: true,
 				email: true
 			},
-
-			day:{
-				required: true
+			month: {
+				required: true,
 			},
-			month:{
-				required: true
+			day: {
+				required: true,
 			},
-			year:{
-				required: true
+			year: {
+				required: true,
 			}
 		},
-		// Specify validation error messages
+
 		messages: {
 			firstname: {
 				required: "Please enter your firstname",
@@ -48,11 +47,9 @@ $(document).ready(function () {
 			email: "Please enter a valid email address"
 		},
 
-		errorPlacement: function (error, element) {
-			error.insertBefore(element);
-		},
 		submitHandler: function (form) { // for demo
-			alert('valid form submitted'); // for demo
+			let a = $("#Rday:selected").text();
+			alert("hiii " + a); // for demo
 			return false; // for demo
 		}
 	});
@@ -77,6 +74,7 @@ $(document).ready(function () {
 			}
 
 		},
+
 		submitHandler: function (form) { // for demo
 			alert('valid  login form submitted'); // for demo
 			return false; // for demo
@@ -94,12 +92,13 @@ $(function () {
 	});
 });
 
+
 // for birthday picker
 $(document).ready(function () {
 	$.dobPicker({
-		daySelector: '#Rday', /* Required */
-		monthSelector: '#Rmonth', /* Required */
-		yearSelector: '#Ryear', /* Required */
+		daySelector: '#day', /* Required */
+		monthSelector: '#month', /* Required */
+		yearSelector: '#year', /* Required */
 		dayDefault: 'Day', /* Optional */
 		monthDefault: 'Month', /* Optional */
 		yearDefault: 'Year', /* Optional */
@@ -107,6 +106,8 @@ $(document).ready(function () {
 		maximumAge: 100 /* Optional */
 	});
 });
+
+
 
 
 

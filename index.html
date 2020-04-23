@@ -42,8 +42,10 @@
 			<div id="Register" class="tabcontent">
 				<script type="text/javascript" src="./js/form.js"></script>
 				<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-				<script type="text/javascript" src="./js/dobpicker.js"></script>
+				<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>
 
+				<script type="text/javascript" src="./js/dobpicker.js"></script>
+				 
 				<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
 
 				<form id="registerForm" class="form">
@@ -67,11 +69,11 @@
 					<input id="Remail" name="email" type="email" placeholder="Enter Email">
 					<br>
 
-					<label for="birthday">Birthday</label>
+					<label for="birthday" id="birthday1">Birthday</label>
 					<br>
-					<select id="Rday" name="day"></select>
-					<select id="Rmonth" name="month"></select>
-					<select id="Ryear" name="year"></select>
+					<select id="day" name="day" class='group'></select>
+					<select id="month" name="month" class='group'></select>
+					<select id="year" name="year" class='group'></select>
 
 					<button id="registerSubmit" type="submit">Register</button>
 
