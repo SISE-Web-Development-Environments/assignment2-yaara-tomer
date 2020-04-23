@@ -40,6 +40,10 @@ function moveToTabReg(){
 function moveToTabLogin(){
 	openPage('Login', this, ' #777');
 }
+function switchDiv(divName){
+	openPage(divName, this, ' #777');
+
+}
 
 
 

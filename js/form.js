@@ -82,6 +82,9 @@ $(document).ready(function () {
 			if (isvalid) {
 				// alert('reg sumbit validated!'); 
 				RegisterFormSubmit();
+				document.getElementById("registerForm").reset();
+
+
 			}
 		}
 	});
@@ -110,13 +113,16 @@ $(document).ready(function () {
 				error.insertBefore(element);
 		},
 		submitHandler: function () { // for demo
-			var isvalid = $("#registerForm").valid();
+			var isvalid = $("#LoginForm").valid();
 			if (isvalid) {
 				alert('login sumbit validated!'); 
 				let RuserName =$("#Lusername").val();
 				let Rpassword =$("#Lpassword").val();
 
-				checklogin(RuserName,Rpassword);
+				if(checklogin(RuserName,Rpassword)){
+					document.getElementById("LoginForm").reset();
+				}
+
 			}
 		}
 	});
@@ -178,11 +184,13 @@ function RegisterFormSubmit() {
 function checklogin(username, password) {
 	if(localStorage.getItem(username) == password){
 		console.log("Welcome!! logged in username  " + username + "  pass: " + password);
+		return true;
 
 		// alert("Welcome " + username + ". \nYou are now logged in"); // ToDo delete
 	}
 	else {
 		alert("bad deatals!!"); // ToDo delete
+		return false;
 
 	}
 
