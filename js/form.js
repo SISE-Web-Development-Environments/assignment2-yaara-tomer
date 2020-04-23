@@ -1,3 +1,4 @@
+//test
 $(document).ready(function () {
 	//set registration form
 	$('#registerForm').validate({ // initialize the plugin
