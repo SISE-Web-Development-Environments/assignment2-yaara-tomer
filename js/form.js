@@ -78,19 +78,11 @@ $(document).ready(function () {
 			}
 		},
 		submitHandler: function () { // for demo
-			alert('reg sumbit'); // for demo
-
 			var isvalid = $("#registerForm").valid();
 			if (isvalid) {
-				alert('reg sumbit validated!'); // for demo
-				checkRegisterForm();
+				// alert('reg sumbit validated!'); 
+				RegisterForm();
 			}
-			else {
-				alert('reg sumbit not validated!'); // for demo
-				e.preventDefault();
-				return false;
-			}
-			return false;
 		}
 	});
 
@@ -114,10 +106,15 @@ $(document).ready(function () {
 			}
 
 		},
+		submitHandler: function () { // for demo
+			var isvalid = $("#registerForm").valid();
+			if (isvalid) {
+				alert('login sumbit validated!'); 
+				let RuserName =$("#Lusername").val();
+				let Rpassword =$("#Lpassword").val();
 
-		submitHandler: function (form) { // for demo
-			alert('valid  login form submitted'); // for demo
-			return false; // for demo
+				checklogin(RuserName,Rpassword);
+			}
 		}
 	});
 
@@ -135,7 +132,7 @@ $(function () {
 //check unuiqe username
 $(function () {
 	$.validator.addMethod("checkUserName", function (value, element) {
-			return !(isUserNameExist(value));
+		return !(isUserNameExist(value));
 	});
 });
 

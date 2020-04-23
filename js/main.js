@@ -61,21 +61,35 @@ function addUser(username,password){
 	users[username] = password;
 }
 
-function checkRegisterForm(){
+function RegisterForm(){
 	// get all the inputs into an array.
-	var $inputs = $('#registerForm :input');
+	let RuserName =""+ $("#Rusername").val();
+	let Rpassword =""+$("#Rpassword").val();
 
-	var values = {};
-	$inputs.each(function () {
-		values[this.name] = $(this).val();
-		alert("hiii " + values[this.name]  ); // for demo
-	}); 
+	// alert("RegisterForm userName " + RuserName  ); // ToDo delete
+	// alert(" RegisterForm password " + Rpassword  ); // ToDo delete
+
+	addUser(Rusername,Rpassword);
+	checklogin(Rusername,Rpassword);
+
+	
 }
 
 function isUserNameExist(username){
 	let ans = username in users;
 	console.log("username  "+username+ "  exist: " +ans );
 	return ans;
+}
+
+function checklogin(username,password){
+	if(users[username]==password){
+		alert("Welcome "+username + ". \nYou are now logged in"); // ToDo delete
+	}
+	else{
+		alert("bad deatals!!"); // ToDo delete
+
+	}
+
 }
 
 
