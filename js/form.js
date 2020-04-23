@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+	//set registration form
 	$('#registerForm').validate({ // initialize the plugin
 		rules: {
 			username: {
@@ -81,11 +81,12 @@ $(document).ready(function () {
 			var isvalid = $("#registerForm").valid();
 			if (isvalid) {
 				// alert('reg sumbit validated!'); 
-				RegisterForm();
+				RegisterFormSubmit();
 			}
 		}
 	});
 
+	//set login form
 	$('#LoginForm').validate({ // initialize the plugin
 		rules: {
 			username: {
@@ -96,7 +97,6 @@ $(document).ready(function () {
 				required: true,
 			}
 		},
-		// Specify validation error messages
 		messages: {
 			username: {
 				required: "Please provide a user"
@@ -105,6 +105,9 @@ $(document).ready(function () {
 				required: "Please provide a password"
 			}
 
+		},
+		errorPlacement: function (error, element) {
+				error.insertBefore(element);
 		},
 		submitHandler: function () { // for demo
 			var isvalid = $("#registerForm").valid();
@@ -118,7 +121,17 @@ $(document).ready(function () {
 		}
 	});
 
-
+	//set birthday picker
+	$.dobPicker({
+		daySelector: '#day', /* Required */
+		monthSelector: '#month', /* Required */
+		yearSelector: '#year', /* Required */
+		dayDefault: 'Day', /* Optional */
+		monthDefault: 'Month', /* Optional */
+		yearDefault: 'Year', /* Optional */
+		minimumAge: 12, /* Optional */
+		maximumAge: 100 /* Optional */
+	});
 
 });
 
@@ -136,24 +149,44 @@ $(function () {
 	});
 });
 
-//jQuery.validator.addMethod("checkUserName", function (value, element) {
-//	return isUserNameExist(value)
-//},
 
-// for birthday picker
-$(document).ready(function () {
-	$.dobPicker({
-		daySelector: '#day', /* Required */
-		monthSelector: '#month', /* Required */
-		yearSelector: '#year', /* Required */
-		dayDefault: 'Day', /* Optional */
-		monthDefault: 'Month', /* Optional */
-		yearDefault: 'Year', /* Optional */
-		minimumAge: 12, /* Optional */
-		maximumAge: 100 /* Optional */
-	});
-});
+function isUserNameExist(username) {
+	let ans = localStorage.hasOwnProperty(username);
+	console.log("username  " + username + "  exist: " + ans);
+	return ans;
+}
 
+function addUserToLocalStorage(username, password) {
+	localStorage.setItem(username,password);
+	console.log("username  added: " + username+ " ,pass: "+ password);
+
+}
+
+function RegisterFormSubmit() {
+	// get all the inputs into an array.
+	let RuserName =$("#Rusername").val();
+	let Rpassword =$("#Rpassword").val();
+
+	// alert("RegisterForm userName " + RuserName  ); // ToDo delete
+	// alert(" RegisterForm password " + Rpassword  ); // ToDo delete
+
+	addUserToLocalStorage(RuserName, Rpassword);
+	checklogin(RuserName, Rpassword);
+}
+
+
+function checklogin(username, password) {
+	if(localStorage.getItem(username) == password){
+		console.log("Welcome!! logged in username  " + username + "  pass: " + password);
+
+		// alert("Welcome " + username + ". \nYou are now logged in"); // ToDo delete
+	}
+	else {
+		alert("bad deatals!!"); // ToDo delete
+
+	}
+
+}
 
 
 

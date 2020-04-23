@@ -1,4 +1,13 @@
 
+$(document).ready(function () {
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+
+	localStorage.setItem("p","p");
+
+});
+
+
 function openPage(pageName, elmnt, color) {
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
@@ -13,10 +22,7 @@ function openPage(pageName, elmnt, color) {
 	elmnt.style.backgroundColor = color;
 }
 
-// Get the element with id="defaultOpen" and click on it
-$(document).ready(function () {
-	document.getElementById("defaultOpen").click();
-});
+
 
 //$("#myBtn").click(function(){
 
@@ -53,43 +59,3 @@ window.onclick = function(e) {
 	if (e.target == document.getElementById("About"))
 		document.getElementById("About").close();
 };
-
-//===========registers users================
-var users={"p": "p"};
-
-function addUser(username,password){
-	users[username] = password;
-}
-
-function RegisterForm(){
-	// get all the inputs into an array.
-	let RuserName =""+ $("#Rusername").val();
-	let Rpassword =""+$("#Rpassword").val();
-
-	// alert("RegisterForm userName " + RuserName  ); // ToDo delete
-	// alert(" RegisterForm password " + Rpassword  ); // ToDo delete
-
-	addUser(Rusername,Rpassword);
-	checklogin(Rusername,Rpassword);
-
-	
-}
-
-function isUserNameExist(username){
-	let ans = username in users;
-	console.log("username  "+username+ "  exist: " +ans );
-	return ans;
-}
-
-function checklogin(username,password){
-	if(users[username]==password){
-		alert("Welcome "+username + ". \nYou are now logged in"); // ToDo delete
-	}
-	else{
-		alert("bad deatals!!"); // ToDo delete
-
-	}
-
-}
-
-
