@@ -2,9 +2,6 @@
 $(document).ready(function () {
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
-
-	localStorage.setItem("p","p");
-
 });
 
 function openPage(pageName, elmnt, color) {
@@ -18,7 +15,7 @@ function openPage(pageName, elmnt, color) {
 		tablinks[i].style.backgroundColor = "";
 	}
 	document.getElementById(pageName).style.display = "block";
-	elmnt.style.backgroundColor = color;
+	//elmnt.style.backgroundColor = color;
 }
 
 // Get the element with id="defaultOpen" and click on it
@@ -36,14 +33,13 @@ $(document).ready(function () {
 //var btn = document.getElementById("myBtn");
 
 //});
-function moveToTabReg(){
-	openPage('Register', this, ' #777');
-}
-function moveToTabLogin(){
-	openPage('Login', this, ' #777');
-}
-
 function switchDiv(divName){
+	if(divName=="Game" && isLoggedIn==false){
+		alert("You must Login or Register in order to play this amazing game");
+		switchDiv("Welcome");
+		return false;
+	}
+	console.log("switch to "+divName);
 	openPage(divName, this, ' #777');
 
 }
