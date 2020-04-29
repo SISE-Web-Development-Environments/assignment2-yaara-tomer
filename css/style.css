@@ -1,22 +1,22 @@
 
 body {
-	background-image: url("/images/back1.jpg");
+	background-image: url("/images/back5.jpg");
 	
 	background-repeat: repeat;
 }
   header{
 
-	text-align: center;
-	background:lightblue;
+	text-align: left;
+	background:#ffbb99;
 	color: gray;
-	font-size: 20px;
+	font-size: 12px;
 	position: fixed;
 	z-index: 950;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 20px;
 	position: fixed;
 	width: 100%;
-	height: 70px;
+	height: 60px;
 
   }
 
@@ -34,7 +34,7 @@ body {
 	font-size: 15px;
 }
 #Welcome{
-	background-color: whitesmoke;
+
 }
 
 #hov:hover{
@@ -49,23 +49,33 @@ body {
   
   /* Style tab links */
   .tablink {
-	background-color: #555;
-	color: white;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	font-size: 17px;
-	width: 16.667%;
-
+	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+	background-color:#fc8d83;
+	border-radius:12px;
+	border:1px solid #d83526;
+	width: 12.667%;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+		outline: none;
+		padding: 14px 16px;
 
   }
+  
   
   .tablink:hover {
-	background-color: #777;
+	background-color:#ca5349;
   }
-  
+  .tablink:active{
+	position:relative;
+	top:1px; 
+	background-color:#ca5349;
+  }
   /* Style the tab content (and add height:100% for full page content) */
   .tabcontent {
 	color: black;
@@ -217,6 +227,7 @@ height: 600px;
   .select-items div:hover, .same-as-selected {
 	background-color: rgba(0, 0, 0, 0.1);
   }
+  
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -286,7 +297,7 @@ height: 600px;
 	padding-bottom: 5px;
 	font-size: 15px;
 	font-family:Andale Mono, monospace	;
-	background-color: #FFC0CB;
+	background-color :#ffbb99;
   }
   .socialbtns ul {
 	  list-style: none;
