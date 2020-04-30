@@ -127,21 +127,17 @@
 			<table>
 				<tr>
 					<td><label for="right_key">right </label></td>
-					<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"
-								onkeydown="setLeftKey()"></td>
+					<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"></td>
 					<td></td>
 					<td><label for="left_key">left</label></td>
-					<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"
-								onkeydown="setRightKey()"></td>
+					<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"></td>
 				</tr>
 				<tr>
 					<td><label for="up_key">up</label></td>
-					<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up"
-							   onkeydown="setUpKey()"> </td>
+					<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up" > </td>
 					<td></td>
 					<td><label for="down_key">down</label></td>
-					<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"
-							   onkeydown="setDownKey()"></td>
+					<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"></td>
 				</tr>
 				<tr></tr>
 				<tr></tr>
@@ -177,7 +173,7 @@
 				<tr>
 					<td> <label for="time">set time for game - in seconds</label></td>
 
-					<td><input id="time" name="time" type="text" placeholder="minimum is 50 sec"> </td>
+					<td><input id="time" name="time" type="text" placeholder="minimum is 60 sec"> </td>
 				</tr>
 				<tr></tr>
 				<tr></tr>
@@ -198,7 +194,7 @@
 			<table>
 				<tr>
 					<td><button type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
-					<td><button type="submit" id ="submit_setting" >play game!</button>
+					<td><button type="button"  onclick="submitSetting()" >play game!</button>
 					</td>
 
 				</tr>

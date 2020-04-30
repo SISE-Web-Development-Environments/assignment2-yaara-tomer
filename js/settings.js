@@ -12,88 +12,154 @@ var minGhost=4;
 var maxGhost=1;
 var numOfGhost;
 var timeOfGame;
+var validcolor=undefined;
+var validkeys = undefined;
+var validNumber = undefined;
 
-var keyMoves = {left:undefined, right:undefined,up:undefined,down:undefined};
-
+var keyMovesWhich = {left:undefined, right:undefined,up:undefined,down:undefined};
+var keyMovesCode = {left:undefined, right:undefined,up:undefined,down:undefined};
 
 function setLeftKey(){
-    leftKey = $('left_key').val();
+    document.getElementById("left_key").addEventListener('keydown', function (event) {
+        if (!event.metaKey) {
+            event.preventDefault();
+        }
+        keyMovesWhich.left = event.which;
+        this.value = event.key;
+        keyMovesCode.left = event.key;
+    });
 
 }
 function setRightKey(){
-    rightKey = event.code;
+    document.getElementById("right_key").addEventListener('keydown', function (event) {
+        if (!event.metaKey) {
+            event.preventDefault();
+        }
+        keyMovesWhich.right = event.which;
+        this.value = event.key;
+        keyMovesCode.right = event.key;
+    });
 }
 function setUpKey(){
-    upKey = event.code;
+    document.getElementById("up_key").addEventListener('keydown', function (event) {
+        if (!event.metaKey) {
+            event.preventDefault();
+        }
+        keyMovesWhich.up = event.which;
+        this.value = event.key;
+        keyMovesCode.up = event.key;
+    });
 }
 function setDownKey(){
-    DownKey = event.code;
+    document.getElementById("down_key").addEventListener('keydown', function (event) {
+        if (!event.metaKey) {
+            event.preventDefault();
+        }
+        keyMovesWhich.down = event.which;
+        this.value = event.key;
+        keyMovesCode.down = event.key;
+    });
 }
 $(document).ready(function () {
-    $('#setting_form').validate({
-        rules: {
-            time:{
-                required: true,
-                regex: /([5-8][0-9]|90)/
-                //ToDo change to right regex
-            }
-
-        },
-        messages: {
-            time:{
-                required: "please set time for the game",
-                regex: "please insert value above 60"
-            }
-        },
-        submitHandler:function () {
-            var validSettings = $('setting_form').valid();
-            if (validSettings==true){
-                setMySetting();
-                switchDiv('Game1')
-            }
-
-        }
+    setLeftKey();
+    setRightKey();
+    setUpKey();
+    setDownKey();
 
 
-
-    });
 });
 
+function checkForSameKeys(){
 
-function setRandomSetting(){
-    //up down etc...
+            if (keyMovesWhich.left ===keyMovesWhich.right ||keyMovesWhich.left ===keyMovesWhich.up || keyMovesWhich.left ===keyMovesWhich.down ||
+            keyMovesWhich.right === keyMovesWhich.up ||  keyMovesWhich.right === keyMovesWhich.down || keyMovesWhich.up === keyMovesWhich.down ){
+                alert("you need to choose different keys for moves");
+                validkeys=false;
+                return;
+            }
 
-    leftKey = 37;
-    rightKey = 39;
-    upKey = 38;
-    DownKey = 40;
-    // should be random
+  validkeys=true;
+}
+function checkForSameColor() {
+    if (color5score === color15score || color15score === color25score || color5score === color25score) {
+        alert("you need to choose different colors");
+        validcolor = false;
+        return;
+    }
+    validcolor = true;
+}
+function submitSetting(){
+    var validSettings = false;
 
+    checkForSameKeys();
     color5score = document.getElementById("5color").value;
     color15score = document.getElementById("15color").value;
     color25score = document.getElementById("25color").value;
-    numOfBalls = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
-    timeOfGame = Math.floor(Math.random() * (240 - 60 + 1) ) + 60;
-    numOfGhost = Math.floor(Math.random() * (4 - 1 + 1) ) +1;
-
-
-}
-
-
-function setMySetting(){
-    // up down etc...
-
-
+    checkForSameColor();
     numOfBalls = parseInt(document.getElementById("vol").value);
-    color5score = document.getElementById("5color").value;
-    color15score = document.getElementById("15color").value;
-    color25score = document.getElementById("25color").value;
     timeOfGame = document.getElementById("time").value;
+    if (timeOfGame<60){
+        alert("you need to put value bigger than 60 sec");
+        validNumber = false;
+        return;
+    }
+    else{
+        validNumber = true;
+    }
     numOfGhost = document.getElementById("time").value;
+    validSettings = (validNumber && validkeys && validcolor)
+    if (validSettings){
+
+        switchDiv('Game1')
+    }
 }
 
-function resetSetting(){
 
+
+
+function setRandomSetting() {
+    //up down etc...
+    keyMovesWhich.left = 37;
+    keyMovesWhich.right = 38;
+    keyMovesWhich.up = 39;
+    keyMovesWhich.down = 40;
+    keyMovesCode.left = 'ArrowLeft';
+    keyMovesCode.right = 'ArrowRight';
+    keyMovesCode.up = 'ArrowUp';
+    keyMovesCode.down = 'ArrowDown';
+
+    // should be random
+    color5score = Math.floor(Math.random()*16777215).toString(16);
+    color15score = Math.floor(Math.random()*16777215).toString(16);
+    color25score = Math.floor(Math.random()*16777215).toString(16);
+    let dif = (color5score === color15score || color15score === color25score || color5score === color25score);
+    while(dif===true){
+        color5score = Math.floor(Math.random()*16777215).toString(16);
+        color15score = Math.floor(Math.random()*16777215).toString(16);
+        color25score = Math.floor(Math.random()*16777215).toString(16);
+        dif = (color5score === color15score || color15score === color25score || color5score === color25score);
+    }
+    document.getElementById("5color").value = color5score ;
+    document.getElementById("15color").value = color15score;
+     document.getElementById("25color").value = color25score;
+
+
+    numOfBalls = Math.floor(Math.random() * (90 - 50 + 1)) + 50;
+    timeOfGame = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
+    numOfGhost = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+
+}
+
+ function resetSetting(){
+     keyMovesWhich.left = undefined;
+     keyMovesWhich.right = undefined;
+     keyMovesWhich.up = undefined;
+     keyMovesWhich.down =undefined;
+     keyMovesCode.left = undefined;
+     keyMovesCode.right = undefined;
+     keyMovesCode.up = undefined;
+     keyMovesCode.down = undefined;
+     //ToDo other reset maybe?
 }
 
 
