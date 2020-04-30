@@ -22,12 +22,11 @@
 <header>
 	<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box"
 		 ALIGN=Left>
-	<button class="tablink" onclick="openPage('Welcome', this,  '#ca5349')" id="defaultOpen">Welcome</button>
-	<button class="tablink" onclick="openPage('Register', this, ' #ca5349')">Register</button>
-	<button class="tablink" onclick="openPage('Login', this, ' #ca5349')">Login</button>
-
-	<button class="tablink" onclick="openPage('Setting', this, ' #ca5349')">Setting</button>
-	<button class="tablink" onclick="openPage('Game1', this, ' #ca5349')">Game</button>
+	<button class="tablink" onclick="switchDiv('Welcome')" id="defaultOpen">Welcome</button>
+	<button class="tablink" onclick="switchDiv('Register')">Register</button>
+	<button class="tablink" onclick="switchDiv('Login')">Login</button>
+	<button class="tablink" onclick="switchDiv('Setting')">Setting</button>
+	<button class="tablink" onclick="switchDiv('Game1')">Game</button>
 	<button class="tablink" id="btnShowModal" onclick="about()">About</button>
 </header>
 
