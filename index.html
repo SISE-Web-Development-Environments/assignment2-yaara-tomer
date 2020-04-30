@@ -26,8 +26,9 @@
 	<button class="tablink" onclick="openPage('Register', this, ' #ca5349')">Register</button>
 	<button class="tablink" onclick="openPage('Login', this, ' #ca5349')">Login</button>
 
+	<button class="tablink" onclick="openPage('Setting', this, ' #ca5349')">Setting</button>
+	<button class="tablink" onclick="openPage('Game1', this, ' #ca5349')">Game</button>
 	<button class="tablink" id="btnShowModal" onclick="about()">About</button>
-	<button class="tablink" onclick="openPage('Game', this, ' #ca5349')">Game</button>
 </header>
 
 <br>
@@ -44,9 +45,9 @@
 			<img src="images/logo2.png" width="800" height="200" >
 
 			</br>
-			<input id="hov" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="moveToTabReg()"
+			<input id="hov1" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="moveToTabReg()"
 				   value="Register" Style=" margin-left:180px" />
-			<input id="hov" type="image" width="10%" src="images/blue-removebg-preview.png" onclick="moveToTabLogin()"
+			<input id="hov2" type="image" width="10%" src="images/blue-removebg-preview.png" onclick="moveToTabLogin()"
 				   value="Login" Style=" margin-left:180px" />
 			<!--<button type="button" onclick style="display:block;">Register!</button> 
 				<button type="button" onclick=">Login!</button>-->
@@ -63,28 +64,28 @@
 		<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
 
 		<form id="registerForm" class="form">
-			<label for="username">User Name </label>
+			<label for="Rusername">User Name </label>
 			<input id="Rusername" name="username" type="text" placeholder="Enter Username">
 			<br>
 
-			<label for="password">Password</label>
+			<label for="Rpassword">Password</label>
 			<input id="Rpassword" name="password" type="password" placeholder="Enter Paasword" />
 			<br>
 
-			<label for="firstname">First Name</label>
+			<label for="Rfirstname">First Name</label>
 			<input id="Rfirstname" name="firstname" type="text" placeholder="Enter First Name">
 			<br>
 
-			<label for="lastname">Last Name</label>
+			<label for="Rlastname">Last Name</label>
 			<input id="Rlastname" name="lastname" type="text" placeholder="Enter Last Name">
 			<br>
 
-			<label for="email">Email</label>
+			<label for="Remail">Email</label>
 			<input id="Remail" name="email" type="email" placeholder="Enter Email">
 			<br>
 
 
-			<label for="birthday" id="birthday1">Birthday</label>
+			<label for="birthday1" id="birthday1">Birthday</label>
 			<br>
 			<select id="day" name="day" class='group'></select>
 			<select id="month" name="month" class='group'></select>
@@ -102,11 +103,11 @@
 		<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
 
 		<form id="LoginForm" class="form">
-			<label for="username">User Name </label>
+			<label for="Lusername">User Name </label>
 			<input id="Lusername" name="username" type="text" placeholder="Enter Username">
 			<br>
 
-			<label for="password">Password</label>
+			<label for="Lpassword">Password</label>
 			<input id="Lpassword" name="password" type="password" placeholder="Enter Paasword" />
 			<br>
 
@@ -115,29 +116,98 @@
 
 		</form>
 	</div>
-
 	<div id="Setting" class="tabcontent">
-		<h3>Setting</h3>
-		<p>Get in touch, or swing by for a cup of coffee.</p>
+		<script type="text/javascript" src="./js/settings.js"></script>
+		<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+		<script type="text/javascript" src="./js/dobpicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+		<form id="setting_form" >
+			<p>Select keys for moves: </p>
+			<table>
+				<tr>
+					<td><label for="right_key">right </label></td>
+					<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"
+								onkeydown="setLeftKey()"></td>
+					<td></td>
+					<td><label for="left_key">left</label></td>
+					<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"
+								onkeydown="setRightKey()"></td>
+				</tr>
+				<tr>
+					<td><label for="up_key">up</label></td>
+					<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up"
+							   onkeydown="setUpKey()"> </td>
+					<td></td>
+					<td><label for="down_key">down</label></td>
+					<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"
+							   onkeydown="setDownKey()"></td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<td><label for="vol">number of balls per game :</label> </td>
+
+					<td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><label for="5color">Select color for 5 points:</label></td>
+
+					<td><input type="color" id="5color" name="favcolor" value="#FB9902"> </td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td><label for="15color">Select color for 15 points:</label></td>
+
+					<td><input type="color" id="15color" name="favcolor" value="#C21460"></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td><label for="25color"> Select color for 25 points:</label> </td>
+
+					<td> <input type="color" id="25color" name="favcolor" value="#8601AF"> </td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td> <label for="time">set time for game - in seconds</label></td>
+
+					<td><input id="time" name="time" type="text" placeholder="minimum is 50 sec"> </td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td> <label for="select_bar">set number of monster</label></td>
+
+					<td> <select id="select_bar" style="width: 100%;">
+						<option value="0">1</option>
+						<option value="1">2</option>
+						<option value="2">3</option>
+						<option value="3">4</option>
+
+					</select>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<td><button type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
+					<td><button type="submit" id ="submit_setting" >play game!</button>
+					</td>
+
+				</tr>
+			</table>
+		</form>
 	</div>
-	<!--<div id="About1" class="tabcontent">-->
-	<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
-		<span class="close">&times;</span>
-		<div class="modal-header">
 
-			<h2>Modal Header</h2>
-		</div>
-		<div class="modal-body">
-			<p>Some text in the Modal Body</p>
-			<p>Some other text...</p>
-		</div>
-		<div class="modal-footer">
-			<h3>Modal Footer</h3>
-		</div>
-	</dialog>
 
-	<!--</div>-->
-	<div id="Game" class="tabcontent">
+	<div id="Game1" class="tabcontent">
 
 		<div id="score">
 			<table>
@@ -147,9 +217,7 @@
 
 					<td> <label for="lblTime">TIME:</label></td>
 					<td><input id="lblTime" type="text" width="200px" /></td>>
-					<td> <i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td>
-
-
+					<!--<td> <i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td> -->
 				</tr>
 			</table>
 		</div>
@@ -158,95 +226,35 @@
 			<canvas id="canvas" height="600" width="600"></canvas>
 		</div>
 	</div>
+
+	<!--<div id="About1" class="tabcontent">-->
+	<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
+		<span class="close">&times;</span>
+		<br>
+		<div class="modal-header">
+			<p><strong>Our names are: Yaara and Tomer</strong></p>
+			<p><strong>welcome to our Pac-Man Game!</strong></p>
+		</div>
+		<div class="modal-body">
+			<br>
+
+			<p>jQuery plugins:</p>
+			<p>Templates:</p>
+			<p>Challenges:</p>
+			<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" style="margin-left: 120px">
+		</div>
+
+	</dialog>
+
+	<!--</div>-->
+
 </div>
 
 
 <dialog id="settingdialog" style="width: 600px; height: 600px;">
 	<span class="close">&times;</span>
 
-	<form id="setting_form">
-		<label for="nothing">Select keys for moves: </label>
-		<table>
-			<tr>
-				<td><label for="rigth">right </label></td>
-				<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"
-							onkeydown="setLeftKey()"></td>
-				<td></td>
-				<td><label for="left">left</label></td>
-				<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"
-							onkeydown="setRightKey()"></td>
-			</tr>
-			<tr>
-				<td><label for="up">up</label></td>
-				<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up"
-						   onkeydown="setUpKey()"> </td>
-				<td></td>
-				<td><label for="down">down</label></td>
-				<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"
-						   onkeydown="setDownKey()"></td>
-			</tr>
-			<tr></tr>
-			<tr></tr>
-		</table>
-		<br>
-		<table>
-			<tr>
-				<td><label for="vol">number of balls per game :</label> </td>
 
-				<td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
-			</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td><label for="favcolor">Select color for 5 points:</label></td>
-
-				<td><input type="color" id="5color" name="favcolor" value="#FB9902"> </td>
-			</tr>
-			<tr></tr>
-			<tr>
-				<td><label for="favcolor">Select color for 15 points:</label></td>
-
-				<td><input type="color" id="15color" name="favcolor" value="#C21460"></td>
-			</tr>
-			<tr></tr>
-			<tr>
-				<td><label for="favcolor"> Select color for 25 points:</label> </td>
-
-				<td> <input type="color" id="25color" name="favcolor" value="#8601AF"> </td>
-			</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td> <label for="sec">set time for game - in seconds</label></td>
-
-				<td><input id="time" name="time" type="text" placeholder="minimum is 50 sec"> </td>
-			</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td> <label for="sec">set number of monster</label></td>
-
-				<td> <select id="select_bar" style="width: 100%;">
-					<option value="0">1</option>
-					<option value="1">2</option>
-					<option value="2">3</option>
-					<option value="3">4</option>
-
-				</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<table>
-			<tr>
-				<td><button type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
-				<td><button type="button" onclick="setMySetting()">play game!</button>
-				</td>
-				<td></td>
-				<td><button type="button" onclick="resetSetting()">reset</button></td>
-			</tr>
-		</table>
-	</form>
 
 </dialog>
 

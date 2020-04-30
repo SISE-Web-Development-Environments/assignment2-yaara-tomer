@@ -37,10 +37,12 @@ body {
 
 }
 
-#hov:hover{
+#hov1:hover{
 	transform: scale(1.2);
 }
-
+#hov2:hover{
+	transform: scale(1.2);
+}
   body, html {
 	height: 100%;
 	margin: 0;
@@ -167,6 +169,19 @@ background-color: orange;
 .tabcontent{
 height: 600px;
 }
+
+
+#setting_form {
+	font-family: "Open Sans Condensed", arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #ffffff;
+	margin: 5px auto;
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
 .custom-select {
 	position: relative;
 	font-family: Arial;
@@ -276,11 +291,11 @@ height: 600px;
 	text-decoration: none;
 	cursor: pointer;
   }
-  
+
   .modal-header {
 	padding: 2px 16px;
-	background-color: #5cb85c;
-	color: white;
+	background-color: #3fccd9;
+	color: #443939;
   }
   
   .modal-body {padding: 2px 16px;}

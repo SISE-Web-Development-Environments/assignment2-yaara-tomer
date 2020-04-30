@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 
 function switchDiv(divName){
-	if(divName=="Game" && isLoggedIn==false){
+	if(divName=="Game1" && isLoggedIn==false){
 		alert("You must Login or Register in order to play this amazing game");
 		switchDiv("Welcome");
 		return false;
@@ -64,96 +64,18 @@ window.onclick = function(e) {
 		document.getElementById("About").close();
 };
 
-function showSetting(){
-	document.getElementById("settingdialog").showModal();
-	var span = document.getElementsByClassName("close")[0];
-	span.onclick = function() {
-		document.getElementById("settingdialog").close();
-	};	
-}
-function closeDialog() {
-	document.getElementById("settingdialog").close();
-}
-
-window.onclick = function(e) {
-	if (e.target == document.getElementById("settingdialog"))
-		document.getElementById("settingdialog").close();
-};
-var leftKey;
-var rightKey
-var upKey;
-var DownKey;
-var minBalls=50;
-var maxBalls=90;
-var numOfBalls;
-var color5score;
-var color15score;
-var color25score;
-var minGhost=4;
-var maxGhost=1;
-var numOfGhost;
-var timeOfGame;
-
-
-function setLeftKey(){
-	leftKey = event.code;
-}
-function setRightKey(){
-	rightKey = event.code;
-}
-function setUpKey(){
-	upKey = event.code;
-}
-function setDownKey(){
-	DownKey = event.code;
-}
-
-$('#setting_form').validate({
-	rules: {
-		time:{
-			required: true
-		}
-	},
-	messages: {
-		time:{
-			required: "please set time for the game",
-		}
-	}
-
-});
-
-function setRandomSetting(){
-	//up down etc...
-	
-	leftKey = 37;
-	rightKey = 39;
-	upKey = 38;
-	DownKey = 40;
-	// should be random
-
-	color5score = document.getElementById("5color").value;
-	color15score = document.getElementById("15color").value;
-	color25score = document.getElementById("25color").value;
-	numOfBalls = Math.floor(Math.random() * (90 - 50 + 1) ) + 50;
-	timeOfGame = Math.floor(Math.random() * (240 - 60 + 1) ) + 60;
-	numOfGhost = Math.floor(Math.random() * (4 - 1 + 1) ) +1;
-
-
-}
-
-
-function setMySetting(){
-	// up down etc...
-
-
-	numOfBalls = document.getElementById("vol").value;
-	color5score = document.getElementById("5color").value;
-	color15score = document.getElementById("15color").value;
-	color25score = document.getElementById("25color").value;
-	timeOfGame = document.getElementById("time").value;
-	numOfGhost = document.getElementById("time").value;
-}
-
-function resetSetting(){
-
-}
+// function showSetting(){
+// 	document.getElementById("settingdialog").showModal();
+// 	var span = document.getElementsByClassName("close")[0];
+// 	span.onclick = function() {
+// 		document.getElementById("settingdialog").close();
+// 	};
+// }
+// function closeDialog() {
+// 	document.getElementById("settingdialog").close();
+// }
+//
+// window.onclick = function(e) {
+// 	if (e.target == document.getElementById("settingdialog"))
+// 		document.getElementById("settingdialog").close();
+// };
