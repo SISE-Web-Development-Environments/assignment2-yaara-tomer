@@ -1,22 +1,22 @@
 
 body {
-	background-image: url("/images/back1.jpg");
+	background-image: url("/images/back5.jpg");
 	
 	background-repeat: repeat;
 }
   header{
 
-	text-align: center;
-	background:lightblue;
+	text-align: left;
+	background:#ffbb99;
 	color: gray;
-	font-size: 20px;
+	font-size: 12px;
 	position: fixed;
 	z-index: 950;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 20px;
 	position: fixed;
 	width: 100%;
-	height: 70px;
+	height: 60px;
 
   }
 
@@ -34,44 +34,12 @@ body {
 	font-size: 15px;
 }
 #Welcome{
-	background-color: whitesmoke;
+
 }
 
 #hov:hover{
 	transform: scale(1.2);
 }
-  footer{
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 5px;
-	font-size: 15px;
-	font-family:Andale Mono, monospace	;
-	background-color: #FFC0CB;
-  }
-  .socialbtns ul {
-	  list-style: none;
-	  display: flex;
-	  flex-direction: row;
-	  flex-wrap: wrap;
-	  align-items: center;
-	  justify-content: center;
-	  text-align: center;
-	  margin-top: 0;
-	  margin-bottom: 20px;
-	  /* margin-top: 40px; */
-  }
-  
-  .socialbtns li {
-	  margin-right: 20px;
-  } 
-  
-  .socialbtns .fa {
-	  color: black;
-  }
-  
-  .credits .fa{
-	color: black;
-  }
 
   body, html {
 	height: 100%;
@@ -81,23 +49,33 @@ body {
   
   /* Style tab links */
   .tablink {
-	background-color: #555;
-	color: white;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	font-size: 17px;
-	width: 16.667%;
-
+	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+	background-color:#fc8d83;
+	border-radius:12px;
+	border:1px solid #d83526;
+	width: 12.667%;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+		outline: none;
+		padding: 14px 16px;
 
   }
+  
   
   .tablink:hover {
-	background-color: #777;
+	background-color:#ca5349;
   }
-  
+  .tablink:active{
+	position:relative;
+	top:1px; 
+	background-color:#ca5349;
+  }
   /* Style the tab content (and add height:100% for full page content) */
   .tabcontent {
 	color: black;
@@ -106,12 +84,150 @@ body {
 	height: 100%;
   }
   
-  #Game {background-color: orange;}
+
+  #Settingbut{
+	background-color:#E6E6FA; 
+	border: none;
+	color: gray;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+	width: 20%;
+	
+
+  }
+ #Settingbut:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+ } 
+
+input.setting_form{
+	width: 25%;
+	height: 40px;
+	position: relative;
+}
+#settingdialog{
+	margin: auto;
+	border: transparent;
+	border-radius: 20px;
+	padding: 50px;	
+}
+#set:hover{
+	transform: scale(1.2);
+}
+
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 25px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+  }
+  
+  .slider:hover {
+	opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: rgb(95, 7, 91);
+	cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+  }
+  #Game {
+	  
+background-color: orange;
+}
+#lblScore{
+	width: 25%;
+	height: 40px;
+}
+#lblTime{
+	width: 25%;	
+	height: 40px;
+}
 
 .tabcontent{
 height: 600px;
 }
-
+.custom-select {
+	position: relative;
+	font-family: Arial;
+	width: 100%
+  }
+  
+  .custom-select select {
+	display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+	background-color: DodgerBlue;
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+	position: absolute;
+	background-color: DodgerBlue;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+	display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
+  }
+  
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -173,4 +289,37 @@ height: 600px;
 	padding: 2px 16px;
 	background-color: #5cb85c;
 	color: white;
+  }
+  
+  footer{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	font-size: 15px;
+	font-family:Andale Mono, monospace	;
+	background-color :#ffbb99;
+  }
+  .socialbtns ul {
+	  list-style: none;
+	  display: flex;
+	  flex-direction: row;
+	  flex-wrap: wrap;
+	  align-items: center;
+	  justify-content: center;
+	  text-align: center;
+	  margin-top: 0;
+	  margin-bottom: 20px;
+	  /* margin-top: 40px; */
+  }
+  
+  .socialbtns li {
+	  margin-right: 20px;
+  } 
+  
+  .socialbtns .fa {
+	  color: black;
+  }
+  
+  .credits .fa{
+	color: black;
   }
