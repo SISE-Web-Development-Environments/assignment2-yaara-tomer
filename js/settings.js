@@ -115,8 +115,6 @@ function submitSetting(){
 }
 
 
-
-
 function setRandomSetting() {
     //up down etc...
     keyMovesWhich.left = 37;
