@@ -77,17 +77,17 @@ $(document).ready(function () {
 			} else {
 				error.insertBefore(element);
 			}
-		},
-		submitHandler: function () { // for demo
-			var isvalid = $("#registerForm").valid();
-			if (isvalid) {
-				// alert('reg sumbit validated!'); 
-				RegisterFormSubmit();
-				document.getElementById("registerForm").reset();
-
-
-			}
 		}
+		// submitHandler: function () { // for demo
+		// 	var isvalid = $("#registerForm").valid();
+		// 	if (isvalid) {
+		// 		// alert('reg sumbit validated!'); 
+		// 		RegisterFormSubmit();
+		// 		document.getElementById("registerForm").reset();
+
+
+		// 	}
+		// }
 	});
 
 	//set login form
@@ -111,21 +111,21 @@ $(document).ready(function () {
 
 		},
 		errorPlacement: function (error, element) {
-				error.insertBefore(element);
-		},
-		submitHandler: function () { // for demo
-			var isvalid = $("#LoginForm").valid();
-			if (isvalid) {
-				alert('login sumbit validated!'); 
-				let RuserName =$("#Lusername").val();
-				let Rpassword =$("#Lpassword").val();
-
-				if(checklogin(RuserName,Rpassword)){
-					document.getElementById("LoginForm").reset();
-				}
-
-			}
+			error.insertBefore(element);
 		}
+		// submitHandler: function () { // for demo
+		// 	var isvalid = $("#LoginForm").valid();
+		// 	if (isvalid) {
+		// 		alert('login sumbit validated!');
+		// 		let RuserName = $("#Lusername").val();
+		// 		let Rpassword = $("#Lpassword").val();
+
+		// 		if (login(RuserName, Rpassword)) {
+		// 			document.getElementById("LoginForm").reset();
+		// 		}
+
+		// 	}
+		// }
 	});
 
 	//set birthday picker
@@ -156,43 +156,27 @@ $(function () {
 	});
 });
 
-
-function isUserNameExist(username) {
-	let ans = localStorage.hasOwnProperty(username);
-	console.log("username  " + username + "  exist: " + ans);
-	return ans;
-}
-
-function addUserToLocalStorage(username, password) {
-	localStorage.setItem(username,password);
-	console.log("username  added: " + username+ " ,pass: "+ password);
-
-}
-
-function RegisterFormSubmit() {
-	// get all the inputs into an array.
-	let RuserName =$("#Rusername").val();
-	let Rpassword =$("#Rpassword").val();
-
-	// alert("RegisterForm userName " + RuserName  ); // ToDo delete
-	// alert(" RegisterForm password " + Rpassword  ); // ToDo delete
-
-	addUserToLocalStorage(RuserName, Rpassword);
-	checklogin(RuserName, Rpassword);
-}
-
-
-function checklogin(username, password) {
-	if(localStorage.getItem(username) == password){
-		console.log("Welcome!! logged in username  " + username + "  pass: " + password);
-		return true;
-
-		// alert("Welcome " + username + ". \nYou are now logged in"); // ToDo delete
+function RegisterSumbit() {
+	var isvalid = $("#registerForm").valid();
+	if (isvalid) {
+		RegisterFormSubmit();
+		document.getElementById("registerForm").reset();
 	}
-	else {
-		alert("bad deatals!!"); // ToDo delete
-		return false;
+}
+
+function LoginSumbit() {
+	var isvalid = $("#LoginForm").valid();
+	if (isvalid) {
+		alert('login sumbit validated!');
+		let RuserName = $("#Lusername").val();
+		let Rpassword = $("#Lpassword").val();
+
+		if (login(RuserName, Rpassword)) {
+			document.getElementById("LoginForm").reset();
+		}
 
 	}
-
 }
+
+
+

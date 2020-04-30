@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
 	<script type="text/javascript" src="./js/app.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/users.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -31,6 +32,7 @@
 
 	<br>
 	<br>
+
 	<br><br>
 
 	<div id="tabs" >
@@ -40,6 +42,7 @@
 		<div id="Welcome" class="tabcontent"  >
 
 			<img src="images/logo2.png" width="800" height="200" Style=" margin-left:400px">
+
 			</br>
 			<input id="hov" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="moveToTabReg()"
 				value="Register" Style=" margin-left:180px" />
@@ -49,14 +52,15 @@
 				<button type="button" onclick=">Login!</button>-->
 		</div>
 
-		<div id="Register" class="tabcontent" >
-			<script type="text/javascript" src="./js/form.js"></script>
-			<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-			<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>
 
-			<script type="text/javascript" src="./js/dobpicker.js"></script>
+			<div id="Register" class="tabcontent">
+				<script type="text/javascript" src="./js/form.js"></script>
+				<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+				<!--<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>-->
+				<script type="text/javascript" src="./js/dobpicker.js"></script>
+				 
 
-			<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
+				<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
 
 			<form id="registerForm" class="form">
 				<label for="username">User Name </label>
@@ -79,13 +83,14 @@
 				<input id="Remail" name="email" type="email" placeholder="Enter Email">
 				<br>
 
+
 				<label for="birthday" id="birthday1">Birthday</label>
 				<br>
 				<select id="day" name="day" class='group'></select>
 				<select id="month" name="month" class='group'></select>
 				<select id="year" name="year" class='group'></select>
 
-				<button id="registerSubmit" type="submit">Register</button>
+					<button id="registerSubmit" type="button" onclick="RegisterSumbit()">Register</button>
 
 			</form>
 		</div>
@@ -105,7 +110,8 @@
 				<input id="Lpassword" name="password" type="password" placeholder="Enter Paasword" />
 				<br>
 
-				<button id="LoginSubmit" type="submit">Login</button>
+
+					<button id="LoginSubmit" type="button" onclick="LoginSumbit()">Login</button>
 
 			</form>
 		</div>
