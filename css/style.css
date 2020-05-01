@@ -242,7 +242,22 @@ height: 600px;
   .select-items div:hover, .same-as-selected {
 	background-color: rgba(0, 0, 0, 0.1);
   }
-  
+
+#prop span{
+	display: inline;
+}
+#score_view input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+
+	box-sizing: border-box;
+	border: none;
+	background-color: #ffffcc;
+	color: black;
+	text-align: center;
+}
+
+
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -313,6 +328,8 @@ height: 600px;
 	font-size: 15px;
 	font-family:Andale Mono, monospace	;
 	background-color :#ffbb99;
+	  position: absolute;
+	  right: 0;bottom:0;left:0;
   }
   .socialbtns ul {
 	  list-style: none;
