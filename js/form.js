@@ -81,7 +81,7 @@ $(document).ready(function () {
 		// submitHandler: function () { // for demo
 		// 	var isvalid = $("#registerForm").valid();
 		// 	if (isvalid) {
-		// 		// alert('reg sumbit validated!'); 
+		// 		// alert('reg sumbit validated!');
 		// 		RegisterFormSubmit();
 		// 		document.getElementById("registerForm").reset();
 
@@ -177,6 +177,5 @@ function LoginSumbit() {
 
 	}
 }
-
 
 

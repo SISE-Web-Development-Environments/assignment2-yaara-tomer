@@ -20,7 +20,7 @@ input[type=text], input[type=password],input[type="email"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
- select{
+select{
   width: 28%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -112,8 +112,8 @@ span.psw {
 }
 
 label.error {
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
-	padding:1px 20px 1px 20px;
-  }
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding:1px 20px 1px 20px;
+}
