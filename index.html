@@ -6,12 +6,11 @@
 	<script type="text/javascript" src="./js/app.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/users.js"></script>
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tomer and Yaara Pacman</title>
@@ -30,10 +29,6 @@
 	<button class="tablink" id="btnShowModal" onclick="about()">About</button>
 </header>
 
-<br>
-<br>
-
-<br><br>
 
 <div id="tabs" >
 	<!--style=" margin-left: 100px;"> -->
@@ -41,7 +36,9 @@
 
 	<div id="Welcome" class="tabcontent"  >
 		<div class="wrapper">
-			<img src="images/logo2.png" width="800" height="200" >
+			<img src="images/logo2.png" width="800" height="200" style=" text-align: center; align-items: center" >
+			</br>
+			</br>
 
 			</br>
 			<input id="hov1" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="moveToTabReg()"
@@ -164,7 +161,6 @@
 				<tr></tr>
 				<tr>
 					<td><label for="25color"> Select color for 25 points:</label> </td>
-
 					<td> <input type="color" id="25color" name="favcolor" value="#8601AF"> </td>
 				</tr>
 				<tr></tr>
@@ -201,23 +197,90 @@
 		</form>
 	</div>
 	<div id="Game1" class="tabcontent">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<div id = "view_container" class="container-fluid" style=" text-align: center; align-items: center">
+			<div class="row" style="text-align: center">
+				<div id ="setting_view" class="col-sm-2" style=" text-align: left ; margin-right: 10px;background-color: #ffffcc;">
+					<br>
+					<p style=" text-decoration: underline; font-size: 20px;text-align: center; "><strong> Game Settings:</strong></p>
+					<div id = "prop" >
+						<span> <strong> Number of monsters : </strong></span>
+					<span id ="showNumberMonster" > </span>
+					<br>
+						<br>
+						<span><strong> Number of balls:</strong></span>
+						<span id ="showNumberballs" > </span>
+						<br>
+						<br>
+					<span> <strong>Time : </strong></span>
+						<span id ="showTimeGame" > </span>
+						<br>
+						<br>
+						<span style=" text-decoration: underline; text-align: center; "><strong> Game score points:</strong></span>
+						<br>
+						<span><strong> color for 5 points: </strong></span>
+						<i id = "show5point" class="fa fa-heart"></i>
+						<br>
+						<span><strong> color for 15 points: </strong></span>
+						<i id = "show15point" class="fa fa-heart"></i>
+						<br>
+						<span> <strong>color for 25 points: </strong></span>
+						<i id = "show25point" class="fa fa-heart"></i>
+						<br>
+						<br>
+						<span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
+						<br>
+						<span><strong> Left Move :</strong></span>
+						<i  class="	fa fa-angle-left"></i>
+						<span id ="showLeftMove" > </span>
+						<br>
+						<span><strong> Right Move :</strong></span>
+						<i  class="	fa fa-angle-right"></i>
+						<span id ="showRightMove" > </span>
+						<br>
+						<span><strong> Up Move :</strong></span>
+						<i  class="	fa fa-angle-up"></i>
+						<span id ="showUpMove" > </span>
+						<br>
+						<span><strong> Down Move :</strong></span>
+						<i  class="	fa fa-angle-down"></i>
+						<span id ="showDoenMove" > </span>
+					</div >
+				</div>
 
-		<div id="score">
-			<table>
-				<tr>
-					<td><label for="lblScore">SCORE:</label> </td>
-					<td><input id="lblScore" type="text" width="200px" /></td>
 
-					<td> <label for="lblTime">TIME:</label></td>
-					<td><input id="lblTime" type="text" width="200px" /></td>>
-					<!--<td> <i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td> -->
-				</tr>
-			</table>
+				<div id ="game_view" class="col-sm-8"  width="1200" style="background-color:	#ccffe6; align-items: center ">
+					<div id="game" style="align-items: center ">
+						<canvas id="canvas" height="520" width="1000" style="outline: black 3px solid;display: inline;" ></canvas>
+					</div>
+				</div>
+				<div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
+					<a style="font-size: 16px"><strong>Hello, </strong></a>
+					<div  id="showuserName" style="font-size: 16px; "></div>
+					<br><br>
+					<br>
+					<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" width="200px" />
+						<br>
+						<br>
+						<br>
+						 <label for="lblTime">TIME:</label></td>
+						<input id="lblTime" type="text" width="200px" />
+						<br><br>
+						<br><!--<td> <i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td> -->
+						<label for="live">ALIVE:</label></td>
+						<input id="live" type="text" width="200px" />
+
+					</div>
+				</div>
+			</div>
+
 		</div>
 
-		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
-		</div>
 	</div>
 
 	<!--<div id="About1" class="tabcontent">-->
@@ -272,14 +335,9 @@
 		</ul>
 	</div>
 	<span class=credits>
-			Code and design by Tomer Godelli & Yaara Rumney
+			<i class="fa fa-copyright"></i>
+			 Code and design by Tomer Godelli & Yaara Rumney
 
 
 		</span>
 </footer>
-</body>
-
-
-
-
-</html>

@@ -111,6 +111,7 @@ function submitSetting(){
     if (validSettings){
 
         switchDiv('Game1')
+        SettingViewFill();
     }
 }
 
@@ -127,25 +128,27 @@ function setRandomSetting() {
     keyMovesCode.down = 'ArrowDown';
 
     // should be random
-    color5score = Math.floor(Math.random()*16777215).toString(16);
-    color15score = Math.floor(Math.random()*16777215).toString(16);
-    color25score = Math.floor(Math.random()*16777215).toString(16);
+    color5score = "#" + Math.floor(Math.random()*16777215).toString(16);
+    color15score = "#" +Math.floor(Math.random()*16777215).toString(16);
+    color25score ="#" + Math.floor(Math.random()*16777215).toString(16);
     let dif = (color5score === color15score || color15score === color25score || color5score === color25score);
     while(dif===true){
-        color5score = Math.floor(Math.random()*16777215).toString(16);
-        color15score = Math.floor(Math.random()*16777215).toString(16);
-        color25score = Math.floor(Math.random()*16777215).toString(16);
+        color5score = "#" + Math.floor(Math.random()*16777215).toString(16);
+        color15score = "#" +Math.floor(Math.random()*16777215).toString(16);
+        color25score ="#" + Math.floor(Math.random()*16777215).toString(16);
         dif = (color5score === color15score || color15score === color25score || color5score === color25score);
     }
-    document.getElementById("5color").value = color5score ;
-    document.getElementById("15color").value = color15score;
-     document.getElementById("25color").value = color25score;
+   // document.getElementById("5color").value = color5score ;
+    //document.getElementById("15color").value = color15score;
+    // document.getElementById("25color").value = color25score;
 
 
     numOfBalls = Math.floor(Math.random() * (90 - 50 + 1)) + 50;
     timeOfGame = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
     numOfGhost = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
 
+    switchDiv('Game1');
+    SettingViewFill();
 }
 
  function resetSetting(){
@@ -160,4 +163,20 @@ function setRandomSetting() {
      //ToDo other reset maybe?
 }
 
+function SettingViewFill(){
+    document.getElementById("showNumberMonster").innerHTML =numOfGhost ;
+    document.getElementById("showNumberballs").innerHTML =numOfBalls ;
+    document.getElementById("showTimeGame").innerHTML =timeOfGame ;
+   // document.getElementById("showNumberMonster").innerHTML =timeOfGame ;
+   // document.getElementById("showNumberMonster").value = timeOfGame;
+    document.getElementById("show5point").style.color = color5score;
+    document.getElementById("show15point").style.color = color15score;
+    document.getElementById("show25point").style.color = color25score;
+
+    document.getElementById("showLeftMove").innerHTML = keyMovesCode.left;
+    document.getElementById("showRightMove").innerText = keyMovesCode.right;
+    document.getElementById("showUpMove").innerHTML = keyMovesCode.up;
+    document.getElementById("showDoenMove").innerText = keyMovesCode.down;
+    document.getElementById("showuserName").innerText = currentUser;
+}
 
