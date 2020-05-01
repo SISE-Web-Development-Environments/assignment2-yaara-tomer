@@ -42,7 +42,7 @@ function isUserNameExist(username) {
 
 function addUserToSessionStorage(username,password,firstname,lastname,email,day,month,year) {
 	let newUser = new User(username,password,firstname,lastname,email,day,month,year);
-    sessionStorage.setItem(newUser.username, JSON.stringify(newUser));
+	sessionStorage.setItem(newUser.username, JSON.stringify(newUser));
 	console.log("user  added: " + username);
 
 }
@@ -65,24 +65,24 @@ function RegisterFormSubmit() {
 
 
 class User{
-    username;
-    password;
+	username;
+	password;
 	firstname;
 	lastname;
-    email;
-    day;
-    month;
-    year;
+	email;
+	day;
+	month;
+	year;
 
-    constructor( username,password,firstname,lastname,email,day,month,year) {
-        this.username = username;
-        this.password = password;
+	constructor( username,password,firstname,lastname,email,day,month,year) {
+		this.username = username;
+		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
-        this.email = email;
-        this.day = day;
-        this.month = month;
-        this.year = year;
+		this.email = email;
+		this.day = day;
+		this.month = month;
+		this.year = year;
 	}
 
 }

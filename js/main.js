@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
@@ -32,18 +33,14 @@ $(document).ready(function () {
 //var btn = document.getElementById("myBtn");
 
 //});
-
-
-
 function switchDiv(divName){
-	if(divName=="Game1" && isLoggedIn==false){
+	if(divName=="Game" && isLoggedIn==false){
 		alert("You must Login or Register in order to play this amazing game");
 		switchDiv("Welcome");
 		return false;
 	}
 	console.log("switch to "+divName);
-	openPage(divName, this, ' #ca5349');
-
+	openPage(divName, this, ' #777');
 
 }
 
@@ -64,18 +61,4 @@ window.onclick = function(e) {
 		document.getElementById("About").close();
 };
 
-// function showSetting(){
-// 	document.getElementById("settingdialog").showModal();
-// 	var span = document.getElementsByClassName("close")[0];
-// 	span.onclick = function() {
-// 		document.getElementById("settingdialog").close();
-// 	};
-// }
-// function closeDialog() {
-// 	document.getElementById("settingdialog").close();
-// }
-//
-// window.onclick = function(e) {
-// 	if (e.target == document.getElementById("settingdialog"))
-// 		document.getElementById("settingdialog").close();
-// };
+
