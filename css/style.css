@@ -38,10 +38,10 @@ body {
 }
 
 #hov1:hover{
-	transform: scale(1.2);
+	transform: scale(1.4);
 }
 #hov2:hover{
-	transform: scale(1.2);
+	transform: scale(1.4);
 }
   body, html {
 	height: 100%;
@@ -153,10 +153,7 @@ input.setting_form{
 	background: #4CAF50;
 	cursor: pointer;
   }
-  #Game {
-	  
-background-color: orange;
-}
+
 #lblScore{
 	width: 25%;
 	height: 40px;
@@ -181,7 +178,48 @@ height: 600px;
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 }
+#randomSettingbutton{
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 36px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+	width: 80%;
+}
+#randomSettingbutton:hover{
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	background-color:#1e62d0;
+}
+#mySettingbutton{
+	box-shadow:inset 0px 1px 0px 0px #e184f3;
+	background:linear-gradient(to bottom, #c25cd6 5%, #bd40d6 100%);
+	background-color:#c25cd6;
+	border-radius:6px;
+	border:1px solid #a511c0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:19px 29px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9b14b3;
 
+}
+#mySettingbutton:hover{
+	background:linear-gradient(to bottom, #bd40d6 5%, #c25cd6 100%);
+	background-color: #872e95;
+}
 .custom-select {
 	position: relative;
 	font-family: Arial;

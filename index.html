@@ -13,6 +13,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>Tomer and Yaara Pacman</title>
 
 </head>
@@ -41,9 +42,9 @@
 			</br>
 
 			</br>
-			<input id="hov1" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="moveToTabReg()"
+			<input id="hov1" type="image" width="10%" src="images/yellow-removebg-preview.png" onclick="switchDiv('Register')"
 				   value="Register" Style=" margin-left:180px" />
-			<input id="hov2" type="image" width="10%" src="images/blue-removebg-preview.png" onclick="moveToTabLogin()"
+			<input id="hov2" type="image" width="10%" src="images/blue-removebg-preview.png" onclick="switchDiv('Login')"
 				   value="Login" Style=" margin-left:180px" />
 			<!--<button type="button" onclick style="display:block;">Register!</button> 
 				<button type="button" onclick=">Login!</button>-->
@@ -125,14 +126,14 @@
 					<td><label for="right_key">right </label></td>
 					<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"></td>
 					<td></td>
-					<td><label for="left_key">left</label></td>
+					<td><label for="left_key"> left</label></td>
 					<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"></td>
 				</tr>
 				<tr>
-					<td><label for="up_key">up</label></td>
+					<td><label for="up_key"> up</label></td>
 					<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up" > </td>
 					<td></td>
-					<td><label for="down_key">down</label></td>
+					<td><label for="down_key">down </label></td>
 					<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"></td>
 				</tr>
 				<tr></tr>
@@ -141,16 +142,16 @@
 			<br>
 			<table>
 				<tr>
-					<td><label for="vol">number of balls per game :</label> </td>
+					<td><label for="vol">number of balls :</label> </td>
 
 					<td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
 				</tr>
 				<tr></tr>
 				<tr></tr>
 				<tr>
-					<td><label for="5color">Select color for 5 points:</label></td>
+					<td ><label for="5color">Select color for 5 points:</label></td>
 
-					<td><input type="color" id="5color" name="favcolor" value="#FB9902"> </td>
+					<td style="align-items: center"><input type="color" id="5color" name="favcolor" value="#FB9902" > </td>
 				</tr>
 				<tr></tr>
 				<tr>
@@ -175,7 +176,7 @@
 				<tr>
 					<td> <label for="select_bar">set number of monster</label></td>
 
-					<td> <select id="select_bar" style="width: 100%;">
+					<td> <select id="select_bar" style="width: 50%;">
 						<option value="0">1</option>
 						<option value="1">2</option>
 						<option value="2">3</option>
@@ -188,8 +189,9 @@
 			<br>
 			<table>
 				<tr>
-					<td><button type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
-					<td><button type="button"  onclick="submitSetting()" >play game!</button>
+					<td><button  id = "randomSettingbutton" type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
+
+					<td><button  id = "mySettingbutton" type= "button"  onclick="submitSetting()" >play game!</button>
 					</td>
 
 				</tr>
@@ -201,6 +203,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 		<div id = "view_container" class="container-fluid" style=" text-align: center; align-items: center">
 			<div class="row" style="text-align: center">
 				<div id ="setting_view" class="col-sm-2" style=" text-align: left ; margin-right: 10px;background-color: #ffffcc;">
@@ -234,20 +237,21 @@
 						<span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
 						<br>
 						<span><strong> Left Move :</strong></span>
-						<i  class="	fa fa-angle-left"></i>
 						<span id ="showLeftMove" > </span>
+						<i  class="	fa fa-arrow-left"></i>
 						<br>
 						<span><strong> Right Move :</strong></span>
-						<i  class="	fa fa-angle-right"></i>
 						<span id ="showRightMove" > </span>
+						<i  class="fa fa-arrow-right"></i>
 						<br>
 						<span><strong> Up Move :</strong></span>
-						<i  class="	fa fa-angle-up"></i>
 						<span id ="showUpMove" > </span>
+						<i  class="	fa fa-arrow-up"></i>
 						<br>
+
 						<span><strong> Down Move :</strong></span>
-						<i  class="	fa fa-angle-down"></i>
 						<span id ="showDoenMove" > </span>
+						<i  class="	fa fa-arrow-down"></i>
 					</div >
 				</div>
 
@@ -258,21 +262,22 @@
 					</div>
 				</div>
 				<div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
+					<br>
 					<a style="font-size: 16px"><strong>Hello, </strong></a>
 					<div  id="showuserName" style="font-size: 16px; "></div>
 					<br><br>
 					<br>
 					<div id="score">
-						<label for="lblScore">SCORE:</label>
+						<label for="lblScore"><strong>SCORE:</strong></label>
 						<input id="lblScore" type="text" width="200px" />
 						<br>
 						<br>
 						<br>
-						 <label for="lblTime">TIME:</label></td>
+						 <label for="lblTime"><strong>TIME:</strong></label></td>
 						<input id="lblTime" type="text" width="200px" />
 						<br><br>
 						<br><!--<td> <i id="set" onclick="showSetting(this)" class="fa fa-cog fa-5x"></i> </td> -->
-						<label for="live">ALIVE:</label></td>
+						<label for="live"><strong>ALIVE:</strong></label></td>
 						<input id="live" type="text" width="200px" />
 
 					</div>
@@ -289,6 +294,7 @@
 		<br>
 		<div class="modal-header">
 			<p><strong>Our names are: Yaara and Tomer</strong></p>
+			<br>
 			<p><strong>welcome to our Pac-Man Game!</strong></p>
 		</div>
 		<div class="modal-body">
@@ -297,7 +303,7 @@
 			<p>jQuery plugins:</p>
 			<p>Templates:</p>
 			<p>Challenges:</p>
-			<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" style="margin-left: 120px">
+			<img class="logo-img" src="images/two_ghost.jpg" width="400" height="200" style="margin-left: 80px">
 		</div>
 
 	</dialog>
