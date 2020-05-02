@@ -16,11 +16,13 @@ var numOf25points;// = Math.floor(0.1 * numberOfBalls);
 var foodColor5;
 var foodColor15;
 var foodColor25;
+var timeForGame;
 
 var UpCode;// = 38;
 var DownCode;// = 40;
 var RightCode;// = 39;
 var LeftCode;// = 37;
+
 var mysound;
 var ismusic = true;
 //======images============
@@ -38,6 +40,7 @@ var time_elapsed;
 $(document).ready(function () {
     context = canvas.getContext("2d");
     setGhostsImage();
+    showAlive();
     //mutemusic();
     //Start();
 });
@@ -175,7 +178,7 @@ function Start() {
     );
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
     ghostInterval = setInterval(UpdateGhostPosition, 200);
-    mysound = new sound('Coldplay - A Sky Full Of Stars (Official audio).mp3');
+    mysound = new sound("resources/BeyoncJay-Z - Crazy In Love");
     mysound.play();
 }
 
@@ -211,7 +214,7 @@ function GetKeyPressed() {
 function Draw() {
     canvas.width = canvas.width; //clean board
     lblScore.value = score;
-    lblTime.value = time_elapsed;
+    lblTime.value = timeForGame-time_elapsed;
     for (var i = 0; i < 40; i++) {
         for (var j = 0; j < 20; j++) {
             var center = {};
@@ -535,4 +538,34 @@ function sound(src) {
     this.stop = function(){
         this.sound.pause();
     }
+}
+function showAlive(){
+    if (lives===1){
+        document.getElementById("two").style.display = "none";
+        document.getElementById("three").style.display = "none";
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===2){
+
+        document.getElementById("three").style.display = "none";
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===3){
+
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===4){
+
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+   if(lives===5){
+       document.getElementById("six").style.display = "none";
+   }
 }
