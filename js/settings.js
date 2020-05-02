@@ -98,7 +98,7 @@ function submitSetting(){
     color25score = document.getElementById("25color").value;
     checkForSameColor();
     numOfBalls = parseInt(document.getElementById("vol").value);
-    timeOfGame = document.getElementById("time1").value;
+    timeOfGame = parseInt(document.getElementById("time1").value);
     if (timeOfGame<60){
         alert("you need to put value bigger than 60 sec");
         validNumber = false;
@@ -107,7 +107,7 @@ function submitSetting(){
     else{
         validNumber = true;
     }
-    numOfGhost = document.getElementById("select_bar").value;
+    numOfGhost = parseInt(document.getElementById("select_bar").value);
     if(numOfGhost==0){
         alert("you need to choose value for number of ghosts");
         validnumofghost = false;
@@ -119,8 +119,7 @@ function submitSetting(){
     validSettings = (validNumber && validkeys && validcolor && validnumofghost)
     if (validSettings){
 
-        switchDiv('Game')
-        SettingViewFill();
+       sentToGameAndStart();
     }
 }
 
@@ -128,8 +127,8 @@ function submitSetting(){
 function setRandomSetting() {
     //up down etc...
     keyMovesWhich.left = 37;
-    keyMovesWhich.right = 38;
-    keyMovesWhich.up = 39;
+    keyMovesWhich.right = 39;
+    keyMovesWhich.up = 38;
     keyMovesWhich.down = 40;
     keyMovesCode.left = 'ArrowLeft';
     keyMovesCode.right = 'ArrowRight';
@@ -156,8 +155,29 @@ function setRandomSetting() {
     timeOfGame = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
     numOfGhost = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
 
-    switchDiv('Game');
+    sentToGameAndStart();
+}
+
+function sendGameParams() {
+    numberOfGhosts = numOfGhost;
+    numberOfBalls = numOfBalls;
+    UpCode = keyMovesWhich.up;
+    DownCode =  keyMovesWhich.down;
+    RightCode =  keyMovesWhich.right;
+    LeftCode =  keyMovesWhich.left;
+    foodColor5=color5score;
+    foodColor15=color15score;
+    foodColor25=color25score;
+
+}
+
+
+function sentToGameAndStart(){
     SettingViewFill();
+    sendGameParams();
+    startGame();
+    switchDiv('Game');
+
 }
 
  function resetSetting(){
@@ -187,6 +207,5 @@ function SettingViewFill(){
     document.getElementById("showUpMove").innerHTML = keyMovesCode.up;
     document.getElementById("showDoenMove").innerText = keyMovesCode.down;
     document.getElementById("showuserName").innerText = currentUser.firstname;
-    console.log(currentUser.firstname);
 }
 
