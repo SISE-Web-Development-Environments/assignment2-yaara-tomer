@@ -167,7 +167,6 @@ function RegisterSumbit() {
 function LoginSumbit() {
 	var isvalid = $("#LoginForm").valid();
 	if (isvalid) {
-		alert('login sumbit validated!');
 		let RuserName = $("#Lusername").val();
 		let Rpassword = $("#Lpassword").val();
 
