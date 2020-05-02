@@ -580,10 +580,9 @@ function getManhattanDistance(ghost) {
 }
 
 function gameOver() {
-    clearInterval(packmanInterval);
-    clearInterval(ghostInterval);
+    clearAllIntervals();
 
-    alert("busted");
+    alert("Game Over!");
 
 }
 
@@ -669,20 +668,6 @@ var GameBoard = [
     //	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//9
 ]
 
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function () {
-        this.sound.play();
-    }
-    this.stop = function () {
-        this.sound.pause();
-    }
-}
 
 function runAllIntervals() {
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
