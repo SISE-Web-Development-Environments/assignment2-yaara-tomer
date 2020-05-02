@@ -15,6 +15,7 @@ var timeOfGame;
 var validcolor=undefined;
 var validkeys = undefined;
 var validNumber = undefined;
+var validnumofghost = undefined;
 
 var keyMovesWhich = {left:undefined, right:undefined,up:undefined,down:undefined};
 var keyMovesCode = {left:undefined, right:undefined,up:undefined,down:undefined};
@@ -97,7 +98,7 @@ function submitSetting(){
     color25score = document.getElementById("25color").value;
     checkForSameColor();
     numOfBalls = parseInt(document.getElementById("vol").value);
-    timeOfGame = document.getElementById("time").value;
+    timeOfGame = document.getElementById("time1").value;
     if (timeOfGame<60){
         alert("you need to put value bigger than 60 sec");
         validNumber = false;
@@ -106,11 +107,19 @@ function submitSetting(){
     else{
         validNumber = true;
     }
-    numOfGhost = document.getElementById("time").value;
-    validSettings = (validNumber && validkeys && validcolor)
+    numOfGhost = document.getElementById("select_bar").value;
+    if(numOfGhost==0){
+        alert("you need to choose value for number of ghosts");
+        validnumofghost = false;
+        return;
+    }
+    else{
+        validnumofghost = true;
+    }
+    validSettings = (validNumber && validkeys && validcolor && validnumofghost)
     if (validSettings){
 
-        switchDiv('Game1')
+        switchDiv('Game')
         SettingViewFill();
     }
 }
