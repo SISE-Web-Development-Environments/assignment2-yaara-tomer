@@ -21,10 +21,12 @@ var UpCode;// = 38;
 var DownCode;// = 40;
 var RightCode;// = 39;
 var LeftCode;// = 37;
-
+var mysound;
+var ismusic = true;
 //======images============
 var pacIcon = new Image();
 var ghostImageArray = [];
+var wallIcon = new Image();
 
 //=============Game==================
 var lives = 5;
@@ -36,6 +38,7 @@ var time_elapsed;
 $(document).ready(function () {
     context = canvas.getContext("2d");
     setGhostsImage();
+    //mutemusic();
     //Start();
 });
 
@@ -172,6 +175,8 @@ function Start() {
     );
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
     ghostInterval = setInterval(UpdateGhostPosition, 200);
+    mysound = new sound('Coldplay - A Sky Full Of Stars (Official audio).mp3');
+    mysound.play();
 }
 
 function findRandomEmptyCell(board) {
@@ -213,28 +218,30 @@ function Draw() {
             center.x = i * 26 + 13;
             center.y = j * 26 + 13;
             if (board[i][j] == 2) { //packman
-                pacIcon.src = "images/icons/pac" + lastDirection + ".ico";
+                pacIcon.src = "images/icons/pac" + lastDirection + ".png"; //".ico";
                 context.drawImage(pacIcon, i * 26, j * 26, 26, 26);
             } else if (board[i][j] == 11) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 3, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 5.25, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor5; //"black"; //color
                 context.fill();
             } else if (board[i][j] == 12) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 4.5, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor15;//"red"; //color
                 context.fill();
             } else if (board[i][j] == 13) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 6.75, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor25;//"blue"; //color
                 context.fill();
             } else if (board[i][j] == 4) { //wall
-                context.beginPath();
-                context.rect(center.x - 13, center.y - 13, 26, 26);
-                context.fillStyle = "grey"; //color
-                context.fill();
+               // context.beginPath();
+               // context.rect(center.x - 13, center.y - 13, 26, 26);
+               // context.fillStyle = "grey"; //color
+               // context.fill();
+                wallIcon.src = "images/brick3.png";
+                context.drawImage(wallIcon, i * 26, j * 26, 26, 26);
             } else if (board[i][j] > 30) { //ghost
                 context.drawImage(ghostImageArray[board[i][j] - 30], i * 26, j * 26, 26, 26);
                 //context.drawImage(ghostArray[i - 17], i * 30, j * 30, 30, 30);
@@ -388,6 +395,17 @@ function setGhostsImage() {
 
     ghostImageArray[4] = new Image();
     ghostImageArray[4].src = "images/icons/g4.ico";
+    // ghostImageArray[1] = new Image();
+    // ghostImageArray[1].src = "images/icons/g1.png";
+    //
+    // ghostImageArray[2] = new Image();
+    // ghostImageArray[2].src = "images/icons/g2.png";
+    //
+    // ghostImageArray[3] = new Image();
+    // ghostImageArray[3].src = "images/icons/g3.png";
+    //
+    // ghostImageArray[4] = new Image();
+    // ghostImageArray[4].src = "images/icons/g4.png";
 
 
 }
@@ -465,6 +483,19 @@ function checkCollision() {
     });
 
 }
+function   mutemusic(){
+    if(ismusic){ // do mute
+        mysound.stop();
+        ismusic=false;
+        document.getElementById("music").src ="images/mute-512.png" ;
+    }
+    else{
+        mysound.play();
+        ismusic= true;
+        document.getElementById("music").src ="images/volume-512.png" ;
+    }
+
+}
 
 var GameBoard = [
     // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,],
@@ -491,3 +522,17 @@ var GameBoard = [
 
     //	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//9
 ]
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}

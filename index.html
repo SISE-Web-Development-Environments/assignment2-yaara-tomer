@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
 
 <head>
     <script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
@@ -39,12 +39,13 @@
 
     <div id="Welcome" class="tabcontent">
         <div class="wrapper">
-            <img src="images/logo2.png" width="600" height="200" Style=" margin-left:170px">
+            <img src="images/logo2.png" width="800" height="200" >
             </br>
+
             <input id="hov1" type="image" width="20%" src="images/register-log.png"
-                   onclick="switchDiv('Register')" value="Register" Style=" margin-left:180px"/>
+                   onclick="switchDiv('Register')" value="Register" Style=" margin-left:140px"/>
             <input id="hov2" type="image" width="20%" src="images/login-red.png"
-                   onclick="switchDiv('Login')" value="Login" Style=" margin-left:180px"/>
+                   onclick="switchDiv('Login')" value="Login" Style=" margin-left:140px"/>
             <!--<button type="button" onclick style="display:block;">Register!</button>
            <button type="button" onclick=">Login!</button>-->
         </div>
@@ -236,13 +237,13 @@
                         <span style=" text-decoration: underline; text-align: center; "><strong> Game score points:</strong></span>
                         <br>
                         <span><strong> color for 5 points: </strong></span>
-                        <i id="show5point" class="fa fa-heart"></i>
+                        <i id="show5point" class="fa fa-square"></i>
                         <br>
                         <span><strong> color for 15 points: </strong></span>
-                        <i id="show15point" class="fa fa-heart"></i>
+                        <i id="show15point" class="fa fa-square"></i>
                         <br>
                         <span> <strong>color for 25 points: </strong></span>
-                        <i id="show25point" class="fa fa-heart"></i>
+                        <i id="show25point" class="fa fa-square"></i>
                         <br>
                         <br>
                         <span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
@@ -263,13 +264,18 @@
                         <span><strong> Down Move :</strong></span>
                         <span id="showDoenMove"> </span>
                         <i class="	fa fa-arrow-down"></i>
+
+                        <br>
+                        <input id="music" class="myButton" type="image" width="20%" src="images/volume-512.png"
+                               onclick="mutemusic()" value="Login"/>
+
                     </div>
                 </div>
 
 
                 <div id="game_view" class="col-sm-8" width="1200">
                         <canvas id="canvas" height="520" width="1040"
-                                style=" background-color:	#ccffe6;"></canvas>
+                                style=" background-color:	#F0FFF0 ;"></canvas>
                 </div>
 
                 <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 75px;">
@@ -282,7 +288,7 @@
                         <label for="lblScore"><strong>SCORE:</strong></label>
                         <input id="lblScore" type="text" width="200px" />
                         <br>
-                        <br>
+
                         <br>
                     </div>
                     <div id="time">
@@ -291,14 +297,12 @@
                     </div>
                     <br>
                     <br>
-                    <br>
+
                     <div id="alive">
                         <label for="lblalive"><strong>ALIVE:</strong></label>
                         <input id="lblalive" type="text" width="200px" />
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
@@ -352,7 +356,13 @@
     </div>
 </footer>
 
+
+<script>
+    $(".speaker").click(function (e) {
+        e.preventDefault();
+
+        $(this).toggleClass("mute");
+    });
+    </script>
 </body>
-
-
 </html>
