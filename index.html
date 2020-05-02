@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body onload="showvol.value = 70">
 <header>
     <img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box" ALIGN=Left>
     <button class="tablink" onclick="switchDiv('Welcome')" id="defaultOpen">Welcome</button>
@@ -267,13 +267,12 @@
                 </div>
 
 
-                <div id="game_view" class="col-sm-8" width="1200"
-                     style="background-color:	#ccffe6; align-items: center ">
+                <div id="game_view" class="col-sm-8" width="1200">
                         <canvas id="canvas" height="520" width="1040"
-                                style="outline: black 3px solid;display: inline;"></canvas>
+                                style=" background-color:	#ccffe6;"></canvas>
                 </div>
 
-                <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
+                <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 75px;">
                     <br>
                     <a style="font-size: 16px"><strong>Hello, </strong></a>
                     <div id="showuserName" style="font-size: 16px; "></div>
@@ -352,15 +351,7 @@
 
     </div>
 </footer>
-<script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
 
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-</script>
 </body>
 
 
