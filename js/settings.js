@@ -66,6 +66,7 @@ $(document).ready(function () {
     setRightKey();
     setUpKey();
     setDownKey();
+    shownumber();
 
 
 });
@@ -156,7 +157,7 @@ function setRandomSetting() {
     timeOfGame = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
     numOfGhost = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
 
-    switchDiv('Game1');
+    switchDiv('Game');
     SettingViewFill();
 }
 
@@ -189,3 +190,8 @@ function SettingViewFill(){
     document.getElementById("showuserName").innerText = currentUser;
 }
 
+function shownumber() {
+    document.getElementById("vol").addEventListener("input", () => {
+        document.getElementById("showvol").innerHTML = document.getElementById("vol").value;
+    });
+}

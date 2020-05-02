@@ -41,9 +41,9 @@
         <div class="wrapper">
             <img src="images/logo2.png" width="600" height="200" Style=" margin-left:170px">
             </br>
-            <input id="hov1" type="image" width="20%" src="images/yellow-removebg-preview.png"
+            <input id="hov1" type="image" width="20%" src="images/register-log.png"
                    onclick="switchDiv('Register')" value="Register" Style=" margin-left:180px"/>
-            <input id="hov2" type="image" width="20%" src="images/blue-removebg-preview.png"
+            <input id="hov2" type="image" width="20%" src="images/login-red.png"
                    onclick="switchDiv('Login')" value="Login" Style=" margin-left:180px"/>
             <!--<button type="button" onclick style="display:block;">Register!</button>
            <button type="button" onclick=">Login!</button>-->
@@ -139,7 +139,10 @@
                 <tr>
                     <td><label for="vol">number of balls :</label></td>
 
-                    <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
+                    <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider">
+                        <output id ="showvol" for="vol" onforminput="value = vol.valueAsNumber;"></output> </td>
+
+
                 </tr>
                 <tr></tr>
                 <tr></tr>
@@ -201,22 +204,7 @@
 
 
     </div>
-    <!--<div id="About1" class="tabcontent">-->
-    <!--
-            <div id="Game" class="tabcontent">
-                <div id="score">
-                    <label for="lblScore">SCORE:</label>
-                    <input id="lblScore" type="text" />
-                </div>
-                <div id="time">
-                    <label for="lblTime">TIME:</label>
-                    <input id="lblTime" type="text" />
-                </div>
-                <div id="game1">
-                    <canvas id="canvas" height="600" width="600"></canvas>
-                </div>
-            </div>
-        </div> -->
+
 
     <div id="Game" class="tabcontent">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -278,12 +266,11 @@
                     </div>
                 </div>
 
-                <div id="game_view" class="col-sm-8" width="1200"
-                     style="background-color:	#ccffe6; align-items: center ">
-                    <div id="game1" style="align-items: center ">
+                <div id="game_view" class="col-sm-8" width="1200"   style="background-color:	#ccffe6; align-items: center ">
+
                         <canvas id="canvas" height="520" width="1000"
                                 style="outline: black 3px solid;display: inline;"></canvas>
-                    </div>
+
                 </div>
 
                 <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
@@ -340,6 +327,7 @@
 
 <footer id="footer">
     <div id="contactreal" class="socialbtns">
+
         <ul>
             <li>Contact Tomer at:</li>
             <li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
@@ -357,14 +345,22 @@
             </li>
             <li><a href="mailto:yaararm@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
         </ul>
-    </div>
-    <span class=credits>
+
+
 		<i class="fa fa-copyright"></i>
 			Code and design by Tomer Godelli & Yaara Rumney
 
-
-		</span>
+    </div>
 </footer>
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
 </body>
 
 

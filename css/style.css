@@ -38,10 +38,10 @@ header{
 }
 
 #hov1:hover{
-	transform: scale(1.4);
+	transform: scale(1.3);
 }
 #hov2:hover{
-	transform: scale(1.4);
+	transform: scale(1.3);
 }
 body, html {
 	height: 100%;
@@ -126,7 +126,7 @@ input.setting_form{
 
 .slider {
 	-webkit-appearance: none;
-	width: 100%;
+	width: 75%;
 	height: 25px;
 	background: #d3d3d3;
 	outline: none;
@@ -362,15 +362,18 @@ dialog{
 
 footer{
 	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 5px;
+
+	padding-top: 8px;
+	padding-bottom: 3px;
 	font-size: 15px;
 	font-family:Andale Mono, monospace	;
 	background-color :#ffbb99;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
+
+	line-height: normal;
 
 }
 .socialbtns ul {
@@ -382,7 +385,7 @@ footer{
 	justify-content: center;
 	text-align: center;
 	margin-top: 0;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 	/* margin-top: 40px; */
 }
 
@@ -392,8 +395,10 @@ footer{
 
 .socialbtns .fa {
 	color: black;
+
 }
 
-.credits .fa{
+.credits {
 	color: black;
+
 }
