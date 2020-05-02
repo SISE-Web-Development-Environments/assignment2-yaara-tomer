@@ -19,10 +19,12 @@ var foodColor5;
 var foodColor15;
 var foodColor25;
 var timeForGame;
+
 var UpCode;// = 38;
 var DownCode;// = 40;
 var RightCode;// = 39;
 var LeftCode;// = 37;
+
 var mysound;
 var ismusic = true;
 
@@ -48,6 +50,7 @@ var time_left;
 $(document).ready(function () {
     context = canvas.getContext("2d");
     setGhostsImage();
+    showAlive();
     //mutemusic();
     //Start();
 });
@@ -204,9 +207,9 @@ function Start() {
         },
         false
     );
-    runAllIntervals();
 
-    mysound = new sound('Coldplay - A Sky Full Of Stars (Official audio).mp3');
+    runAllIntervals();
+    mysound = new sound("resources/BeyoncJay-Z - Crazy In Love");
     mysound.play();
 }
 
@@ -242,6 +245,7 @@ function GetKeyPressed() {
 function Draw() {
     canvas.width = canvas.width; //clean board
     lblScore.value = score;
+
     lblTime.value = time_left;
     for (var i = 0; i < 40; i++) {
         for (var j = 0; j < 20; j++) {
@@ -667,6 +671,49 @@ var GameBoard = [
 
     //	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//9
 ]
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+function showAlive(){
+    if (lives===1){
+        document.getElementById("two").style.display = "none";
+        document.getElementById("three").style.display = "none";
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===2){
+
+        document.getElementById("three").style.display = "none";
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===3){
+
+        document.getElementById("four").style.display = "none";
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+    if (lives===4){
+
+        document.getElementById("five").style.display = "none";
+        document.getElementById("six").style.display = "none";
+    }
+   if(lives===5){
+       document.getElementById("six").style.display = "none";
+   }
 
 
 function runAllIntervals() {

@@ -61,27 +61,30 @@
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
 
         <form id="registerForm" class="form">
-            <label for="Rusername">User Name </label>
+            <label for="Rusername">User Name  &nbsp; </label>
             <input id="Rusername" name="username" type="text" placeholder="Enter Username">
 
-            <label for="Rpassword">Password</label>
+            <label for="Rpassword">Password  &nbsp; &nbsp;</label>
             <input id="Rpassword" name="password" type="password" placeholder="Enter Paasword"/>
 
-            <label for="Rfirstname">First Name</label>
+            <label for="Rfirstname">First Name &nbsp;</label>
             <input id="Rfirstname" name="firstname" type="text" placeholder="Enter First Name">
 
-            <label for="Rlastname">Last Name</label>
+            <label for="Rlastname">Last Name &nbsp;</label>
             <input id="Rlastname" name="lastname" type="text" placeholder="Enter Last Name">
 
-            <label for="Remail">Email</label>
+            <label for="Remail">Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
             <input id="Remail" name="email" type="email" placeholder="Enter Email">
+            <br>
+            <br>
+            <label for="birthday1" id="birthday1">Birthday &nbsp;</label>
+            <select id="day" name="day"  class='group' style="width: 20%;"></select>
 
-            <label for="birthday1" id="birthday1">Birthday</label>
-            <select id="day" name="day" class='group'></select>
             <select id="month" name="month" class='group'></select>
             <select id="year" name="year" class='group'></select>
             <br>
             <br>
+
             <button id="registerSubmit" type="button" onclick="RegisterSumbit()">Register</button>
 
         </form>
@@ -94,14 +97,18 @@
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
 
         <form id="LoginForm" class="form">
+            <img src="images/login6.jpg" style="margin-left: 120px" >
+            <br>
+            <br>
+
             <label for="Lusername">User Name </label>
             <input id="Lusername" name="username" type="text" placeholder="Enter Username">
             <br>
 
-            <label for="Lpassword">Password</label>
+            <label for="Lpassword">Password&nbsp;&nbsp;</label>
             <input id="Lpassword" name="password" type="password" placeholder="Enter Paasword"/>
             <br>
-
+            <br>
             <button id="LoginSubmit" type="button" onclick="LoginSumbit()">Login</button>
 
         </form>
@@ -111,21 +118,21 @@
         <script type="text/javascript" src="./js/settings.js"></script>
         <script type="text/javascript" src="./js/dobpicker.js"></script>
         <form id="setting_form">
-            <p>Select keys for moves: </p>
+            <p style="padding: 0px">Select keys for moves: </p>
             <table>
                 <tr>
                     <td><label for="right_key">right </label></td>
-                    <td><input id="right_key" name="r_key" type="text" placeholder="press key to set right"></td>
+                    <td><input id="right_key" name="r_key" type="text"  style="width: 100%;" placeholder="press key to set right"></td>
                     <td></td>
                     <td><label for="left_key"> left</label></td>
-                    <td><input id="left_key" name="l_key" type="text" placeholder="press key to set left"></td>
+                    <td><input id="left_key" name="l_key" type="text"  style="width: 100%;" placeholder="press key to set left"></td>
                 </tr>
                 <tr>
                     <td><label for="up_key"> up</label></td>
-                    <td><input id="up_key" name="up_key" type="text" placeholder="press key to set up"></td>
+                    <td><input id="up_key" name="up_key" type="text" style="width: 100%;" placeholder="press key to set up"></td>
                     <td></td>
                     <td><label for="down_key">down </label></td>
-                    <td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"></td>
+                    <td><input id="down_key" name="down_key" type="text" style="width: 100%;" placeholder="press key to set down"></td>
                 </tr>
                 <tr></tr>
                 <tr></tr>
@@ -135,7 +142,7 @@
                 <tr>
                     <td><label for="vol">number of balls :</label></td>
 
-                    <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider">
+                    <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider">&nbsp;
                         <output id ="showvol" for="vol" onforminput="value = vol.valueAsNumber;"></output> </td>
 
 
@@ -164,14 +171,14 @@
                 <tr>
                     <td><label for="time1">set time for game - in seconds</label></td>
 
-                    <td><input id="time1" name="time" type="text" placeholder="minimum is 60 sec"></td>
+                    <td>&nbsp;&nbsp;&nbsp;<input id="time1" name="time" type="text" style="width: 80%;" placeholder="minimum is 60 sec"></td>
                 </tr>
                 <tr></tr>
                 <tr></tr>
                 <tr>
                     <td><label for="select_bar">set number of monster</label></td>
 
-                    <td><select id="select_bar" style="width: 50%;">
+                    <td>&nbsp;&nbsp;&nbsp;<select id="select_bar" style="width: 50%;">
                         <option value="0">select</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -189,7 +196,6 @@
                             and play!
                         </button>
                     </td>
-
                     <td>
                         <button id="mySettingbutton" type="button" onclick="submitSetting()">play game!</button>
                     </td>
@@ -260,8 +266,8 @@
                         <span id="showDoenMove"> </span>
                         <i class="	fa fa-arrow-down"></i>
 
-                        <br>
-                        <input id="music" class="myButton" type="image" width="20%" src="images/volume-512.png"
+
+                        <input id="music" class="myButton" type="image" width="40%" src="images/volume-512.png"
                                onclick="mutemusic()" value="Login"/>
 
                     </div>
@@ -294,8 +300,15 @@
                     <br>
 
                     <div id="alive">
-                        <label for="lblalive"><strong>ALIVE:</strong></label>
-                        <input id="lblalive" type="text" width="200px" />
+                        <p><strong>ALIVE:</strong></p>
+                             <i id ="one" class="fa fa-heart" style="color: #a70b0b"></i>
+                            <i id ="two"class="fa fa-heart" style="color: #a70b0b"></i>
+                            <i id ="three"class="fa fa-heart" style="color: #a70b0b"></i>
+                        <br>
+                            <i id ="four"class="fa fa-heart" style="color:#a70b0b"></i>
+                            <i id ="five"class="fa fa-heart" style="color: #a70b0b"></i>
+                           <i id ="six" class="fa fa-heart" style="color: #a70b0b"></i>
+
                     </div>
                 </div>
             </div>
@@ -352,12 +365,6 @@
 </footer>
 
 
-<script>
-    $(".speaker").click(function (e) {
-        e.preventDefault();
 
-        $(this).toggleClass("mute");
-    });
-    </script>
 </body>
 </html>
