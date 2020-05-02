@@ -1,12 +1,14 @@
-//Board : food=11/12/13  packman=2 ghost=31/32/33/34  wall=4
+//Board : food=11/12/13  Time=15  heart=16 bonus=17  packman=2 ghost=31/32/33/34  wall=4
 var context;
 var shape = {};
 var board;
 var pac_color;
 var packmanInterval;
 var ghostInterval
+var bonusInterval;
 var lastDirection = 4;
 var ghosts = [{}, {}, {}, {}];
+var bonus = {};
 //=======Setting=============
 var numberOfGhosts;// = 4;
 var numberOfBalls;// = 90;
@@ -16,24 +18,32 @@ var numOf25points;// = Math.floor(0.1 * numberOfBalls);
 var foodColor5;
 var foodColor15;
 var foodColor25;
-
+var timeForGame;
 var UpCode;// = 38;
 var DownCode;// = 40;
 var RightCode;// = 39;
 var LeftCode;// = 37;
 var mysound;
 var ismusic = true;
+
 //======images============
 var pacIcon = new Image();
 var ghostImageArray = [];
 var wallIcon = new Image();
+var heartIcon = new Image();
+var hourglassIcon = new Image();
+var bonusIcon = new Image();
+wallIcon.src = "images/brick3.png";
+heartIcon.src = "images/heart1.png";
+hourglassIcon.src = "images/hourglass2.png";
+bonusIcon.src = "images/bonus1.png";
 
 //=============Game==================
 var lives = 5;
-var foodEatedCounter = 0;
+var foodEatenCounter = 0;
 var score;
 var start_time;
-var time_elapsed;
+var time_left;
 
 $(document).ready(function () {
     context = canvas.getContext("2d");
@@ -63,6 +73,7 @@ function startGame() {
 
     Start();
 }
+
 
 function Start() {
     board = [];
@@ -132,6 +143,7 @@ function Start() {
             }
         }
     }
+    //set packman location if not set yet
     if (typeof shape.i == "undefined") {
         var emptyCell = findRandomEmptyCell(board);
         shape.i = emptyCell[0];
@@ -139,6 +151,8 @@ function Start() {
         board[emptyCell[0]][emptyCell[1]] = 2;
         pacman_remain--;
     }
+
+    //set food left to locate
     while (food_remain > 0) {
         var emptyCell = findRandomEmptyCell(board);
         let rand2 = getRandomInt(3) + 1;
@@ -158,6 +172,23 @@ function Start() {
 
         }
     }
+
+    //set Time object
+    let emptyCellForTime = findRandomEmptyCell(board);
+    board[emptyCellForTime[0]][emptyCellForTime[1]] = 15;
+
+    //set heart object
+    let emptyCellForHeart = findRandomEmptyCell(board);
+    board[emptyCellForHeart[0]][emptyCellForHeart[1]] = 16;
+
+    //set bonus object
+    let emptyCellForBonus = findRandomEmptyCell(board);
+    board[emptyCellForBonus[0]][emptyCellForBonus[1]] = 17;
+    bonus.i = emptyCellForBonus[0];
+    bonus.j = emptyCellForBonus[1];
+    bonus.bellow = 0;
+    bonus.lastMove = 1;
+
     keysDown = {};
     addEventListener(
         "keydown",
@@ -173,8 +204,8 @@ function Start() {
         },
         false
     );
-    packmanInterval = setInterval(UpdatePackmanPosition, 200);
-    ghostInterval = setInterval(UpdateGhostPosition, 200);
+    runAllIntervals();
+
     mysound = new sound('Coldplay - A Sky Full Of Stars (Official audio).mp3');
     mysound.play();
 }
@@ -211,7 +242,7 @@ function GetKeyPressed() {
 function Draw() {
     canvas.width = canvas.width; //clean board
     lblScore.value = score;
-    lblTime.value = time_elapsed;
+    lblTime.value = time_left;
     for (var i = 0; i < 40; i++) {
         for (var j = 0; j < 20; j++) {
             var center = {};
@@ -235,12 +266,13 @@ function Draw() {
                 context.arc(center.x, center.y, 6.75, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor25;//"blue"; //color
                 context.fill();
+            } else if (board[i][j] == 15) { //time
+                context.drawImage(hourglassIcon, i * 26, j * 26, 26, 26);
+            } else if (board[i][j] == 16) { //heart
+                context.drawImage(heartIcon, i * 26, j * 26, 26, 26);
+            } else if (board[i][j] == 17) { //bonus
+                context.drawImage(bonusIcon, i * 26, j * 26, 26, 26);
             } else if (board[i][j] == 4) { //wall
-               // context.beginPath();
-               // context.rect(center.x - 13, center.y - 13, 26, 26);
-               // context.fillStyle = "grey"; //color
-               // context.fill();
-                wallIcon.src = "images/brick3.png";
                 context.drawImage(wallIcon, i * 26, j * 26, 26, 26);
             } else if (board[i][j] > 30) { //ghost
                 context.drawImage(ghostImageArray[board[i][j] - 30], i * 26, j * 26, 26, 26);
@@ -288,81 +320,190 @@ function UpdatePackmanPosition() {
         if (board[shape.i][shape.j] === 11) score += 5;
         if (board[shape.i][shape.j] === 12) score += 15;
         if (board[shape.i][shape.j] === 13) score += 25;
-        foodEatedCounter++;
-        //score++;
+        foodEatenCounter++;
     }
+
+    if (board[shape.i][shape.j] === 15) timeForGame += 30;//ToDo time
+
+    if (board[shape.i][shape.j] === 16) lives++; //ToDo animation?
+
+    if (board[shape.i][shape.j] === 17) getBonus(shape.i, shape.j); //ToDo animation?
+
     board[shape.i][shape.j] = 2;
     var currentTime = new Date();
-    time_elapsed = (currentTime - start_time) / 1000;
+    time_left = timeForGame - (currentTime - start_time) / 1000;
+    if (time_left < 0) {
+        time_left = 0;
+        gameOver();
 
-    if (foodEatedCounter == numOf5points + numOf15points + numOf25points) {
+    }
+
+    if (foodEatenCounter == numOf5points + numOf15points + numOf25points) {
         window.alert("Game completed");
-        window.clearInterval(packmanInterval);
-        window.clearInterval(ghostInterval);
+        clearAllIntervals();
 
     } else {
+        checkCollision();
         Draw();
     }
 }
 
 function UpdateGhostPosition() {
     ghosts.forEach(function (ghost) {
-        let x = getNextDirection(ghost);
-        let currentGhost = board[ghost.i][ghost.j]
+        if (!jQuery.isEmptyObject(ghost)) {
+            let x = getNextDirection(ghost);
+            let currentGhost = board[ghost.i][ghost.j]
+            if (x == 1) { //up
+                if (ghost.j > 0 && board[ghost.i][ghost.j - 1] != 4 && !isGhost(ghost.i, ghost.j - 1) && !isBonus(ghost.i, ghost.j - 1)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[ghost.i][ghost.j - 1];
 
-        if (x == 1) { //up
-            if (ghost.j > 0 && board[ghost.i][ghost.j - 1] != 4 && !isGhost(ghost.i, ghost.j - 1)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[ghost.i][ghost.j - 1];
-
-                board[ghost.i][ghost.j - 1] = currentGhost;
-                ghost.j--;
+                    board[ghost.i][ghost.j - 1] = currentGhost;
+                    ghost.j--;
+                }
             }
+            if (x == 2) {//down
+                if (ghost.j < 19 && board[ghost.i][ghost.j + 1] != 4 && !isGhost(ghost.i, ghost.j + 1) && !isBonus(ghost.i, ghost.j + 1)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[ghost.i][ghost.j + 1];
+
+                    board[ghost.i][ghost.j + 1] = currentGhost;
+                    ghost.j++;
+                }
+            }
+            if (x == 3) {//left
+                if (ghost.i == 0 && ghost.j == 5 && !isGhost(39, ghost.j) && !isBonus(39, ghost.j)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[39][ghost.j];
+
+                    board[39][ghost.j] = currentGhost;
+                    ghost.i = 39;
+                } else if (ghost.i > 0 && board[ghost.i - 1][ghost.j] != 4 && !isGhost(ghost.i - 1, ghost.j) && !isBonus(ghost.i - 1, ghost.j)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[ghost.i - 1][ghost.j];
+
+                    board[ghost.i - 1][ghost.j] = currentGhost;
+                    ghost.i--;
+                }
+            }
+            if (x == 4) {//right
+                if (ghost.i == 39 && ghost.j == 5 && !isGhost(0, ghost.j - 1) && !isBonus(0, ghost.j - 1)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[0][ghost.j];
+
+                    board[0][ghost.j] = currentGhost;
+                    ghost.i = 0;
+                }
+                if (ghost.i < 39 && board[ghost.i + 1][ghost.j] != 4 && !isGhost(ghost.i + 1, ghost.j) && !isBonus(ghost.i + 1, ghost.j)) {
+                    board[ghost.i][ghost.j] = ghost.bellow;
+                    ghost.bellow = board[ghost.i + 1][ghost.j];
+
+                    board[ghost.i + 1][ghost.j] = currentGhost;
+                    ghost.i++;
+                }
+            }
+            checkCollision();
+            Draw();
         }
-        if (x == 2) {//down
-            if (ghost.j < 19 && board[ghost.i][ghost.j + 1] != 4 && !isGhost(ghost.i, ghost.j + 1)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[ghost.i][ghost.j + 1];
-
-                board[ghost.i][ghost.j + 1] = currentGhost;
-                ghost.j++;
-            }
-        }
-        if (x == 3) {//left
-            if (ghost.i == 0 && ghost.j == 5 && !isGhost(39, ghost.j)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[39][ghost.j];
-
-                board[39][ghost.j] = currentGhost;
-                ghost.i = 39;
-            } else if (ghost.i > 0 && board[ghost.i - 1][ghost.j] != 4 && !isGhost(ghost.i - 1, ghost.j)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[ghost.i - 1][ghost.j];
-
-                board[ghost.i - 1][ghost.j] = currentGhost;
-                ghost.i--;
-            }
-        }
-        if (x == 4) {//right
-            if (ghost.i == 39 && ghost.j == 5 && !isGhost(0, ghost.j - 1)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[0][ghost.j];
-
-                board[0][ghost.j] = currentGhost;
-                ghost.i = 0;
-            }
-            if (ghost.i < 39 && board[ghost.i + 1][ghost.j] != 4 && !isGhost(ghost.i + 1, ghost.j)) {
-                board[ghost.i][ghost.j] = ghost.bellow;
-                ghost.bellow = board[ghost.i + 1][ghost.j];
-
-                board[ghost.i + 1][ghost.j] = currentGhost;
-                ghost.i++;
-            }
-        }
-        checkCollision();
-        Draw();
     });
 
+
+}
+
+function isPossibleMove(i, j, direction) {
+    if (direction === 1 && board[i][j - 1] !== 4) return true;
+    if (direction === 2 && board[i][j + 1] !== 4) return true;
+    if (direction === 3 && board[i - 1][j] !== 4) return true;
+    if (direction === 4 && board[i + 1][j] !== 4) return true;
+    return false;
+}
+
+function getBonus(i, j) {
+    board[i][j] = 2;
+    score += 50
+    clearInterval(bonusInterval);
+}
+
+function UpdateBonusPosition() {
+    //get next direction to move
+    let isFree = false;
+    let nextDir = bonus.lastMove;
+    if (isPossibleMove(bonus.i, bonus.j, nextDir)) isFree = true;
+    while (!isFree) {
+        nextDir = getRandomInt(4) + 1;
+        isFree = isPossibleMove(bonus.i, bonus.j, nextDir);
+    }
+
+    //set new location
+    if (nextDir === 1) { //up
+        if (bonus.j > 0 && !isGhost(bonus.i, bonus.j - 1)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[bonus.i][bonus.j - 1];
+
+            board[bonus.i][bonus.j - 1] = 17;
+            bonus.j--;
+            bonus.lastMove = 1;
+        }
+    }
+    if (nextDir === 2) {//down
+        if (bonus.j < 19 && !isGhost(bonus.i, bonus.j + 1)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[bonus.i][bonus.j + 1];
+
+            board[bonus.i][bonus.j + 1] = 17;
+            bonus.j++;
+            bonus.lastMove = 2;
+
+        }
+    }
+    if (nextDir === 3) {//left
+        if (bonus.i == 0 && bonus.j == 5 && !isGhost(39, ghost.j)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[39][bonus.j];
+
+            board[39][bonus.j] = 17;
+            bonus.i = 39;
+            bonus.lastMove = 3;
+
+        } else if (bonus.i > 0 && !isGhost(bonus.i - 1, bonus.j)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[bonus.i - 1][bonus.j];
+
+            board[bonus.i - 1][bonus.j] = 17;
+            bonus.i--
+            bonus.lastMove = 3;
+
+        }
+    }
+    if (nextDir === 4) {//right
+        if (bonus.i == 39 && bonus.j == 5 && !isGhost(0, bonus.j - 1)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[0][bonus.j];
+
+            board[0][bonus.j] = 17;
+            bonus.i = 0;
+            bonus.lastMove = 4;
+
+        }
+        if (bonus.i < 39 && !isGhost(bonus.i + 1, bonus.j)) {
+            board[bonus.i][bonus.j] = bonus.bellow;
+            bonus.bellow = board[bonus.i + 1][bonus.j];
+
+            board[bonus.i + 1][bonus.j] = 17;
+            bonus.i++;
+            bonus.lastMove = 4;
+
+        } else {
+            bonus.lastMove = 0;
+
+        }
+    }
+
+    if (bonus.i === shape.i && bonus.j === shape.j) {
+        getBonus(bonus.i, bonus.j);
+
+    }
+    Draw();
 
 }
 
@@ -381,6 +522,10 @@ function getNextDirection(ghost) {
 
 function isGhost(i, j) {
     return (board[i][j] > 30);
+}
+
+function isBonus(i, j) {
+    return (board[i][j] === 17);
 }
 
 function setGhostsImage() {
@@ -415,7 +560,6 @@ function getRandomInt(max) {
 }
 
 function getManhattanDistance(ghost) {
-    let currDist = Math.abs(ghost.i - shape.i) + Math.abs(ghost.j - shape.j);
 
     let upDist = Math.abs(ghost.i - shape.i) + Math.abs(ghost.j - 1 - shape.j);
     let DownDist = Math.abs(ghost.i - shape.i) + Math.abs(ghost.j + 1 - shape.j);
@@ -445,12 +589,14 @@ function gameOver() {
 
 function resetGhostLocation() {
     ghosts.forEach(function (ghost) {
-        board[ghost.i][ghost.j] = ghost.bellow;
-        board[ghost.init_i][ghost.init_j] = ghost.id;
-        ghost.i = ghost.init_i;
-        ghost.j = ghost.init_j;
+        if (!jQuery.isEmptyObject(ghost)) {
+            board[ghost.i][ghost.j] = ghost.bellow;
+            board[ghost.init_i][ghost.init_j] = ghost.id;
+            ghost.i = ghost.init_i;
+            ghost.j = ghost.init_j;
 
-        ghost.bellow = 0;
+            ghost.bellow = 0;
+        }
     });
 
 }
@@ -483,16 +629,16 @@ function checkCollision() {
     });
 
 }
-function   mutemusic(){
-    if(ismusic){ // do mute
+
+function mutemusic() {
+    if (ismusic) { // do mute
         mysound.stop();
-        ismusic=false;
-        document.getElementById("music").src ="images/mute-512.png" ;
-    }
-    else{
+        ismusic = false;
+        document.getElementById("music").src = "images/mute-512.png";
+    } else {
         mysound.play();
-        ismusic= true;
-        document.getElementById("music").src ="images/volume-512.png" ;
+        ismusic = true;
+        document.getElementById("music").src = "images/volume-512.png";
     }
 
 }
@@ -522,6 +668,7 @@ var GameBoard = [
 
     //	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//9
 ]
+
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -529,10 +676,23 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function () {
         this.sound.play();
     }
-    this.stop = function(){
+    this.stop = function () {
         this.sound.pause();
     }
+}
+
+function runAllIntervals() {
+    packmanInterval = setInterval(UpdatePackmanPosition, 200);
+    ghostInterval = setInterval(UpdateGhostPosition, 200);
+    bonusInterval = setInterval(UpdateBonusPosition, 200);
+}
+
+function clearAllIntervals() {
+    window.clearInterval(packmanInterval);
+    window.clearInterval(ghostInterval);
+    window.clearInterval(bonusInterval);
+
 }

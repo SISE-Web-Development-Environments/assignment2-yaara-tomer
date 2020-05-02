@@ -170,6 +170,7 @@ function sendGameParams() {
     foodColor5=color5score;
     foodColor15=color15score;
     foodColor25=color25score;
+    timeForGame=timeOfGame;
 
 }
 
