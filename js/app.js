@@ -44,18 +44,18 @@ function startGame() {
     numOf15points = Math.floor(0.3 * numberOfBalls);
     numOf25points = Math.floor(0.1 * numberOfBalls);
 
-    console.log("up: sb38....."+UpCode);
-    console.log("down: sb40..."+DownCode);
-    console.log("left: sb37..."+LeftCode);
-    console.log("right: sb39"+RightCode);
-    console.log("balls: "+numberOfBalls);
-    console.log("ghosts: "+numberOfGhosts);
-    console.log("numberOf5Balls: "+numOf5points);
-    console.log("numberOf15Balls: "+numOf15points);
-    console.log("numberOf25Balls: "+numOf25points);
-    console.log("color5: "+foodColor5);
-    console.log("color15: "+foodColor15);
-    console.log("color25: "+foodColor25);
+    console.log("up: sb38....." + UpCode);
+    console.log("down: sb40..." + DownCode);
+    console.log("left: sb37..." + LeftCode);
+    console.log("right: sb39" + RightCode);
+    console.log("balls: " + numberOfBalls);
+    console.log("ghosts: " + numberOfGhosts);
+    console.log("numberOf5Balls: " + numOf5points);
+    console.log("numberOf15Balls: " + numOf15points);
+    console.log("numberOf25Balls: " + numOf25points);
+    console.log("color5: " + foodColor5);
+    console.log("color15: " + foodColor15);
+    console.log("color25: " + foodColor25);
 
 
     Start();
@@ -83,21 +83,17 @@ function Start() {
                 //set Wall
                 board[i][j] = 4; //wall
                 cnt--;
-            } else if (GameBoard[j][i] >= 3) {
-                if (GameBoard[j][i] === 4 && ghost_remain > 0) {
-                    board[i][j] = 30 + ghost_remain; //ghost
-                    ghosts[ghost_remain - 1].i = i;
-                    ghosts[ghost_remain - 1].j = j;
-                    ghosts[ghost_remain - 1].bellow = 0;
-                    ghosts[ghost_remain - 1].init_i = i;
-                    ghosts[ghost_remain - 1].init_j = j;
-                    ghosts[ghost_remain - 1].id = 30 + ghost_remain;
-                    ghosts[ghost_remain - 1].lastMove = 0;
+            } else if (GameBoard[j][i] === 3 && ghost_remain > 0) {
+                board[i][j] = 30 + ghost_remain; //ghost
+                ghosts[ghost_remain - 1].i = i;
+                ghosts[ghost_remain - 1].j = j;
+                ghosts[ghost_remain - 1].bellow = 0;
+                ghosts[ghost_remain - 1].init_i = i;
+                ghosts[ghost_remain - 1].init_j = j;
+                ghosts[ghost_remain - 1].id = 30 + ghost_remain;
+                ghosts[ghost_remain - 1].lastMove = 0;
 
-                    ghost_remain--;
-                } else {
-                    board[i][j] = 0; //saved
-                }
+                ghost_remain--;
                 cnt--;
 
             } else {
@@ -482,8 +478,8 @@ var GameBoard = [
     [1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],//7
     [1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1],//8
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],//9
-    [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 4, 4, 0, 0, 4, 4, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],//0
-    [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 3, 3, 3, 3, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],//1
+    [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 3, 3, 0, 0, 3, 3, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],//0
+    [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],//1
     [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1],//2
     [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1],//3
     [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],//4
