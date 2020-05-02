@@ -3,7 +3,7 @@ var isLoggedIn = false;
 
 $(document).ready(function () {
     //default user - p
-    var defaultUser = new User("p", "p", "", "", "", "", "", "");
+    var defaultUser = new User("p", "p", "p", "", "", "", "", "");
     sessionStorage.setItem(defaultUser.username, JSON.stringify(defaultUser));
     console.log("ppppp user  added: ");
 
@@ -16,9 +16,10 @@ function login(username, password) {
         alert("bad deatals!!"); // ToDo delete
         return false;
     }
-    console.log(user);
-    console.log(user.password);
-    console.log(password);
+    console.log("user: "+user);
+    console.log("pass: "+user.password);
+    console.log("first name: "+user.firstname);
+
 
     if (user.password == password) {
         console.log("Welcome!! logged in username  " + username);
