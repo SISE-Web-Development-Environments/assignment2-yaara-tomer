@@ -2,337 +2,363 @@
 <html>
 
 <head>
-	<script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
-	<script type="text/javascript" src="./js/app.js"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
-	<script type="text/javascript" src="./js/users.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Remember to include jQuery :) -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/users.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-	<!-- jQuery Modal -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tomer and Yaara Pacman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tomer and Yaara Pacman</title>
 
 </head>
 
 <body>
 <header>
-	<img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box" ALIGN=Left>
-	<button class="tablink" onclick="switchDiv('Welcome')" id="defaultOpen">Welcome</button>
-	<button class="tablink" onclick="switchDiv('Register')">Register</button>
-	<button class="tablink" onclick="switchDiv('Login')">Login</button>
-	<button class="tablink" onclick="switchDiv('Setting')">Setting</button>
-	<button class="tablink" onclick="switchDiv('Game')">Game</button>
-	<button class="tablink" id="btnShowModal" onclick="about()">About</button>
+    <img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box" ALIGN=Left>
+    <button class="tablink" onclick="switchDiv('Welcome')" id="defaultOpen">Welcome</button>
+    <button class="tablink" onclick="switchDiv('Register')">Register</button>
+    <button class="tablink" onclick="switchDiv('Login')">Login</button>
+    <button class="tablink" onclick="switchDiv('Setting')">Setting</button>
+    <button class="tablink" onclick="switchDiv('Game')">Game</button>
+    <button class="tablink" id="btnShowModal" onclick="about()">About</button>
 </header>
 
 
-	<div id="tabs">
-		<!--style=" margin-left: 100px;"> -->
+<div id="tabs">
+    <!--style=" margin-left: 100px;"> -->
 
-		<div id="Welcome" class="tabcontent">
-			<div class="wrapper">
-			<img src = "images/logo2.png" width="600" height="200" Style=" margin-left:170px">
-			</br>
-			<input id="hov1"	type="image" width="20%"src="images/yellow-removebg-preview.png" onclick="switchDiv('Register')" value="Register" Style=" margin-left:180px" />
-			<input id="hov2"	type="image" width="20%"src="images/blue-removebg-preview.png" onclick="switchDiv('Login')" value="Login"  Style=" margin-left:180px"/>
-			<!--<button type="button" onclick style="display:block;">Register!</button>
+    <div id="Welcome" class="tabcontent">
+        <div class="wrapper">
+            <img src="images/logo2.png" width="600" height="200" Style=" margin-left:170px">
+            </br>
+            <input id="hov1" type="image" width="20%" src="images/yellow-removebg-preview.png"
+                   onclick="switchDiv('Register')" value="Register" Style=" margin-left:180px"/>
+            <input id="hov2" type="image" width="20%" src="images/blue-removebg-preview.png"
+                   onclick="switchDiv('Login')" value="Login" Style=" margin-left:180px"/>
+            <!--<button type="button" onclick style="display:block;">Register!</button>
            <button type="button" onclick=">Login!</button>-->
-			</div>
-		</div>
+        </div>
+    </div>
 
-		<div id="Register" class="tabcontent">
-			<script type="text/javascript" src="./js/form.js"></script>
-			<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-			<!--<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>-->
-			<script type="text/javascript" src="./js/dobpicker.js"></script>
-
-
-			<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
-
-			<form id="registerForm" class="form">
-				<label for="Rusername">User Name </label>
-				<input id="Rusername" name="username" type="text" placeholder="Enter Username">
-				<br>
-
-				<label for="Rpassword">Password</label>
-				<input id="Rpassword" name="password" type="password" placeholder="Enter Paasword" />
-				<br>
-
-				<label for="Rfirstname">First Name</label>
-				<input id="Rfirstname" name="firstname" type="text" placeholder="Enter First Name">
-				<br>
-
-				<label for="Rlastname">Last Name</label>
-				<input id="Rlastname" name="lastname" type="text" placeholder="Enter Last Name">
-				<br>
-
-				<label for="Remail">Email</label>
-				<input id="Remail" name="email" type="email" placeholder="Enter Email">
-				<br>
-
-				<label for="birthday1" id="birthday1">Birthday</label>
-				<br>
-				<select id="day" name="day" class='group'></select>
-				<select id="month" name="month" class='group'></select>
-				<select id="year" name="year" class='group'></select>
-
-				<button id="registerSubmit" type="button" onclick="RegisterSumbit()">Register</button>
-
-			</form>
-		</div>
-
-		<div id="Login" class="tabcontent">
-			<script type="text/javascript" src="./js/form.js"></script>
-			<script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-			<script type="text/javascript" src="./js/dobpicker.js"></script>
-			<link rel="stylesheet" type="text/css" href="./css/formStyle.css" />
-
-			<form id="LoginForm" class="form">
-				<label for="Lusername">User Name </label>
-				<input id="Lusername" name="username" type="text" placeholder="Enter Username">
-				<br>
-
-				<label for="Lpassword">Password</label>
-				<input id="Lpassword" name="password" type="password" placeholder="Enter Paasword" />
-				<br>
-
-				<button id="LoginSubmit" type="button" onclick="LoginSumbit()">Login</button>
-
-			</form>
-		</div>
-
-		<div id="Setting" class="tabcontent">
-			<script type="text/javascript" src="./js/settings.js"></script>
-			<script type="text/javascript" src="./js/dobpicker.js"></script>
-			<form id="setting_form" >
-				<p>Select keys for moves: </p>
-				<table>
-					<tr>
-						<td><label for="right_key">right </label></td>
-						<td> <input id="right_key" name="r_key" type="text" placeholder="press key to set right"></td>
-						<td></td>
-						<td><label for="left_key"> left</label></td>
-						<td> <input id="left_key" name="l_key" type="text" placeholder="press key to set left"></td>
-					</tr>
-					<tr>
-						<td><label for="up_key"> up</label></td>
-						<td><input id="up_key" name="up_key" type="text" placeholder="press key to set up" > </td>
-						<td></td>
-						<td><label for="down_key">down </label></td>
-						<td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"></td>
-					</tr>
-					<tr></tr>
-					<tr></tr>
-				</table>
-				<br>
-				<table>
-					<tr>
-						<td><label for="vol">number of balls :</label> </td>
-
-						<td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
-					</tr>
-					<tr></tr>
-					<tr></tr>
-					<tr>
-						<td ><label for="5color">Select color for 5 points:</label></td>
-
-						<td style="align-items: center"><input type="color" id="5color" name="favcolor" value="#FB9902" > </td>
-					</tr>
-					<tr></tr>
-					<tr>
-						<td><label for="15color">Select color for 15 points:</label></td>
-
-						<td><input type="color" id="15color" name="favcolor" value="#C21460"></td>
-					</tr>
-					<tr></tr>
-					<tr>
-						<td><label for="25color"> Select color for 25 points:</label> </td>
-						<td> <input type="color" id="25color" name="favcolor" value="#8601AF"> </td>
-					</tr>
-					<tr></tr>
-					<tr></tr>
-					<tr>
-						<td> <label for="time1">set time for game - in seconds</label></td>
-
-						<td><input id="time1" name="time" type="text" placeholder="minimum is 60 sec"> </td>
-					</tr>
-					<tr></tr>
-					<tr></tr>
-					<tr>
-						<td> <label for="select_bar">set number of monster</label></td>
-
-						<td> <select id="select_bar" style="width: 50%;">
-							<option value="0">select</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-						</select>
-						</td>
-					</tr>
-				</table>
-				<br>
-				<table>
-					<tr>
-						<td><button  id = "randomSettingbutton" type="button" onclick="setRandomSetting()">set random setting and play!</button></td>
-
-						<td><button  id = "mySettingbutton" type= "button"  onclick="submitSetting()" >play game!</button>
-						</td>
-
-					</tr>
-				</table>
-			</form>
+    <div id="Register" class="tabcontent">
+        <script type="text/javascript" src="./js/form.js"></script>
+        <script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+        <!--<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>-->
+        <script type="text/javascript" src="./js/dobpicker.js"></script>
 
 
+        <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
+
+        <form id="registerForm" class="form">
+            <label for="Rusername">User Name </label>
+            <input id="Rusername" name="username" type="text" placeholder="Enter Username">
+            <br>
+
+            <label for="Rpassword">Password</label>
+            <input id="Rpassword" name="password" type="password" placeholder="Enter Paasword"/>
+            <br>
+
+            <label for="Rfirstname">First Name</label>
+            <input id="Rfirstname" name="firstname" type="text" placeholder="Enter First Name">
+            <br>
+
+            <label for="Rlastname">Last Name</label>
+            <input id="Rlastname" name="lastname" type="text" placeholder="Enter Last Name">
+            <br>
+
+            <label for="Remail">Email</label>
+            <input id="Remail" name="email" type="email" placeholder="Enter Email">
+            <br>
+
+            <label for="birthday1" id="birthday1">Birthday</label>
+            <br>
+            <select id="day" name="day" class='group'></select>
+            <select id="month" name="month" class='group'></select>
+            <select id="year" name="year" class='group'></select>
+
+            <button id="registerSubmit" type="button" onclick="RegisterSumbit()">Register</button>
+
+        </form>
+    </div>
+
+    <div id="Login" class="tabcontent">
+        <script type="text/javascript" src="./js/form.js"></script>
+        <script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+        <script type="text/javascript" src="./js/dobpicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
+
+        <form id="LoginForm" class="form">
+            <label for="Lusername">User Name </label>
+            <input id="Lusername" name="username" type="text" placeholder="Enter Username">
+            <br>
+
+            <label for="Lpassword">Password</label>
+            <input id="Lpassword" name="password" type="password" placeholder="Enter Paasword"/>
+            <br>
+
+            <button id="LoginSubmit" type="button" onclick="LoginSumbit()">Login</button>
+
+        </form>
+    </div>
+
+    <div id="Setting" class="tabcontent">
+        <script type="text/javascript" src="./js/settings.js"></script>
+        <script type="text/javascript" src="./js/dobpicker.js"></script>
+        <form id="setting_form">
+            <p>Select keys for moves: </p>
+            <table>
+                <tr>
+                    <td><label for="right_key">right </label></td>
+                    <td><input id="right_key" name="r_key" type="text" placeholder="press key to set right"></td>
+                    <td></td>
+                    <td><label for="left_key"> left</label></td>
+                    <td><input id="left_key" name="l_key" type="text" placeholder="press key to set left"></td>
+                </tr>
+                <tr>
+                    <td><label for="up_key"> up</label></td>
+                    <td><input id="up_key" name="up_key" type="text" placeholder="press key to set up"></td>
+                    <td></td>
+                    <td><label for="down_key">down </label></td>
+                    <td><input id="down_key" name="down_key" type="text" placeholder="press key to set down"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td><label for="vol">number of balls :</label></td>
+
+                    <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider" id="myRange"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="5color">Select color for 5 points:</label></td>
+
+                    <td style="align-items: center"><input type="color" id="5color" name="favcolor" value="#FB9902">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="15color">Select color for 15 points:</label></td>
+
+                    <td><input type="color" id="15color" name="favcolor" value="#C21460"></td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="25color"> Select color for 25 points:</label></td>
+                    <td><input type="color" id="25color" name="favcolor" value="#8601AF"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="time1">set time for game - in seconds</label></td>
+
+                    <td><input id="time1" name="time" type="text" placeholder="minimum is 60 sec"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="select_bar">set number of monster</label></td>
+
+                    <td><select id="select_bar" style="width: 50%;">
+                        <option value="0">select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td>
+                        <button id="randomSettingbutton" type="button" onclick="setRandomSetting()">set random setting
+                            and play!
+                        </button>
+                    </td>
+
+                    <td>
+                        <button id="mySettingbutton" type="button" onclick="submitSetting()">play game!</button>
+                    </td>
+
+                </tr>
+            </table>
+        </form>
 
 
-		</div>
-		<!--<div id="About1" class="tabcontent">-->
+    </div>
+    <!--<div id="About1" class="tabcontent">-->
+    <!--
+            <div id="Game" class="tabcontent">
+                <div id="score">
+                    <label for="lblScore">SCORE:</label>
+                    <input id="lblScore" type="text" />
+                </div>
+                <div id="time">
+                    <label for="lblTime">TIME:</label>
+                    <input id="lblTime" type="text" />
+                </div>
+                <div id="game1">
+                    <canvas id="canvas" height="600" width="600"></canvas>
+                </div>
+            </div>
+        </div> -->
 
-		<div id="Game" class="tabcontent">
-			<div id="score">
-				<label for="lblScore">SCORE:</label>
-				<input id="lblScore" type="text" />
-			</div>
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
-			</div>
-			<div id="game1">
-				<canvas id="canvas" height="600" width="600"></canvas>
-			</div>
-		</div>
-	</div>
-		<!--
-		<div id="Game" class="tabcontent">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <div id="Game" class="tabcontent">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-			<div id = "view_container" class="container-fluid" style=" text-align: center; align-items: center">
-				<div class="row" style="text-align: center">
-					<div id ="setting_view" class="col-sm-2" style=" text-align: left ; margin-right: 10px;background-color: #ffffcc;">
-						<br>
-						<p style=" text-decoration: underline; font-size: 20px;text-align: center; "><strong> Game Settings:</strong></p>
-						<div id = "prop" >
-							<span> <strong> Number of monsters : </strong></span>
-							<span id ="showNumberMonster" > </span>
-							<br>
-							<br>
-							<span><strong> Number of balls:</strong></span>
-							<span id ="showNumberballs" > </span>
-							<br>
-							<br>
-							<span> <strong>Time : </strong></span>
-							<span id ="showTimeGame" > </span>
-							<br>
-							<br>
-							<span style=" text-decoration: underline; text-align: center; "><strong> Game score points:</strong></span>
-							<br>
-							<span><strong> color for 5 points: </strong></span>
-							<i id = "show5point" class="fa fa-heart"></i>
-							<br>
-							<span><strong> color for 15 points: </strong></span>
-							<i id = "show15point" class="fa fa-heart"></i>
-							<br>
-							<span> <strong>color for 25 points: </strong></span>
-							<i id = "show25point" class="fa fa-heart"></i>
-							<br>
-							<br>
-							<span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
-							<br>
-							<span><strong> Left Move :</strong></span>
-							<span id ="showLeftMove" > </span>
-							<i  class="	fa fa-arrow-left"></i>
-							<br>
-							<span><strong> Right Move :</strong></span>
-							<span id ="showRightMove" > </span>
-							<i  class="fa fa-arrow-right"></i>
-							<br>
-							<span><strong> Up Move :</strong></span>
-							<span id ="showUpMove" > </span>
-							<i  class="	fa fa-arrow-up"></i>
-							<br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-							<span><strong> Down Move :</strong></span>
-							<span id ="showDoenMove" > </span>
-							<i  class="	fa fa-arrow-down"></i>
-						</div >
-					</div>
-					<div id ="game_view" class="col-sm-8"  width="1200" style="background-color:	#ccffe6; align-items: center ">
-						<div id="game1" style="align-items: center ">
-							<canvas id="canvas" height="520" width="1000" style="outline: black 3px solid;display: inline;" ></canvas>
-						</div>
-					</div>
-					<div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
-						<br>
-						<a style="font-size: 16px"><strong>Hello, </strong></a>
-						<div  id="showuserName" style="font-size: 16px; "></div>
-						<br><br>
-						<br>
-					</div>>
-			<div id="score">
-				<label for="lblScore">SCORE:</label>
-				<input id="lblScore" type="text" />
-			</div>
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
-			</div>
+        <div id="view_container" class="container-fluid" style=" text-align: center; align-items: center">
+            <div class="row" style="text-align: center">
 
-		</div>-->
+                <div id="setting_view" class="col-sm-2"
+                     style=" text-align: left ; margin-right: 10px;background-color: #ffffcc;">
+                    <br>
+                    <p style=" text-decoration: underline; font-size: 20px;text-align: center; "><strong> Game
+                        Settings:</strong></p>
+                    <div id="prop">
+                        <span> <strong> Number of monsters : </strong></span>
+                        <span id="showNumberMonster"> </span>
+                        <br>
+                        <br>
+                        <span><strong> Number of balls:</strong></span>
+                        <span id="showNumberballs"> </span>
+                        <br>
+                        <br>
+                        <span> <strong>Time : </strong></span>
+                        <span id="showTimeGame"> </span>
+                        <br>
+                        <br>
+                        <span style=" text-decoration: underline; text-align: center; "><strong> Game score points:</strong></span>
+                        <br>
+                        <span><strong> color for 5 points: </strong></span>
+                        <i id="show5point" class="fa fa-heart"></i>
+                        <br>
+                        <span><strong> color for 15 points: </strong></span>
+                        <i id="show15point" class="fa fa-heart"></i>
+                        <br>
+                        <span> <strong>color for 25 points: </strong></span>
+                        <i id="show25point" class="fa fa-heart"></i>
+                        <br>
+                        <br>
+                        <span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
+                        <br>
+                        <span><strong> Left Move :</strong></span>
+                        <span id="showLeftMove"> </span>
+                        <i class="	fa fa-arrow-left"></i>
+                        <br>
+                        <span><strong> Right Move :</strong></span>
+                        <span id="showRightMove"> </span>
+                        <i class="fa fa-arrow-right"></i>
+                        <br>
+                        <span><strong> Up Move :</strong></span>
+                        <span id="showUpMove"> </span>
+                        <i class="	fa fa-arrow-up"></i>
+                        <br>
 
+                        <span><strong> Down Move :</strong></span>
+                        <span id="showDoenMove"> </span>
+                        <i class="	fa fa-arrow-down"></i>
+                    </div>
+                </div>
 
-			<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
-				<span class="close">&times;</span>
-				<br>
-				<div class="modal-header">
-					<p><strong>Our names are: Yaara and Tomer</strong></p>
-					<br>
-					<p><strong>welcome to our Pac-Man Game!</strong></p>
-				</div>
-				<div class="modal-body">
-					<br>
+                <div id="game_view" class="col-sm-8" width="1200"
+                     style="background-color:	#ccffe6; align-items: center ">
+                    <div id="game1" style="align-items: center ">
+                        <canvas id="canvas" height="520" width="1000"
+                                style="outline: black 3px solid;display: inline;"></canvas>
+                    </div>
+                </div>
 
-					<p>jQuery plugins:</p>
-					<p>Templates:</p>
-					<p>Challenges:</p>
-					<img class="logo-img" src="./images/two_ghost.jpg" width="400" height="200" style="margin-left: 80px">
-				</div>
+                <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 20px;">
+                    <br>
+                    <a style="font-size: 16px"><strong>Hello, </strong></a>
+                    <div id="showuserName" style="font-size: 16px; "></div>
+                    <br><br>
+                    <br>
+                    <div id="score">
+                        <label for="lblScore"><strong>SCORE:</strong></label>
+                        <input id="lblScore" type="text" width="200px" />
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="time">
+                        <label for="lblTime"><strong>TIME:</strong></label>
+                        <input id="lblTime" type="text" width="200px" />
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div id="alive">
+                        <label for="lblalive"><strong>ALIVE:</strong></label>
+                        <input id="lblalive" type="text" width="200px" />
+                    </div>
 
-			</dialog>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
+    <span class="close">&times;</span>
+    <br>
+    <div class="modal-header">
+        <p><strong>Our names are: Yaara and Tomer</strong></p>
+        <br>
+        <p><strong>welcome to our Pac-Man Game!</strong></p>
+    </div>
+    <div class="modal-body">
+        <br>
+
+        <p>jQuery plugins:</p>
+        <p>Templates:</p>
+        <p>Challenges:</p>
+        <img class="logo-img" src="images/two_ghost2.jpg" width="400" height="200" style="margin-left: 80px">
+    </div>
+
+</dialog>
 
 
 <footer id="footer">
-	<div id="contactreal" class="socialbtns">
-		<ul>
-			<li>Contact Tomer at:</li>
-			<li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
-			</li>
-			<li><a href="https://www.facebook.com/https://www.facebook.com/godelli"><i
-					class="fa fa-lg fa-facebook-square"></i></a></li>
-			<li><a href="mailto:tomergodelli@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
-			<li>Contact Yaara at:</li>
-			<li><a href="https://github.com/yaararm" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
-			</li>
-			<li><a href="https://www.instagram.com/yaara_rumney/" target="_blank"> <i
-					class="fa fa-lg fa-instagram"></i></a>
-			</li>
-			<li><a href="https://www.facebook.com/yaara.rumney"><i class="fa fa-lg fa-facebook-square"></i></a>
-			</li>
-			<li><a href="mailto:yaararm@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
-		</ul>
-	</div>
-	<span class=credits>
+    <div id="contactreal" class="socialbtns">
+        <ul>
+            <li>Contact Tomer at:</li>
+            <li><a href="https://github.com/TomerGodelli" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
+            </li>
+            <li><a href="https://www.facebook.com/https://www.facebook.com/godelli"><i
+                    class="fa fa-lg fa-facebook-square"></i></a></li>
+            <li><a href="mailto:tomergodelli@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+            <li>Contact Yaara at:</li>
+            <li><a href="https://github.com/yaararm" target="_blank"> <i class="fa fa-lg fa-github"></i></a>
+            </li>
+            <li><a href="https://www.instagram.com/yaara_rumney/" target="_blank"> <i
+                    class="fa fa-lg fa-instagram"></i></a>
+            </li>
+            <li><a href="https://www.facebook.com/yaara.rumney"><i class="fa fa-lg fa-facebook-square"></i></a>
+            </li>
+            <li><a href="mailto:yaararm@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+        </ul>
+    </div>
+    <span class=credits>
 		<i class="fa fa-copyright"></i>
 			Code and design by Tomer Godelli & Yaara Rumney
 
@@ -340,8 +366,6 @@
 		</span>
 </footer>
 </body>
-
-
 
 
 </html>
