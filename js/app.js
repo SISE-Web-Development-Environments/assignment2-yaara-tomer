@@ -685,36 +685,36 @@ function sound(src) {
         this.sound.pause();
     }
 }
-function showAlive(){
-    if (lives===1){
+function showAlive() {
+    if (lives === 1) {
         document.getElementById("two").style.display = "none";
         document.getElementById("three").style.display = "none";
         document.getElementById("four").style.display = "none";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
-    if (lives===2){
+    if (lives === 2) {
 
         document.getElementById("three").style.display = "none";
         document.getElementById("four").style.display = "none";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
-    if (lives===3){
+    if (lives === 3) {
 
         document.getElementById("four").style.display = "none";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
-    if (lives===4){
+    if (lives === 4) {
 
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
-   if(lives===5){
-       document.getElementById("six").style.display = "none";
-   }
-
+    if (lives === 5) {
+        document.getElementById("six").style.display = "none";
+    }
+}
 
 function runAllIntervals() {
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
