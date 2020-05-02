@@ -156,7 +156,7 @@ function setRandomSetting() {
     timeOfGame = Math.floor(Math.random() * (240 - 60 + 1)) + 60;
     numOfGhost = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
 
-    switchDiv('Game1');
+    switchDiv('Game');
     SettingViewFill();
 }
 
@@ -186,6 +186,7 @@ function SettingViewFill(){
     document.getElementById("showRightMove").innerText = keyMovesCode.right;
     document.getElementById("showUpMove").innerHTML = keyMovesCode.up;
     document.getElementById("showDoenMove").innerText = keyMovesCode.down;
-    document.getElementById("showuserName").innerText = currentUser;
+    document.getElementById("showuserName").innerText = currentUser.firstname;
+    console.log(currentUser.firstname);
 }
 

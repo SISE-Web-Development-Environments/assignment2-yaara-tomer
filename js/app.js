@@ -23,8 +23,8 @@ var pacIcon = new Image();
 var ghostImageArray = [];
 
 //=============Game==================
-var lives = 4;
-var foodCounter = 0;
+var lives = 5;
+var foodEatedCounter = 0;
 var score;
 var start_time;
 var time_elapsed;
@@ -263,16 +263,18 @@ function UpdatePackmanPosition() {
 		if (board[shape.i][shape.j] === 11) score += 5;
 		if (board[shape.i][shape.j] === 12) score += 15;
 		if (board[shape.i][shape.j] === 13) score += 25;
-
+		foodEatedCounter++;
 		//score++;
 	}
 	board[shape.i][shape.j] = 2;
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 
-	if (score == numOf5points*5 + numOf15points*15 + numOf25points*25) {
+	if (foodEatedCounter == numOf5points + numOf15points + numOf25points) {
 		window.alert("Game completed");
 		window.clearInterval(packmanInterval);
+		window.clearInterval(ghostInterval);
+
 	} else {
 		Draw();
 	}
@@ -428,8 +430,9 @@ function resetPackmanLocation() {
 function checkCollision() {
 	ghosts.forEach(function (ghost) {
 		if (ghost.i === shape.i && ghost.j === shape.j) {
+			score-=10;
 			lives--;
-			console.log("lives: " + lives);
+			console.log("lives left: " + lives);
 			if (lives === 0) {
 				gameOver();
 			}
