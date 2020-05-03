@@ -13,7 +13,7 @@ $(document).ready(function () {
 function login(username, password) {
     let user = JSON.parse(sessionStorage.getItem(username.toLowerCase()));
     if (user == null) {
-        alert("bad deatals!!"); // ToDo delete
+        alert("bad details!!"); // ToDo delete
         return false;
     }
     console.log("user: "+user);
