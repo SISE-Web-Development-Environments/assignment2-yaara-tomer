@@ -358,7 +358,7 @@ function UpdatePackmanPosition() {
     }
     board[shape.i][shape.j] = 2;
     var currentTime = new Date();
-    time_left = timeForGame - (currentTime - start_time) / 1000;
+    time_left = (timeForGame - (currentTime - start_time) / 1000).toFixed(2);
     if (time_left < 0) {
         time_left = 0;
         gameOver();
