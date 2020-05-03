@@ -100,7 +100,7 @@ function submitSetting(){
     checkForSameColor();
     numOfBalls = parseInt(document.getElementById("vol").value);
     timeOfGame = parseInt(document.getElementById("time1").value);
-    if (timeOfGame<60){
+    if (isNaN(timeOfGame) || timeOfGame<60){
         alert("you need to put value bigger than 60 sec");
         validNumber = false;
         return;
@@ -171,6 +171,7 @@ function sendGameParams() {
     foodColor15=color15score;
     foodColor25=color25score;
     timeForGame=timeOfGame;
+    time_left=timeOfGame;
 
 }
 

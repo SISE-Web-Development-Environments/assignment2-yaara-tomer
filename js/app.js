@@ -373,7 +373,7 @@ function UpdatePackmanPosition() {
 
 
     } else {
-        //checkCollision();
+        checkCollision();
         Draw();
     }
 }
@@ -727,6 +727,7 @@ function sound(src) {
 
 function showAlive() {
     if (lives === 1) {
+        document.getElementById("one").style.display = "";
         document.getElementById("two").style.display = "none";
         document.getElementById("three").style.display = "none";
         document.getElementById("four").style.display = "none";
@@ -734,24 +735,44 @@ function showAlive() {
         document.getElementById("six").style.display = "none";
     }
     if (lives === 2) {
-
+        document.getElementById("one").style.display = "";
+        document.getElementById("two").style.display = "";
         document.getElementById("three").style.display = "none";
         document.getElementById("four").style.display = "none";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
     if (lives === 3) {
-
+        document.getElementById("one").style.display = "";
+        document.getElementById("two").style.display = "";
+        document.getElementById("three").style.display = "";
         document.getElementById("four").style.display = "none";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
     if (lives === 4) {
+        document.getElementById("one").style.display = "";
+        document.getElementById("two").style.display = "";
+        document.getElementById("three").style.display = "";
+        document.getElementById("four").style.display = "";
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
     if (lives === 5) {
+        document.getElementById("one").style.display = "";
+        document.getElementById("two").style.display = "";
+        document.getElementById("three").style.display = "";
+        document.getElementById("four").style.display = "";
+        document.getElementById("five").style.display = "";
         document.getElementById("six").style.display = "none";
+    }
+    if (lives === 6) {
+        document.getElementById("one").style.display = "";
+        document.getElementById("two").style.display = "";
+        document.getElementById("three").style.display = "";
+        document.getElementById("four").style.display = "";
+        document.getElementById("five").style.display = "";
+        document.getElementById("six").style.display = "";
     }
 }
 
