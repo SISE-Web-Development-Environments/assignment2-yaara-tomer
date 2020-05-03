@@ -39,6 +39,11 @@ function switchDiv(divName){
 		switchDiv("Welcome");
 		return false;
 	}
+	if(divName=="Setting" && isLoggedIn==false){
+		alert("You must Login or Register in order to play this amazing game");
+		switchDiv("Welcome");
+		return false;
+	}
 	console.log("switch to "+divName);
 	openPage(divName, this, ' #777');
 

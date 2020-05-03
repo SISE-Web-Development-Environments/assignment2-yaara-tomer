@@ -267,6 +267,7 @@ function Draw() {
             if (board[i][j] == 2) { //packman
                 pacIcon.src = "images/icons/pac" + lastDirection + ".ico";//".png"; //
                 context.drawImage(pacIcon, i * 26, j * 26, 26, 26);
+
             } else if (board[i][j] == 11) { //food
                 context.beginPath();
                 context.arc(center.x, center.y, 5.25, 0, 2 * Math.PI); // circle
@@ -541,7 +542,7 @@ function getNextDirection(ghost) {
     let wantedDirection = getManhattanDistance(ghost);
     let randomDirection = getRandomInt(4) + 1;
     let a = Math.random();
-    if (a > 0.35) { //ToDo change
+    if (a > 0.65) { //ToDo change
         ghost.lastMove = wantedDirection;
         return wantedDirection;
     } else {
@@ -598,7 +599,7 @@ function getManhattanDistance(ghost) {
     let dirs = [999, upDist, DownDist, LeftDist, RightDist];
 
     //give priority to last move direction
-    dirs[ghost.lastMove] -= 2;
+    //dirs[ghost.lastMove] -= 2;
 
     //remove if wall
     if (board[ghost.i][ghost.j - 1] === 4) dirs[1] = 99;
@@ -778,8 +779,8 @@ function showAlive() {
 
 function runAllIntervals() {
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
-    ghostInterval = setInterval(UpdateGhostPosition, 200);
-    if (!bonusDone) bonusInterval = setInterval(UpdateBonusPosition, 200);
+    ghostInterval = setInterval(UpdateGhostPosition, 150);
+    if (!bonusDone) bonusInterval = setInterval(UpdateBonusPosition, 100);
 }
 
 function clearAllIntervals() {

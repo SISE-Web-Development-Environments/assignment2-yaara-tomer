@@ -138,8 +138,11 @@ function setRandomSetting() {
 
     // should be random
     color5score = "#" + Math.floor(Math.random()*16777215).toString(16);
+    if(color5score.length==6) color5score+='1';
     color15score = "#" +Math.floor(Math.random()*16777215).toString(16);
+    if(color15score.length==6) color15score+='1';
     color25score ="#" + Math.floor(Math.random()*16777215).toString(16);
+    if(color25score.length==6) color25score+='1';
     let dif = (color5score === color15score || color15score === color25score || color5score === color25score);
     while(dif===true){
         color5score = "#" + Math.floor(Math.random()*16777215).toString(16);

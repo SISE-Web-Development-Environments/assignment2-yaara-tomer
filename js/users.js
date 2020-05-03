@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function login(username, password) {
-    let user = JSON.parse(sessionStorage.getItem(username));
+    let user = JSON.parse(sessionStorage.getItem(username.toLowerCase()));
     if (user == null) {
         alert("bad deatals!!"); // ToDo delete
         return false;
@@ -23,9 +23,9 @@ function login(username, password) {
 
     if (user.password == password) {
         console.log("Welcome!! logged in username  " + username);
-        switchDiv("Setting");
-        currentUser = user;
         isLoggedIn = true;
+        currentUser = user;
+        switchDiv("Setting");
         return true;
 
     } else {
@@ -37,13 +37,13 @@ function login(username, password) {
 }
 
 function isUserNameExist(username) {
-    let ans = sessionStorage.hasOwnProperty(username);
+    let ans = sessionStorage.hasOwnProperty(username.toLowerCase());
     console.log("username  " + username + "  exist: " + ans);
     return ans;
 }
 
 function addUserToSessionStorage(username, password, firstname, lastname, email, day, month, year) {
-    let newUser = new User(username, password, firstname, lastname, email, day, month, year);
+    let newUser = new User(username.toLowerCase(), password, firstname, lastname, email, day, month, year);
     sessionStorage.setItem(newUser.username, JSON.stringify(newUser));
     console.log("user  added: " + username);
 
