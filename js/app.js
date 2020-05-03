@@ -59,7 +59,6 @@ $(document).ready(function () {
     foodSound = new sound("resources/food.mp3");
     collisionSound = new sound("resources/collision.mp3");
     bonusSound = new sound("resources/bonus.mp3");
-gameOverLook();
 });
 
 function startGame() {
@@ -69,6 +68,8 @@ function startGame() {
     lives = 5;
     foodEatenCounter = 0;
     score = 0;
+    clearAllIntervals();
+
     console.log("up: sb38....." + UpCode);
     console.log("down: sb40..." + DownCode);
     console.log("left: sb37..." + LeftCode);
@@ -363,7 +364,13 @@ function UpdatePackmanPosition() {
     time_left = (timeForGame - (currentTime - start_time) / 1000).toFixed(2);
     if (time_left < 0) {
         time_left = 0;
-        gameOver();
+        if (score < 100) {
+            console.log("You are better than " + score + " points!");
+            gameOver();
+        } else {
+            console.log("Nice job! You got " + score + " points!");
+            winningLook();
+        }
 
     }
 
@@ -652,6 +659,7 @@ function checkCollision() {
             showAlive();
             console.log("lives left: " + lives);
             if (lives === 0) {
+                console.log("Loser!!");
                 gameOver();
                 break;
             }
@@ -671,7 +679,7 @@ function checkCollision() {
     }
 }
 
-function mutemusic() {
+function muteMusic() {
     if (ismusic) { // do mute
         startsound.stop();
         ismusic = false;
