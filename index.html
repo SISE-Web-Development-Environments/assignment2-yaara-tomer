@@ -39,7 +39,7 @@
 
     <div id="Welcome" class="tabcontent">
         <div class="wrapper">
-            <img src="images/logo2.png" width="800" height="200" >
+            <img src="images/logo2.png" width="800" height="200">
             </br>
 
             <input id="hov1" type="image" width="20%" src="images/register-log.png"
@@ -63,10 +63,10 @@
         <form id="registerForm" class="form" style="margin-top: -40px;">
             <span style="color: #3d94f6; font-size: 26px; margin-left: 145px  "><strong>Register</strong></span>
             <br>
-            <label for="Rusername">User Name  &nbsp; </label>
+            <label for="Rusername">User Name &nbsp; </label>
             <input id="Rusername" name="username" type="text" placeholder="Enter Username">
 
-            <label for="Rpassword">Password  &nbsp; &nbsp;</label>
+            <label for="Rpassword">Password &nbsp; &nbsp;</label>
             <input id="Rpassword" name="password" type="password" placeholder="Enter Paasword"/>
 
             <label for="Rfirstname">First Name &nbsp;</label>
@@ -80,7 +80,7 @@
             <br>
             <br>
             <label for="birthday1" id="birthday1">Birthday &nbsp;</label>
-            <select id="day" name="day"  class='group' style="width: 20%;"></select>
+            <select id="day" name="day" class='group' style="width: 20%;"></select>
 
             <select id="month" name="month" class='group'></select>
             <select id="year" name="year" class='group'></select>
@@ -99,7 +99,7 @@
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
 
         <form id="LoginForm" class="form">
-            <img src="images/login6.jpg" style="margin-left: 140px" >
+            <img src="images/login6.jpg" style="margin-left: 140px">
             <br>
             <br>
 
@@ -125,17 +125,21 @@
             <table>
                 <tr>
                     <td><label for="right_key">right </label></td>
-                    <td><input id="right_key" name="r_key" type="text"  style="width: 100%;" placeholder="press key to set right"></td>
+                    <td><input id="right_key" name="r_key" type="text" style="width: 100%;"
+                               placeholder="press key to set right"></td>
                     <td></td>
                     <td><label for="left_key"> left</label></td>
-                    <td><input id="left_key" name="l_key" type="text"  style="width: 100%;" placeholder="press key to set left"></td>
+                    <td><input id="left_key" name="l_key" type="text" style="width: 100%;"
+                               placeholder="press key to set left"></td>
                 </tr>
                 <tr>
                     <td><label for="up_key"> up</label></td>
-                    <td><input id="up_key" name="up_key" type="text" style="width: 100%;" placeholder="press key to set up"></td>
+                    <td><input id="up_key" name="up_key" type="text" style="width: 100%;"
+                               placeholder="press key to set up"></td>
                     <td></td>
                     <td><label for="down_key">down </label></td>
-                    <td><input id="down_key" name="down_key" type="text" style="width: 100%;" placeholder="press key to set down"></td>
+                    <td><input id="down_key" name="down_key" type="text" style="width: 100%;"
+                               placeholder="press key to set down"></td>
                 </tr>
                 <tr></tr>
                 <tr></tr>
@@ -146,7 +150,8 @@
                     <td><label for="vol">number of balls :</label></td>
 
                     <td><input type="range" id="vol" name="vol" min="50" max="90" class="slider">&nbsp;
-                        <output id ="showvol" for="vol" onforminput="value = vol.valueAsNumber;"></output> </td>
+                        <output id="showvol" for="vol" onforminput="value = vol.valueAsNumber;"></output>
+                    </td>
 
 
                 </tr>
@@ -174,7 +179,8 @@
                 <tr>
                     <td><label for="time1">set time for game - in seconds</label></td>
 
-                    <td>&nbsp;&nbsp;&nbsp;<input id="time1" name="time" type="text" style="width: 80%;" placeholder="minimum is 60 sec"></td>
+                    <td>&nbsp;&nbsp;&nbsp;<input id="time1" name="time" type="text" style="width: 80%;"
+                                                 placeholder="minimum is 60 sec"></td>
                 </tr>
                 <tr></tr>
                 <tr></tr>
@@ -192,10 +198,11 @@
                 </tr>
             </table>
             <br>
-            <span >      <button id="randomSettingbutton" class="special2" type="button" onclick="setRandomSetting()">set random and play!
+            <span>      <button id="randomSettingbutton" class="special2" type="button" onclick="setRandomSetting()">set random and play!
                         </button>
 
-                        <button id="mySettingbutton" class="special2" style="margin-left: 40px;" type="button" onclick="submitSetting()">play game!</button>
+                        <button id="mySettingbutton" class="special2" style="margin-left: 40px;" type="button"
+                                onclick="submitSetting()">play game!</button>
             </span>
             <br>
         </form>
@@ -270,10 +277,11 @@
                 </div>
 
 
-                <div id="game_view" class="col-sm-8" style="margin-left: -35px; margin-right: 20px;" >
-                        <canvas id="canvas" height="480" width="960"
-                                style=" background-color:	#F0FFF0 ;"></canvas>
-                    <img id ="busted" src="images/oouch-removebg-preview.png" height="84" width="137" style=" display: none; margin-right: 20px;z-index: 925;"  />
+                <div id="game_view" class="col-sm-8" style="margin-left: -35px; margin-right: 20px;">
+                    <canvas id="canvas" height="480" width="960"
+                            style=" background-color:	#F0FFF0 ;"></canvas>
+                    <img id="busted" src="images/oouch-removebg-preview.png" height="84" width="137"
+                         style=" display: none; margin-right: 20px;z-index: 925;"/>
 
 
                     <img id="reward" src="images/welldone.png" height="120" width="150" style="display: none"/>
@@ -287,27 +295,27 @@
                     <br>
                     <div id="score">
                         <label for="lblScore"><strong>SCORE:</strong></label>
-                        <input id="lblScore" type="text" width="200px" />
+                        <input id="lblScore" type="text" width="200px"/>
                         <br>
 
                         <br>
                     </div>
                     <div id="time">
                         <label for="lblTime"><strong>TIME:</strong></label>
-                        <input id="lblTime" type="text" width="200px" />
+                        <input id="lblTime" type="text" width="200px"/>
                     </div>
                     <br>
                     <br>
 
                     <div id="alive">
                         <p><strong>ALIVE:</strong></p>
-                             <i id ="one" class="fa fa-heart" style="color: #a70b0b"></i>
-                            <i id ="two"class="fa fa-heart" style="color: #a70b0b"></i>
-                            <i id ="three"class="fa fa-heart" style="color: #a70b0b"></i>
+                        <i id="one" class="fa fa-heart" style="color: #a70b0b"></i>
+                        <i id="two" class="fa fa-heart" style="color: #a70b0b"></i>
+                        <i id="three" class="fa fa-heart" style="color: #a70b0b"></i>
                         <br>
-                            <i id ="four"class="fa fa-heart" style="color:#a70b0b"></i>
-                            <i id ="five"class="fa fa-heart" style="color: #a70b0b"></i>
-                           <i id ="six" class="fa fa-heart" style="color: #a70b0b"></i>
+                        <i id="four" class="fa fa-heart" style="color:#a70b0b"></i>
+                        <i id="five" class="fa fa-heart" style="color: #a70b0b"></i>
+                        <i id="six" class="fa fa-heart" style="color: #a70b0b"></i>
 
                     </div>
                 </div>
@@ -316,34 +324,48 @@
     </div>
 
 </div>
-<dialog id="About" class="dialog" style="width: 600px; height: 500px;">
+<dialog id="About" class="dialog" style="width: 600px; height: 500px; background-color: #aef8ae ">
     <span class="close">&times;</span>
     <br>
-    <div  style="text-align: center ; background-color: #3fccd9 ">
-        <p style="font-size: 26px" ><strong>Our names are: Yaara and Tomer</strong></p>
-        <p><strong style="font-size: 26px" >welcome to our Pac-Man Game!</strong></p>
+    <div style="text-align: center ; background-color: #3fccd9 ">
+        <p style="font-size: 26px"><strong>Our names are: Yaara and Tomer</strong></p>
+        <p><strong style="font-size: 26px">welcome to our Pac-Man Game!</strong></p>
     </div>
     <div style="margin-left: 40px">
-           <p>jQuery plugins:</p>
-        <p>Templates:</p>
-        <p>Challenges:</p>
+        <p><strong>jQuery plugins:</strong> "jqueryvalidation.js" for registration form validation, "dobpicker.js"
+            for picking birthday in registration form.</p>
+
+        <p><strong>Templates: </strong>Containers of "Boostrap" - .container-fluid </p>
+        <p><strong>Challenges: </strong></p>
         <img class="logo-img" src="images/two_ghost2.png" width="400" height="200" style="margin-left: 80px">
     </div>
 
 </dialog>
-<dialog id="gameoverdialog"  style="background-color: transparent" width="400" height="300"  >
-    <img src="images/gameover.jpg" width="400" height="300" >
-    <div>  <input id="textloosers" name="textloosers" type="text"  > </div>
-    <div >
-        <button class="special" id="startnewGame" type="button" onclick="startNewGameAfterGameOver()">start new game!</button>
-        <button class="special"  id="logout" type="button" onclick="logoutAfterGameOver()">logout</button>
+<dialog id="gameoverdialog" style="background-color: transparent" width="400" height="300">
+    <div class="polaroid">
+        <img src="images/gameover.jpg" width="400" height="300" title="test">
+        <div class="container">
+            <span id="textloosers2"></span>
+        </div>
     </div>
+    <div>
+        <button class="special" id="startnewGame" type="button" onclick="startNewGameAfterGameOver()">start new game!
+        </button>
+        <button class="special" id="logout" type="button" onclick="logoutAfterGameOver()">logout</button>
+    </div>
+
 </dialog>
-<dialog id="win_look" style="background-color: transparent" width="400" height="300"  >
-    <img src="images/maxresdefault.jpg" width="400" height="300" >
-    <div >
-        <button class="special" id="startnewGame1" type="button" onclick="startNewGameAfterWin()">start new game!</button>
-        <button class="special"  id="logout2" type="button" onclick="logoutAfterWin()">logout</button>
+<dialog id="win_look" style="background-color: transparent" width="400" height="300">
+    <div class="polaroid2">
+        <img src="images/maxresdefault.jpg" width="400" height="300">
+        <div class="container2">
+            <span id="texetwinners"></span>
+        </div>
+    </div>
+    <div>
+        <button class="special" id="startnewGame1" type="button" onclick="startNewGameAfterWin()">start new game!
+        </button>
+        <button class="special" id="logout2" type="button" onclick="logoutAfterWin()">logout</button>
     </div>
 </dialog>
 
@@ -369,12 +391,11 @@
         </ul>
 
 
-		<i class="fa fa-copyright"></i>
-			Code and design by Tomer Godelli & Yaara Rumney
+        <i class="fa fa-copyright"></i>
+        Code and design by Tomer Godelli & Yaara Rumney
 
     </div>
 </footer>
-
 
 
 </body>

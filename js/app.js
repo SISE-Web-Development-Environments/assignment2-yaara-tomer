@@ -361,15 +361,16 @@ function UpdatePackmanPosition() {
     }
     board[shape.i][shape.j] = 2;
     var currentTime = new Date();
-    time_left = (timeForGame - (currentTime - start_time) / 1000).toFixed(2);
+    time_left = (timeForGame - (currentTime - start_time) / 1000).toFixed(1);
     if (time_left < 0) {
         time_left = 0;
         if (score < 100) {
             console.log("You are better than " + score + " points!");
-            gameOver();
+            gameOver("You are better than " + score + " points!");
         } else {
             console.log("Nice job! You got " + score + " points!");
-            winningLook();
+            clearAllIntervals();
+            winningLook("Nice job! You got " + score + " points!");
         }
 
     }
@@ -377,7 +378,7 @@ function UpdatePackmanPosition() {
     if (foodEatenCounter == numOf5points + numOf15points + numOf25points) {
         clearAllIntervals();
         startsound.play();
-        winningLook();
+        winningLook("Nice job! You got " + score + " points!");
 
     } else {
         checkCollision();
@@ -616,12 +617,12 @@ function getManhattanDistance(ghost) {
     return dirs.indexOf(Math.min(...dirs));
 }
 
-function gameOver() {
+function gameOver(text) {
     clearAllIntervals();
     collisionSound.play();
     Draw();
     setTimeout(function () { //wait until sound finished
-        gameOverLook();
+        gameOverLook(text);
     }, 3000);
 
 }
@@ -660,7 +661,7 @@ function checkCollision() {
             console.log("lives left: " + lives);
             if (lives === 0) {
                 console.log("Loser!!");
-                gameOver();
+                gameOver("Loser!!");
                 break;
             }
             collisionSound.play();
@@ -771,11 +772,13 @@ function clearAllIntervals() {
 
 }
 
-function gameOverLook() {
+function gameOverLook(text) {
+    document.getElementById("textloosers2").innerHTML=text;
     document.getElementById("gameoverdialog").showModal();
 }
 
-function winningLook() {
+function winningLook(text) {
+    document.getElementById("texetwinners").innerHTML=text;
     document.getElementById("win_look").showModal();
 }
 
@@ -816,11 +819,11 @@ var GameBoard = [
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],//9
     [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 3, 3, 0, 0, 3, 3, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],//0
     [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1],//1
-    [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1],//2
+    [1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1],//2
     [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1],//3
     [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],//4
     [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1],//4
-    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],//6
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],//6
     [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],//5
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],//4
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],//9

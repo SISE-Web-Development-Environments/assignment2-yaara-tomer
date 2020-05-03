@@ -53,7 +53,7 @@ button {
   border-radius:6px;
   position: center;
   align-items: center;
- margin-left: 80px;
+  margin-left: 80px;
 }
 #LoginSubmit{
   background-color: #ec9b6f;
@@ -64,7 +64,7 @@ button {
   margin-left: 80px;
 }
 button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Extra styles for the cancel button */
