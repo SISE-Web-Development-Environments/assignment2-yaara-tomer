@@ -151,6 +151,7 @@ function Start() {
             }
         }
     }
+
     //set packman location if not set yet
     if (typeof shape.i == "undefined") {
         var emptyCell = findRandomEmptyCell(board);
@@ -262,7 +263,7 @@ function Draw() {
             center.x = i * 26 + 13;
             center.y = j * 26 + 13;
             if (board[i][j] == 2) { //packman
-                pacIcon.src = "images/icons/pac" + lastDirection + ".png"; //".ico";
+                pacIcon.src = "images/icons/pac" + lastDirection + ".ico";//".png"; //
                 context.drawImage(pacIcon, i * 26, j * 26, 26, 26);
             } else if (board[i][j] == 11) { //food
                 context.beginPath();
