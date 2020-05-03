@@ -262,37 +262,37 @@ function Draw() {
     for (var i = 0; i < 40; i++) {
         for (var j = 0; j < 20; j++) {
             var center = {};
-            center.x = i * 26 + 13;
-            center.y = j * 26 + 13;
+            center.x = i * 24 + 12;
+            center.y = j * 24 + 12;
             if (board[i][j] == 2) { //packman
                 pacIcon.src = "images/icons/pac" + lastDirection + ".ico";//".png"; //
-                context.drawImage(pacIcon, i * 26, j * 26, 26, 26);
+                context.drawImage(pacIcon, i * 24, j * 24, 24, 24);
 
             } else if (board[i][j] == 11) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 5.25, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 4.85, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor5; //"black"; //color
                 context.fill();
             } else if (board[i][j] == 12) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 5.5, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor15;//"red"; //color
                 context.fill();
             } else if (board[i][j] == 13) { //food
                 context.beginPath();
-                context.arc(center.x, center.y, 6.75, 0, 2 * Math.PI); // circle
+                context.arc(center.x, center.y, 6.3, 0, 2 * Math.PI); // circle
                 context.fillStyle = foodColor25;//"blue"; //color
                 context.fill();
             } else if (board[i][j] == 15) { //time
-                context.drawImage(hourglassIcon, i * 26, j * 26, 26, 26);
+                context.drawImage(hourglassIcon, i * 24, j * 24, 24, 24);
             } else if (board[i][j] == 16) { //heart
-                context.drawImage(heartIcon, i * 26, j * 26, 26, 26);
+                context.drawImage(heartIcon, i * 24, j * 24, 24, 24);
             } else if (board[i][j] == 17) { //bonus
-                context.drawImage(bonusIcon, i * 26, j * 26, 26, 26);
+                context.drawImage(bonusIcon, i * 24, j * 24, 24, 24);
             } else if (board[i][j] == 4) { //wall
-                context.drawImage(wallIcon, i * 26, j * 26, 26, 26);
+                context.drawImage(wallIcon, i * 24, j * 24, 24, 24);
             } else if (board[i][j] > 30) { //ghost
-                context.drawImage(ghostImageArray[board[i][j] - 30], i * 26, j * 26, 26, 26);
+                context.drawImage(ghostImageArray[board[i][j] - 30], i * 24, j * 24, 24, 24);
                 //context.drawImage(ghostArray[i - 17], i * 30, j * 30, 30, 30);
 
             }
