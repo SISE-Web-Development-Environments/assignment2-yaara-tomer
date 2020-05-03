@@ -294,7 +294,7 @@ input.setting_form{
 #score_view input[type=text] {
 	width: 100%;
 	padding: 12px 20px;
-
+	font-size: 14px;
 	box-sizing: border-box;
 	border: none;
 	background-color: #ffffcc;
@@ -497,4 +497,15 @@ footer{
 	font-size: 14px;
 }
 
-
+#textloosers{
+	width: 100%;
+	padding: 12px 20px;
+	font-size: 14px;
+	box-sizing: border-box;
+	border: none;
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin-top: -60px;
+	margin-bottom: -10px;
+}

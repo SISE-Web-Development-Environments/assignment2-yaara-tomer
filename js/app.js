@@ -59,7 +59,7 @@ $(document).ready(function () {
     foodSound = new sound("resources/food.mp3");
     collisionSound = new sound("resources/collision.mp3");
     bonusSound = new sound("resources/bonus.mp3");
-
+gameOverLook();
 });
 
 function startGame() {
