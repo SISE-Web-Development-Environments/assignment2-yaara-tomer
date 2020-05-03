@@ -66,9 +66,9 @@ function startGame() {
     numOf5points = Math.floor(0.6 * numberOfBalls);
     numOf15points = Math.floor(0.3 * numberOfBalls);
     numOf25points = Math.floor(0.1 * numberOfBalls);
-    lives=5;
-    foodEatenCounter=0;
-    score=0;
+    lives = 5;
+    foodEatenCounter = 0;
+    score = 0;
     console.log("up: sb38....." + UpCode);
     console.log("down: sb40..." + DownCode);
     console.log("left: sb37..." + LeftCode);
@@ -370,10 +370,7 @@ function UpdatePackmanPosition() {
     if (foodEatenCounter == numOf5points + numOf15points + numOf25points) {
         clearAllIntervals();
         startsound.play();
-        setTimeout(function () { //wait until sound finished
-            window.alert("Game completed");
-        }, 5000);
-
+        winningLook();
 
     } else {
         checkCollision();
@@ -784,8 +781,6 @@ function logoutAfterGameOver() {
     logout();
     switchDiv('Welcome')
 }
-
-
 
 function startNewGameAfterWin() {
     document.getElementById("win_look").close();
