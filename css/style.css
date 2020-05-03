@@ -96,7 +96,7 @@ body, html {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 13px;
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 12px;
@@ -226,6 +226,7 @@ input.setting_form{
 	background-color: #872e95;
 }
 .custom-select {
+
 	position: relative;
 	font-family: Arial;
 	width: 100%
@@ -377,7 +378,7 @@ footer{
 	left: 0;
 	bottom: 0;
 	width: 100%;
-
+	z-index: 950;
 	line-height: normal;
 
 }
@@ -441,3 +442,54 @@ footer{
 	top:1px;
 
 }
+#startnewGame{
+	background-color: #40b3b3;
+	color: white;
+	width: 50%;
+	border-radius:6px;
+	position: center;
+	align-items: center;
+
+
+}
+#logout{
+	background-color: #d06c44;
+	color: white;
+	width: 50%;
+	border-radius:6px;
+	position: center;
+	align-items: center;
+
+
+}
+.special{
+	display: inline-block;
+	float:left;
+	margin-bottom: 80px;
+}
+
+#startnewGame1{
+	background-color: #40b3b3;
+	color: white;
+	width: 50%;
+	border-radius:6px;
+	position: center;
+	align-items: center;
+
+
+}
+#logout2{
+	background-color: #d06c44;
+	color: white;
+	width: 50%;
+	border-radius:6px;
+	position: center;
+	align-items: center;
+
+
+}
+#setting_view{
+	font-size: 14px;
+}
+
+
