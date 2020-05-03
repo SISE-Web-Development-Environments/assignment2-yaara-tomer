@@ -64,7 +64,10 @@ function RegisterFormSubmit() {
     login(RuserName, Rpassword);
 }
 
-
+function logout() {
+    isLoggedIn=false;
+    currentUser=undefined;
+}
 class User {
     username;
     password;
