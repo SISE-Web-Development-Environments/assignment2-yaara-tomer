@@ -9,6 +9,7 @@ var bonusInterval;
 var lastDirection = 4;
 var ghosts = [{}, {}, {}, {}];
 var bonus = {};
+var bonusDone = false;
 //=======Setting=============
 var numberOfGhosts;// = 4;
 var numberOfBalls;// = 90;
@@ -24,8 +25,12 @@ var UpCode;// = 38;
 var DownCode;// = 40;
 var RightCode;// = 39;
 var LeftCode;// = 37;
+//================music===============
 
-var mysound;
+//=======music========
+var startsound;
+var foodSound;
+var collisionSound;
 var ismusic = true;
 
 //======images============
@@ -50,9 +55,10 @@ var time_left;
 $(document).ready(function () {
     context = canvas.getContext("2d");
     setGhostsImage();
-    showAlive();
-    //mutemusic();
-    //Start();
+    startsound = new sound("resources/start.mp3");
+    foodSound = new sound("resources/food.mp3");
+    collisionSound = new sound("resources/collision.mp3");
+
 });
 
 function startGame() {
@@ -76,7 +82,6 @@ function startGame() {
 
     Start();
 }
-
 
 function Start() {
     board = [];
@@ -208,9 +213,13 @@ function Start() {
         false
     );
 
-    runAllIntervals();
-    mysound = new sound("resources/BeyoncJay-Z - Crazy In Love");
-    mysound.play();
+    Draw();
+    showAlive();
+
+    startsound.play();
+    setTimeout(function () { //wait until sound finished
+        runAllIntervals();
+    }, 5000);
 }
 
 function findRandomEmptyCell(board) {
@@ -325,14 +334,23 @@ function UpdatePackmanPosition() {
         if (board[shape.i][shape.j] === 12) score += 15;
         if (board[shape.i][shape.j] === 13) score += 25;
         foodEatenCounter++;
+        foodSound.play();
     }
 
     if (board[shape.i][shape.j] === 15) timeForGame += 30;//ToDo time
 
-    if (board[shape.i][shape.j] === 16) lives++; //ToDo animation?
+    if (board[shape.i][shape.j] === 16) {
+        console.log("lives: " + lives);
+        lives++; //ToDo animation?
+        showAlive();
+        console.log("lives: " + lives);
 
-    if (board[shape.i][shape.j] === 17) getBonus(shape.i, shape.j); //ToDo animation?
+    }
 
+
+    if (board[shape.i][shape.j] === 17 && !bonusDone) {
+        getBonus(shape.i, shape.j); //ToDo animation?
+    }
     board[shape.i][shape.j] = 2;
     var currentTime = new Date();
     time_left = timeForGame - (currentTime - start_time) / 1000;
@@ -347,7 +365,7 @@ function UpdatePackmanPosition() {
         clearAllIntervals();
 
     } else {
-        checkCollision();
+        //checkCollision();
         Draw();
     }
 }
@@ -406,26 +424,12 @@ function UpdateGhostPosition() {
                     ghost.i++;
                 }
             }
-            checkCollision();
-            Draw();
         }
     });
+    checkCollision();
+    Draw();
 
 
-}
-
-function isPossibleMove(i, j, direction) {
-    if (direction === 1 && board[i][j - 1] !== 4) return true;
-    if (direction === 2 && board[i][j + 1] !== 4) return true;
-    if (direction === 3 && board[i - 1][j] !== 4) return true;
-    if (direction === 4 && board[i + 1][j] !== 4) return true;
-    return false;
-}
-
-function getBonus(i, j) {
-    board[i][j] = 2;
-    score += 50
-    clearInterval(bonusInterval);
 }
 
 function UpdateBonusPosition() {
@@ -503,12 +507,25 @@ function UpdateBonusPosition() {
         }
     }
 
-    if (bonus.i === shape.i && bonus.j === shape.j) {
+    if (bonus.i === shape.i && bonus.j === shape.j && !bonusDone) {
         getBonus(bonus.i, bonus.j);
-
     }
     Draw();
 
+}
+
+function getBonus(i, j) {
+    bonusDone = true;
+    score += 50;
+    clearInterval(bonusInterval);
+}
+
+function isPossibleMove(i, j, direction) {
+    if (direction === 1 && board[i][j - 1] !== 4) return true;
+    if (direction === 2 && board[i][j + 1] !== 4) return true;
+    if (direction === 3 && board[i - 1][j] !== 4) return true;
+    if (direction === 4 && board[i + 1][j] !== 4) return true;
+    return false;
 }
 
 function getNextDirection(ghost) {
@@ -585,8 +602,11 @@ function getManhattanDistance(ghost) {
 
 function gameOver() {
     clearAllIntervals();
-
-    alert("Game Over!");
+    collisionSound.play();
+    Draw();
+    setTimeout(function () { //wait until sound finished
+        alert("Game Over!");
+    }, 3000);
 
 }
 
@@ -613,33 +633,42 @@ function resetPackmanLocation() {
 }
 
 function checkCollision() {
-    ghosts.forEach(function (ghost) {
+    //ghosts.forEach(function (ghost) {
+    for (let i = 0; i < ghosts.length; i++) {
+        let ghost = ghosts[i];
         if (ghost.i === shape.i && ghost.j === shape.j) {
+            clearAllIntervals();
             score -= 10;
             lives--;
+            showAlive();
             console.log("lives left: " + lives);
             if (lives === 0) {
                 gameOver();
+                break;
             }
+            collisionSound.play();
+            setTimeout(function () { //wait until sound finished
+                resetGhostLocation();
+                resetPackmanLocation();
+                Draw();
 
-
-            resetGhostLocation();
-            resetPackmanLocation();
-
-
+                startsound.play();
+                setTimeout(function () { //wait until sound finished
+                    runAllIntervals();
+                }, 5000);
+            }, 3000);
+            break;
         }
-
-    });
-
+    }
 }
 
 function mutemusic() {
     if (ismusic) { // do mute
-        mysound.stop();
+        startsound.stop();
         ismusic = false;
         document.getElementById("music").src = "images/mute-512.png";
     } else {
-        mysound.play();
+        startsound.play();
         ismusic = true;
         document.getElementById("music").src = "images/volume-512.png";
     }
@@ -671,6 +700,7 @@ var GameBoard = [
 
     //	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//9
 ]
+
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -678,13 +708,14 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function () {
         this.sound.play();
     }
-    this.stop = function(){
+    this.stop = function () {
         this.sound.pause();
     }
 }
+
 function showAlive() {
     if (lives === 1) {
         document.getElementById("two").style.display = "none";
@@ -707,7 +738,6 @@ function showAlive() {
         document.getElementById("six").style.display = "none";
     }
     if (lives === 4) {
-
         document.getElementById("five").style.display = "none";
         document.getElementById("six").style.display = "none";
     }
@@ -719,7 +749,7 @@ function showAlive() {
 function runAllIntervals() {
     packmanInterval = setInterval(UpdatePackmanPosition, 200);
     ghostInterval = setInterval(UpdateGhostPosition, 200);
-    bonusInterval = setInterval(UpdateBonusPosition, 200);
+    if (!bonusDone) bonusInterval = setInterval(UpdateBonusPosition, 200);
 }
 
 function clearAllIntervals() {
