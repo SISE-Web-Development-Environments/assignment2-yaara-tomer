@@ -180,6 +180,7 @@ function sendGameParams() {
 
 
 function sentToGameAndStart(){
+    clearAllIntervals();
     SettingViewFill();
     sendGameParams();
     startGame();

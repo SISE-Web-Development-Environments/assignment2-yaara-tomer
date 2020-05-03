@@ -2,12 +2,11 @@
 var context;
 var shape = {};
 var board;
-var pac_color;
 var packmanInterval;
 var ghostInterval
 var bonusInterval;
 var lastDirection = 4;
-var ghosts = [{}, {}, {}, {}];
+var ghosts;// = [{}, {}, {}, {}];
 var bonus = {};
 var bonusDone = false;
 //=======Setting=============
@@ -52,6 +51,15 @@ var score;
 var start_time;
 var time_left;
 
+//===================
+var cnt;
+var food_remain5;
+var food_remain15;
+var food_remain25;
+var food_remain;
+
+var ghost_remain;
+var pacman_remain;
 $(document).ready(function () {
     context = canvas.getContext("2d");
     setGhostsImage();
@@ -68,7 +76,10 @@ function startGame() {
     lives = 5;
     foodEatenCounter = 0;
     score = 0;
-    clearAllIntervals();
+    ghosts = [{}, {}, {}, {}];
+    bonusDone = false;
+    board = [];
+    lastDirection;// = 4;
 
     console.log("up: sb38....." + UpCode);
     console.log("down: sb40..." + DownCode);
@@ -83,22 +94,22 @@ function startGame() {
     console.log("color15: " + foodColor15);
     console.log("color25: " + foodColor25);
 
-
+    clearAllIntervals();
     Start();
 }
 
 function Start() {
+    clearAllIntervals();
     board = [];
     score = 0;
-    pac_color = "yellow";
-    var cnt = 810;
-    var food_remain5 = numOf5points;
-    var food_remain15 = numOf15points;
-    var food_remain25 = numOf25points;
-    var food_remain = food_remain5 + food_remain15 + food_remain25;
+    cnt = 810;
+    food_remain5 = numOf5points;
+    food_remain15 = numOf15points;
+    food_remain25 = numOf25points;
+    food_remain = food_remain5 + food_remain15 + food_remain25;
 
-    var ghost_remain = numberOfGhosts;
-    var pacman_remain = 1;
+    ghost_remain = numberOfGhosts;
+    pacman_remain = 1;
     start_time = new Date();
     //setGhostsOnBoard();
 
