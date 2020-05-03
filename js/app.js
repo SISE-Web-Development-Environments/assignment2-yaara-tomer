@@ -31,6 +31,7 @@ var LeftCode;// = 37;
 var startsound;
 var foodSound;
 var collisionSound;
+var bonusSound;
 var ismusic = true;
 
 //======images============
@@ -44,7 +45,6 @@ wallIcon.src = "images/brick3.png";
 heartIcon.src = "images/heart1.png";
 hourglassIcon.src = "images/hourglass2.png";
 bonusIcon.src = "images/bonus1.png";
-
 //=============Game==================
 var lives = 5;
 var foodEatenCounter = 0;
@@ -58,6 +58,7 @@ $(document).ready(function () {
     startsound = new sound("resources/start.mp3");
     foodSound = new sound("resources/food.mp3");
     collisionSound = new sound("resources/collision.mp3");
+    bonusSound = new sound("resources/bonus.mp3");
 
 });
 
@@ -220,6 +221,7 @@ function Start() {
     startsound.play();
     setTimeout(function () { //wait until sound finished
         runAllIntervals();
+        timeForGame += 5;
     }, 5000);
 }
 
@@ -338,14 +340,15 @@ function UpdatePackmanPosition() {
         foodSound.play();
     }
 
-    if (board[shape.i][shape.j] === 15) timeForGame += 30;//ToDo time
+    if (board[shape.i][shape.j] === 15) {
+        timeForGame += 30;
+        bonusSound.play();
+    }//ToDo time
 
     if (board[shape.i][shape.j] === 16) {
-        console.log("lives: " + lives);
+        bonusSound.play();
         lives++; //ToDo animation?
         showAlive();
-        console.log("lives: " + lives);
-
     }
 
 
@@ -362,8 +365,12 @@ function UpdatePackmanPosition() {
     }
 
     if (foodEatenCounter == numOf5points + numOf15points + numOf25points) {
-        window.alert("Game completed");
         clearAllIntervals();
+        startsound.play();
+        setTimeout(function () { //wait until sound finished
+            window.alert("Game completed");
+        }, 5000);
+
 
     } else {
         //checkCollision();
@@ -516,6 +523,7 @@ function UpdateBonusPosition() {
 }
 
 function getBonus(i, j) {
+    bonusSound.play();
     bonusDone = true;
     score += 50;
     clearInterval(bonusInterval);
@@ -652,7 +660,7 @@ function checkCollision() {
                 resetGhostLocation();
                 resetPackmanLocation();
                 Draw();
-
+                timeForGame += 8;
                 startsound.play();
                 setTimeout(function () { //wait until sound finished
                     runAllIntervals();
