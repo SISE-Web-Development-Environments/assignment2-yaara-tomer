@@ -187,7 +187,7 @@ input.setting_form{
 	box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
 	background-color:#3d94f6;
-	border-radius:6px;
+	border-radius:13px;
 	border:1px solid #337fed;
 	display:inline-block;
 	cursor:pointer;
@@ -195,10 +195,10 @@ input.setting_form{
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:9px 36px;
+	padding:6px 8px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #1570cd;
-	width: 80%;
+	width: 50%;
 }
 #randomSettingbutton:hover{
 	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
@@ -206,9 +206,9 @@ input.setting_form{
 }
 #mySettingbutton{
 	box-shadow:inset 0px 1px 0px 0px #e184f3;
-	background:linear-gradient(to bottom, #c25cd6 5%, #bd40d6 100%);
-	background-color:#c25cd6;
-	border-radius:6px;
+	background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+	background-color:#c123de;
+	border-radius:13px;
 	border:1px solid #a511c0;
 	display:inline-block;
 	cursor:pointer;
@@ -216,14 +216,15 @@ input.setting_form{
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:9px 36px;
+	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #9b14b3;
+	width: 40%;
 
 }
 #mySettingbutton:hover{
-	background:linear-gradient(to bottom, #bd40d6 5%, #c25cd6 100%);
-	background-color: #872e95;
+	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+	background-color:#a20dbd;
 }
 .custom-select {
 
@@ -466,6 +467,10 @@ footer{
 	display: inline-block;
 	float:left;
 	margin-bottom: 80px;
+}
+.special2{
+	display: inline-block;
+	float:left;
 }
 
 #startnewGame1{

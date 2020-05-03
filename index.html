@@ -60,7 +60,7 @@
 
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
 
-        <form id="registerForm" class="form">
+        <form id="registerForm" class="form" style="margin-top: -40px;">
             <span style="color: #3d94f6; font-size: 26px; margin-left: 145px  "><strong>Register</strong></span>
             <br>
             <label for="Rusername">User Name  &nbsp; </label>
@@ -119,7 +119,7 @@
     <div id="Setting" class="tabcontent">
         <script type="text/javascript" src="./js/settings.js"></script>
         <script type="text/javascript" src="./js/dobpicker.js"></script>
-        <form id="setting_form">
+        <form id="setting_form" style="margin-top: -40px;">
             <span style="color: #653df6; font-size: 26px; margin-left: 165px  "><strong>Settings</strong></span>
 
             <table>
@@ -192,19 +192,12 @@
                 </tr>
             </table>
             <br>
-            <table>
-                <tr>
-                    <td>
-                        <button id="randomSettingbutton" type="button" onclick="setRandomSetting()">set random setting
-                            and play!
+            <span >      <button id="randomSettingbutton" class="special2" type="button" onclick="setRandomSetting()">set random and play!
                         </button>
-                    </td>
-                    <td>
-                        <button id="mySettingbutton" type="button" onclick="submitSetting()">play game!</button>
-                    </td>
 
-                </tr>
-            </table>
+                        <button id="mySettingbutton" class="special2" style="margin-left: 40px;" type="button" onclick="submitSetting()">play game!</button>
+            </span>
+            <br>
         </form>
 
 
@@ -218,10 +211,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
         <div id="view_container" class="container-fluid" style=" text-align: center; align-items: center">
-            <div class="row" style="text-align: center">
+            <div class="row" style="text-align: center; margin-top: -30px; ">
 
                 <div id="setting_view" class="col-sm-2"
-                     style=" text-align: left ; margin-right: 10px;background-color: #ffffcc;">
+                     style=" text-align: left ;background-color: #ffffcc;">
                     <br>
                     <p style=" text-decoration: underline; font-size: 20px;text-align: center; "><strong> Game
                         Settings:</strong></p>
@@ -252,20 +245,20 @@
                         <br>
                         <span style=" text-decoration: underline; text-align: center; "><strong> Game moves:</strong></span>
                         <br>
-                        <span><strong> Left Move :</strong></span>
+                        <span><strong> Left :</strong></span>
                         <span id="showLeftMove"> </span>
                         <i class="	fa fa-arrow-left"></i>
                         <br>
-                        <span><strong> Right Move :</strong></span>
+                        <span><strong> Right :</strong></span>
                         <span id="showRightMove"> </span>
                         <i class="fa fa-arrow-right"></i>
                         <br>
-                        <span><strong> Up Move :</strong></span>
+                        <span><strong> Up :</strong></span>
                         <span id="showUpMove"> </span>
                         <i class="	fa fa-arrow-up"></i>
                         <br>
 
-                        <span><strong> Down Move :</strong></span>
+                        <span><strong> Down :</strong></span>
                         <span id="showDoenMove"> </span>
                         <i class="	fa fa-arrow-down"></i>
 
@@ -277,12 +270,16 @@
                 </div>
 
 
-                <div id="game_view" class="col-sm-8" width="1200">
+                <div id="game_view" class="col-sm-8" style="margin-left: -35px; margin-right: 20px;" >
                         <canvas id="canvas" height="480" width="960"
                                 style=" background-color:	#F0FFF0 ;"></canvas>
+                    <img id ="busted" src="images/oouch-removebg-preview.png" height="84" width="137" style=" display: none; margin-right: 20px;z-index: 925;"  />
+
+
+                    <img id="reward" src="images/welldone.png" height="120" width="150" style="display: none"/>
                 </div>
 
-                <div id="score_view" class="col-sm-1" style="background: #ffffcc;  margin-left: 75px;">
+                <div id="score_view" class="col-sm-1" style="background: #ffffcc; z-index: -2; margin-left: 80px;">
                     <br>
                     <a style="font-size: 16px"><strong>Hello, </strong></a>
                     <div id="showuserName" style="font-size: 16px; "></div>
