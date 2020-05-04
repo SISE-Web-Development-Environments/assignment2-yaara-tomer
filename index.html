@@ -2,27 +2,30 @@
 
 
 <head>
+    <!-- scripts -->
     <script type="text/javascript" src="./js/jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/users.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Remember to include jQuery :) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-    <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <!-- css Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    <!--meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
     <title>Yaara and Tomer's Pacman</title>
 
 </head>
 
 <body onload="showvol.value = 70">
+
 <header>
     <img class="logo-img" src="images/logo3-removebg-preview.png" width="200" height="60" ALT="align box" ALIGN=Left>
     <button class="tablink" onclick="switchDiv('Welcome')" id="defaultOpen">Welcome</button>
@@ -33,9 +36,11 @@
     <button class="tablink" id="btnShowModal" onclick="about()">About</button>
 </header>
 
-
+<!--menu -->
 <div id="tabs">
-    <!--style=" margin-left: 100px;"> -->
+    <script type="text/javascript" src="./js/form.js"></script>
+    <script type="text/javascript" src="./js/jqueryvalidation.js"></script>
+    <script type="text/javascript" src="./js/dobpicker.js"></script>
 
     <div id="Welcome" class="tabcontent">
         <div class="wrapper">
@@ -52,12 +57,6 @@
     </div>
 
     <div id="Register" class="tabcontent">
-        <script type="text/javascript" src="./js/form.js"></script>
-        <script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-        <!--<script type="text/javascript" src="./js/Validation-additional-methods.js"></script>-->
-        <script type="text/javascript" src="./js/dobpicker.js"></script>
-
-
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
 
         <form id="registerForm" class="form" style="margin-top: -40px;">
@@ -81,7 +80,6 @@
             <br>
             <label for="birthday1" id="birthday1">Birthday &nbsp;</label>
             <select id="day" name="day" class='group' style="width: 20%;"></select>
-
             <select id="month" name="month" class='group'></select>
             <select id="year" name="year" class='group'></select>
             <br>
@@ -93,11 +91,7 @@
     </div>
 
     <div id="Login" class="tabcontent">
-        <script type="text/javascript" src="./js/form.js"></script>
-        <script type="text/javascript" src="./js/jqueryvalidation.js"></script>
-        <script type="text/javascript" src="./js/dobpicker.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/formStyle.css"/>
-
         <form id="LoginForm" class="form">
             <img src="images/login6.jpg" style="margin-left: 140px">
             <br>
@@ -209,7 +203,6 @@
 
 
     </div>
-
 
     <div id="Game" class="tabcontent">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -325,6 +318,8 @@
     </div>
 
 </div>
+
+<!--dialogs -->
 <dialog id="About" class="dialog" style="width: 600px; height: 500px; background-color: #aef8ae ">
     <span class="close">&times;</span>
     <br>
@@ -397,7 +392,6 @@
 
     </div>
 </footer>
-
 
 </body>
 </html>
