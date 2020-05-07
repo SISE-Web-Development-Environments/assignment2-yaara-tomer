@@ -1,11 +1,11 @@
 # assignment2 - Packman
 
-## About Us 
+## About Us: 
   * Tomer Godelli - 204606495
   * Yaara Rumney - 204434906
 
-## About The Game 
-  * Site URL - https://sise-web-development-environments.github.io/assignment2-yaara-tomer/
+## About The Game
+  **Site URL -** https://sise-web-development-environments.github.io/assignment2-yaara-tomer/
 
   ### Functionality Added
   **Special Icons** <br /> 
@@ -18,9 +18,9 @@
   
    **Cool Features** 
    <br /> 
-  :musical_note: - we've made custume sounds for each game event to help you understand your current state <br />    (round start, strike, bonus eating) <br /> 
+  :musical_note: - we've made custume sounds for each game event to help you understand your current state <br />        (round start, strike, bonus eating) <br /> 
   
   :runner: - you can move from the left end of the game board directky to right end through the two small grooves we made 
   
   
-  The game designed by Meytal Yaniv & Yasmin Avraham as part of Web Development Environments course.
+**The game designed and developed as part of Web Development Environments course**
