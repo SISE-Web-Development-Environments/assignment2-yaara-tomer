@@ -22,6 +22,7 @@
   :musical_note: - We've made custome sounds for each game event to help you understand your current state <br /> 
   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (round start, eating a point, strike, geting a bonus) 
   <br /> 
+  
   :runner: - You can move from the left end of the board directly to right end through the two small grooves we made 
 
    <br /> 
