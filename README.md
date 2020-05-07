@@ -8,19 +8,23 @@
   **Site URL -** https://sise-web-development-environments.github.io/assignment2-yaara-tomer/
 
   ### Functionality Added
-  **Special Icons** <br /> 
-  :heart: - eat the heart and you will get one more life!
+  **Special Icons** 
+  <br /> 
+  :heart: - Eat the heart and you will get one more life!
   
-  :hourglass: - eat the hourglass and you will get 30 more seconds to play!
+  :hourglass: - Eat the hourglass and you will get 30 more seconds to play!
   
-  :gift: - catch the moving gift box and you will get 50 points bonus!
+  :gift: - Catch the moving gift box and you will get 50 points bonus!
   
   
    **Cool Features** 
    <br /> 
-  :musical_note: - we've made custume sounds for each game event to help you understand your current state <br />        (round start, strike, bonus eating) <br /> 
-  
-  :runner: - you can move from the left end of the board directly to right end through the two small grooves we made 
-  
-  
+  :musical_note: - We've made custume sounds for each game event to help you understand your current state
+   &nbsp; &nbsp; &nbsp; &nbsp;(round start, strike, bonus eating) 
+  <br /> 
+  :runner: - You can move from the left end of the board directly to right end through the two small grooves we made 
+
+   <br /> 
+   <br /> 
+   
 **The game designed and developed as part of Web Development Environments course**
