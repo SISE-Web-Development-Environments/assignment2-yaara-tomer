@@ -19,8 +19,8 @@
   
    **Cool Features** 
    <br /> 
-  :musical_note: - We've made custume sounds for each game event to help you understand your current state
-   &nbsp; &nbsp; &nbsp; &nbsp;(round start, strike, bonus eating) 
+  :musical_note: - We've made custume sounds for each game event to help you understand your current state <br /> 
+  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (round start, strike, bonus eating) 
   <br /> 
   :runner: - You can move from the left end of the board directly to right end through the two small grooves we made 
 
